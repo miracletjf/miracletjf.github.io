@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Hexo 搭建个人博客（入门教程）背景介绍上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去googl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HexoBlog">
+<meta property="og:url" content="http://yoursite.com/2018/04/01/HexoBlog/index.html">
+<meta property="og:site_name" content="Miralcetjf的网络日志">
+<meta property="og:description" content="Hexo 搭建个人博客（入门教程）背景介绍上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去googl">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-04-01T16:24:31.037Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HexoBlog">
+<meta name="twitter:description" content="Hexo 搭建个人博客（入门教程）背景介绍上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去googl">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/01/HexoBlog/"/>
+
+
+
+
+
+  <title>HexoBlog | Miralcetjf的网络日志</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Miralcetjf的网络日志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">从现在开始</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/01/HexoBlog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="汤井福">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miralcetjf的网络日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HexoBlog</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T21:13:08+08:00">
+                2018-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Hexo-搭建个人博客（入门教程）"><a href="#Hexo-搭建个人博客（入门教程）" class="headerlink" title="Hexo 搭建个人博客（入门教程）"></a>Hexo 搭建个人博客（入门教程）</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去google搜索，因为英文比较烂，第一篇能看懂的就是阮一峰前辈的博客了。点进去，按照教程里面讲的，借助jekyll,实现一个简单的demo。因为是demo版本，只能发布一些html，想写一个md发布也没有什么效果。接着受不了默认的没有样式的页面，就去网上找一些好看的主题过来，找到了以后fork下来，还是怎么的，也没有成功。（可能是接触的不多，不知道具体操作）后来群群里问了一下班级的新望老师，因为他用的是Hexo，jekyll不怎么熟也就推荐我去看一下hexo。我去看了hexo的教程以后，觉得简单易懂，于是就改换hexo，搭建blog。下面就是我搭建blog的步骤，中间也遇到了很多的问题，后来也解决了，结果还是很满意的。(本人是windows操作系统，接下的操作都是基于windows的操作)</p>
+<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><p>因为node，我之前有安装过。我的电脑里已经有node和npm了。需要下载的可以去<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node官网</a>下载，根据提示一步一步安装。</p>
+<h2 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h2><p>如果你已经安装好node和npm了，接下来安装hexo。<br>代开git bash</p>
+<pre><code>$ npm install hexo-cli -g
+</code></pre><p>然后输入命令<code>hexo v</code>查看是否安装成功，我试了一下我是没有安装成功的（没有成功它会提示<code>hexo command not foundm</code>，成功的话它会输出版本信息），然后去Google搜索了一下有一种说法是环境变量没有配置，我就去配置了一下系统环境变量，我安装在<code>D:\development\node\npm_global\node_modules</code>目录下，环境变量就是<code>D:\development\node\npm_global\node_modules\hexo-cli\bin</code>这个目录。然后关闭git bash 重新打开试了一下，还是不行。（怀疑是系统没有反应过来？）我就重启了电脑，再次尝试，没有成功。。。于是就换另一种解决方法，那就是说可能是node的版本太高的问题。按照文章，我就安装了<code>nvm</code> node版本控制工具，切换到低一点的7.2.0版本。重新试了一下，无果。重启一下，无果。再降一个版本，试一遍，无果。这时候已经是凌晨2：00多了，没办法只能睡了，明天还要上班。第二天再次尝试，一直觉得可能是环境变量那里出了什么问题，于是重新删掉，配了一遍，结果还是一样。不知道是怎么想到了，觉得可能是盘的问题？然后又去重新配了一遍环境变量，之前一直是在E盘尝试，现在改去了D盘（node所在盘，hexo所在盘）尝试，然后就成功了。。。再去E盘试一下，也可以了。。。(神奇！或许这是node，或者windows上的一个bug吧，或者不是。。。不过如果你也是我这样子的情况，你可以试一下，说不定可以少走弯路)好吧，终于成功了。一个hexo安装就搞了这么久，但是接下来是一帆风顺的。</p>
+<h2 id="Hexo-搭建本地blog"><a href="#Hexo-搭建本地blog" class="headerlink" title="Hexo 搭建本地blog"></a>Hexo 搭建本地blog</h2><h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><pre><code>$ hexo miralcetjf.github.io
+</code></pre><p>miracletjf是我的github上的用户名，如果你想部署到github上，最好跟你的github用户名一致。<br>    $ cd miracletjf.github.io<br>执行上一步后，hexo会自动在当前生成一个miracletjf.github.io的文件夹，里面有一些自动生成的目录和文件。进入该目录<br>    $ npm install<br>成功以后，会在你的目录下新建一个node_modules</p>
+<h3 id="生成静态页"><a href="#生成静态页" class="headerlink" title="生成静态页"></a>生成静态页</h3><pre><code>$ hexo clean
+</code></pre><p>清楚缓存文件（db.json）和已生成的静态文件（public）<br>    $ hexo generate<br>使用Hexo 生成静态文件</p>
+<h3 id="本地服务器运行"><a href="#本地服务器运行" class="headerlink" title="本地服务器运行"></a>本地服务器运行</h3><pre><code>$ hexo sever
+</code></pre><p>打开浏览器，在地址栏输入localhost://4000</p>
+<h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><pre><code>$ hexo new helloHexo
+</code></pre><p>然后在source/_posts目录下生成helloHexo.md文件，打开，输入<code># hello World</code>,保存。<br>    $ hexo clean<br>    $ hexo generate<br>    $ hexo sever<br>打开locallost://4000查看变化</p>
+<h2 id="在github上部署"><a href="#在github上部署" class="headerlink" title="在github上部署"></a>在github上部署</h2><p>在github上新建仓库miracletjf.github.io</p>
+<h2 id="配置网站"><a href="#配置网站" class="headerlink" title="配置网站"></a>配置网站</h2><p>打开_config.yml配置文件，修改以下配置</p>
+<ul>
+<li>title 改成你想要的名字</li>
+<li>author 你的名字</li>
+<li>type: git</li>
+<li>加一行repo: 仓库地址(用ssh地址)，左边与type对其</li>
+</ul>
+<pre><code>$ npm install hexo-deployer-git --save
+</code></pre><p>安装 git部署插件<br>    hexo deployer<br>进入 github上 miracletjf.github.io仓库，打开github pages功能，如果已经打开，直接点击预览链接</p>
+<h2 id="换主题"><a href="#换主题" class="headerlink" title="换主题"></a>换主题</h2><ol>
+<li><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">hexo主题下载站</a>可以下载主题</li>
+<li>找到一个主题，进入github，我用的是比较常用的一个主题，<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a></li>
+<li>复制ssh地址</li>
+<li>进入本地的blog部署文件夹</li>
+<li>进入themes ，<code>git clone</code>加上选中的ssh地址</li>
+<li>返回上级目录，更改_config.yml第75行theme：hexo-theme-next (你所选主题的名称)，保存</li>
+<li><code>hexo generate</code> </li>
+<li><code>hexo deploy</code><h2 id="上传源代码"><a href="#上传源代码" class="headerlink" title="上传源代码"></a>上传源代码</h2>为了保障数据，你可能还需要上传源代码，在git上面新建一个仓库blog-generator空仓库，然后在本地blog仓库主目录下<code>git init</code>，把代码同步到github上。每次新增文章，更换主题，都要重新部署发布，并且重新github上更新源码</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/31/second-md/" rel="next" title="second.md">
+                <i class="fa fa-chevron-left"></i> second.md
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">汤井福</p>
+              <p class="site-description motion-element" itemprop="description">Don't back,just do it</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-搭建个人博客（入门教程）"><span class="nav-number">1.</span> <span class="nav-text">Hexo 搭建个人博客（入门教程）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景介绍"><span class="nav-number">1.1.</span> <span class="nav-text">背景介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装node"><span class="nav-number">1.2.</span> <span class="nav-text">安装node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-hexo"><span class="nav-number">1.3.</span> <span class="nav-text">安装 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-搭建本地blog"><span class="nav-number">1.4.</span> <span class="nav-text">Hexo 搭建本地blog</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建目录"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态页"><span class="nav-number">1.4.2.</span> <span class="nav-text">生成静态页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地服务器运行"><span class="nav-number">1.4.3.</span> <span class="nav-text">本地服务器运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布文章"><span class="nav-number">1.5.</span> <span class="nav-text">发布文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在github上部署"><span class="nav-number">1.6.</span> <span class="nav-text">在github上部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置网站"><span class="nav-number">1.7.</span> <span class="nav-text">配置网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换主题"><span class="nav-number">1.8.</span> <span class="nav-text">换主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传源代码"><span class="nav-number">1.9.</span> <span class="nav-text">上传源代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">汤井福</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
