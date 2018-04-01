@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Miralcetjf的网络日志">
 <meta property="og:description" content="Hexo 搭建个人博客（入门教程）背景介绍上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去googl">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-04-01T16:33:14.021Z">
+<meta property="og:updated_time" content="2018-04-01T16:38:06.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HexoBlog">
 <meta name="twitter:description" content="Hexo 搭建个人博客（入门教程）背景介绍上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去googl">
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -259,7 +259,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T21:13:08+08:00">
                 2018-04-01
@@ -317,7 +317,11 @@
 <h3 id="本地服务器运行"><a href="#本地服务器运行" class="headerlink" title="本地服务器运行"></a>本地服务器运行</h3><pre><code>$ hexo sever
 </code></pre><p>打开浏览器，在地址栏输入localhost://4000</p>
 <h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><pre><code>$ hexo new helloHexo
-</code></pre><p>然后在source/_posts目录下生成helloHexo.md文件，打开，输入<code># hello World</code>,保存。<br>    $ hexo clean<br>    $ hexo generate<br>    $ hexo sever<br>打开locallost://4000查看变化</p>
+</code></pre><p>然后在source/_posts目录下生成helloHexo.md文件，打开，输入<code># hello World</code>,保存。</p>
+<pre><code>$ hexo clean
+$ hexo generate
+$ hexo sever
+</code></pre><p>打开locallost://4000查看变化</p>
 <h2 id="在github上部署"><a href="#在github上部署" class="headerlink" title="在github上部署"></a>在github上部署</h2><p>在github上新建仓库miracletjf.github.io</p>
 <h2 id="配置网站"><a href="#配置网站" class="headerlink" title="配置网站"></a>配置网站</h2><p>打开_config.yml配置文件，修改以下配置</p>
 <ul>
@@ -424,10 +428,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -448,7 +452,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -461,7 +465,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -523,7 +527,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
