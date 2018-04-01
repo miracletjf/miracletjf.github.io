@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Miralcetjf的网络日志">
 <meta property="og:description" content="Hexo 搭建个人博客（入门教程）背景介绍上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去googl">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-04-01T16:24:31.037Z">
+<meta property="og:updated_time" content="2018-04-01T16:33:14.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HexoBlog">
 <meta name="twitter:description" content="Hexo 搭建个人博客（入门教程）背景介绍上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去googl">
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -259,7 +259,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T21:13:08+08:00">
                 2018-04-01
@@ -303,7 +303,13 @@
 <h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><p>因为node，我之前有安装过。我的电脑里已经有node和npm了。需要下载的可以去<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node官网</a>下载，根据提示一步一步安装。</p>
 <h2 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h2><p>如果你已经安装好node和npm了，接下来安装hexo。<br>代开git bash</p>
 <pre><code>$ npm install hexo-cli -g
-</code></pre><p>然后输入命令<code>hexo v</code>查看是否安装成功，我试了一下我是没有安装成功的（没有成功它会提示<code>hexo command not foundm</code>，成功的话它会输出版本信息），然后去Google搜索了一下有一种说法是环境变量没有配置，我就去配置了一下系统环境变量，我安装在<code>D:\development\node\npm_global\node_modules</code>目录下，环境变量就是<code>D:\development\node\npm_global\node_modules\hexo-cli\bin</code>这个目录。然后关闭git bash 重新打开试了一下，还是不行。（怀疑是系统没有反应过来？）我就重启了电脑，再次尝试，没有成功。。。于是就换另一种解决方法，那就是说可能是node的版本太高的问题。按照文章，我就安装了<code>nvm</code> node版本控制工具，切换到低一点的7.2.0版本。重新试了一下，无果。重启一下，无果。再降一个版本，试一遍，无果。这时候已经是凌晨2：00多了，没办法只能睡了，明天还要上班。第二天再次尝试，一直觉得可能是环境变量那里出了什么问题，于是重新删掉，配了一遍，结果还是一样。不知道是怎么想到了，觉得可能是盘的问题？然后又去重新配了一遍环境变量，之前一直是在E盘尝试，现在改去了D盘（node所在盘，hexo所在盘）尝试，然后就成功了。。。再去E盘试一下，也可以了。。。(神奇！或许这是node，或者windows上的一个bug吧，或者不是。。。不过如果你也是我这样子的情况，你可以试一下，说不定可以少走弯路)好吧，终于成功了。一个hexo安装就搞了这么久，但是接下来是一帆风顺的。</p>
+</code></pre><p>然后输入命令<code>hexo v</code>查看是否安装成功，我试了一下我是没有安装成功的（没有成功它会提示<code>hexo command not foundm</code>，成功的话它会输出版本信息），然后去Google搜索了一下，接下来就是我尝试的过程了。</p>
+<ul>
+<li>有一种说法是环境变量没有配置，我就去配置了一下系统环境变量，我安装在<code>D:\development\node\npm_global\node_modules</code>目录下，环境变量就是<code>D:\development\node\npm_global\node_modules\hexo-cli\bin</code>这个目录。然后关闭git bash 重新打开试了一下，还是不行。（怀疑是系统没有反应过来？）我就重启了电脑，再次尝试，没有成功。。。</li>
+<li>于是就换另一种解决方法，那就是说可能是node的版本太高的问题。按照文章，我就安装了<code>nvm</code> node版本控制工具，切换到低一点的7.2.0版本。重新试了一下，无果。重启一下，无果。再降一个版本，试一遍，无果。这时候已经是凌晨2：00多了，没办法只能睡了，明天还要上班。</li>
+<li>第二天再次尝试，一直觉得可能是环境变量那里出了什么问题，于是重新删掉，配了一遍，结果还是一样。不知道是怎么想到了，觉得可能是盘的问题？然后又去重新配了一遍环境变量，之前一直是在E盘尝试，现在改去了D盘（node所在盘，hexo所在盘）尝试，然后就成功了。。。再去E盘试一下，也可以了。。。(神奇！或许这是node，或者windows上的一个bug吧，或者不是。。。不过如果你也是我这样子的情况，你可以试一下，说不定可以少走弯路)</li>
+</ul>
+<p>好吧，终于成功了。一个hexo安装就搞了这么久，但是接下来是一帆风顺的。</p>
 <h2 id="Hexo-搭建本地blog"><a href="#Hexo-搭建本地blog" class="headerlink" title="Hexo 搭建本地blog"></a>Hexo 搭建本地blog</h2><h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><pre><code>$ hexo miralcetjf.github.io
 </code></pre><p>miracletjf是我的github上的用户名，如果你想部署到github上，最好跟你的github用户名一致。<br>    $ cd miracletjf.github.io<br>执行上一步后，hexo会自动在当前生成一个miracletjf.github.io的文件夹，里面有一些自动生成的目录和文件。进入该目录<br>    $ npm install<br>成功以后，会在你的目录下新建一个node_modules</p>
 <h3 id="生成静态页"><a href="#生成静态页" class="headerlink" title="生成静态页"></a>生成静态页</h3><pre><code>$ hexo clean
@@ -418,10 +424,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -442,7 +448,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -455,7 +461,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 
               </div>
             
@@ -517,7 +523,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
