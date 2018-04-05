@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="server基础入门 要了解server,首先要了解一些网络的名词,基本概率,TCP,IP,端口.然后在了解什么叫做server,具体是怎么工作的. 基本网络名词TCP 传输控制协议(Transmission Control Protocol)TCP 的特点是什么 与 UDP 的区别是什么 TCP 是可靠的(因为它清楚的了解到数据包的收发状态),面向连接的,相对于UDP较慢;UDP 不可靠,不面向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="server入门">
+<meta property="og:url" content="http://yoursite.com/2018/04/05/2018-4-5-server基础/index.html">
+<meta property="og:site_name" content="Miralcetjf的网络日志">
+<meta property="og:description" content="server基础入门 要了解server,首先要了解一些网络的名词,基本概率,TCP,IP,端口.然后在了解什么叫做server,具体是怎么工作的. 基本网络名词TCP 传输控制协议(Transmission Control Protocol)TCP 的特点是什么 与 UDP 的区别是什么 TCP 是可靠的(因为它清楚的了解到数据包的收发状态),面向连接的,相对于UDP较慢;UDP 不可靠,不面向">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-04-05T16:12:08.871Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="server入门">
+<meta name="twitter:description" content="server基础入门 要了解server,首先要了解一些网络的名词,基本概率,TCP,IP,端口.然后在了解什么叫做server,具体是怎么工作的. 基本网络名词TCP 传输控制协议(Transmission Control Protocol)TCP 的特点是什么 与 UDP 的区别是什么 TCP 是可靠的(因为它清楚的了解到数据包的收发状态),面向连接的,相对于UDP较慢;UDP 不可靠,不面向">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/05/2018-4-5-server基础/"/>
+
+
+
+
+
+  <title>server入门 | Miralcetjf的网络日志</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Miralcetjf的网络日志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">从现在开始</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/05/2018-4-5-server基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="汤井福">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miralcetjf的网络日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">server入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-05T22:58:37+08:00">
+                2018-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="server基础入门"><a href="#server基础入门" class="headerlink" title="server基础入门"></a>server基础入门</h1><hr>
+<p>要了解server,首先要了解一些网络的名词,基本概率,TCP,IP,端口.然后在了解什么叫做server,具体是怎么工作的.</p>
+<h2 id="基本网络名词"><a href="#基本网络名词" class="headerlink" title="基本网络名词"></a>基本网络名词</h2><h3 id="TCP-传输控制协议-Transmission-Control-Protocol"><a href="#TCP-传输控制协议-Transmission-Control-Protocol" class="headerlink" title="TCP 传输控制协议(Transmission Control Protocol)"></a>TCP 传输控制协议(Transmission Control Protocol)</h3><h5 id="TCP-的特点是什么-与-UDP-的区别是什么"><a href="#TCP-的特点是什么-与-UDP-的区别是什么" class="headerlink" title="TCP 的特点是什么 与 UDP 的区别是什么"></a>TCP 的特点是什么 与 UDP 的区别是什么</h5><blockquote>
+<p>TCP 是可靠的(因为它清楚的了解到数据包的收发状态),面向连接的,相对于UDP较慢;UDP 不可靠,不面向连接,相对于TCP较快.</p>
+</blockquote>
+<h4 id="TCP-的三次握手"><a href="#TCP-的三次握手" class="headerlink" title="TCP 的三次握手"></a>TCP 的三次握手</h4><blockquote>
+<p>TCP在每次连接前,客户端与服务端之间都要进行三次对话才正式开始传输内容,三次对话大概是以下意思</p>
+</blockquote>
+<ol>
+<li>客户端: 我要连接你了,可以吗</li>
+<li>服务端: 嗯,我准备好了,连接我吧</li>
+<li>客户端: 那我连接了</li>
+<li>开始数据传输</li>
+</ol>
+<h3 id="IP-网络协议-Internet-Protocol"><a href="#IP-网络协议-Internet-Protocol" class="headerlink" title="IP 网络协议(Internet Protocol)"></a>IP 网络协议(Internet Protocol)</h3><p>只要你在互联网中,你就有会有一个IP.通俗上理解,IP分为[内网IP] 和 [外网IP].内网IP对应你在路由器控制的范围内的IP,外网IP就是你的路由器所对应的Ip地址.</p>
+<ul>
+<li>你用电信的网,电信给你提供DNS服务</li>
+<li>你有一个路由器,只要它连接到电信的服务器,那么路由器就会有一个外网IP,但是一般这个IP是不固定的,想要固定的就要多花几千去电信租用IP</li>
+<li>所有连接到路由器的设备,都在内网中,公用的外网IP是路由器的IP</li>
+<li>外网的信息都是通过从路由器发送到你的设备的</li>
+<li>路由器还是一个网关,内网和外网就像是两个隔绝的空间,无法互通,唯一的联通点就是路由器.</li>
+<li>路由器的ip是192.168.1.1</li>
+<li>127.0.0.1 指向 localhost 自己的本机</li>
+<li>0.0.0.0 不代表任何设备</li>
+</ul>
+<h3 id="端口-Port"><a href="#端口-Port" class="headerlink" title="端口(Port)"></a>端口(Port)</h3><p>要想访问一个设备,光知道IP是不够的,还必须指定端口,端口是一个编号并不是一个硬件.一个服务器不一定至提供一个服务,比如HTTP服务,有提供FTP服务,还提供SMTP(邮件服务)服务,那么只有一个IP是无法告诉服务器你想有那种服务的.<br>比如</p>
+<ol>
+<li>要提供HTTP服务,你最好使用80服务(能不能使用其他端口?可以,不过不建议你违反约定)</li>
+<li>要提供HTTPS服务,你最好使用443端口(能不能使用别的端口?可以,不过不建议你违反约定)</li>
+<li>要提供FTP服务,你最好使用21端口(能不能使用别的端口?可以,不过不建议你违反约定)</li>
+</ol>
+<h4 id="我怎么知道应该使用什么端口"><a href="#我怎么知道应该使用什么端口" class="headerlink" title="我怎么知道应该使用什么端口"></a>我怎么知道应该使用什么端口</h4><p><a href="https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8#0.E5.88.B01023.E5.8F.B7.E7.AB.AF.E5.8F.A3" target="_blank" rel="noopener">维基百科</a></p>
+<h4 id="一共有多少个端口"><a href="#一共有多少个端口" class="headerlink" title="一共有多少个端口"></a>一共有多少个端口</h4><p>每个机器一共有65535(2^16 - 1)个端口.请0-1023个端口需要管理员权限才可以使用</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>使用HTTP协议访问另一个IP时,要同时提供IP和端口号,缺一不可</p>
+</blockquote>
+<p>我访问<a href="http://qq.com时并没有提供端口号,为什么我依然可以访问" target="_blank" rel="noopener">http://qq.com时并没有提供端口号,为什么我依然可以访问</a></p>
+<blockquote>
+<p>因为浏览器会帮你加上默认端口 80</p>
+</blockquote>
+<h2 id="node-js-服务器"><a href="#node-js-服务器" class="headerlink" title="node.js 服务器"></a>node.js 服务器</h2><p>在本地建立一个node服务器,新建一个server.js文件,内容如下</p>
+<pre><code>var http = require(&apos;http&apos;);
+var fs = require(&apos;fs&apos;);
+var url = require(&apos;url&apos;);
+var port = process.argv[2];
+
+if(!port){
+    console.log(&apos;指定端口号好不?\nnode server.js 8898&apos;);
+    process.exit(1);
+}
+
+var server = http.createServer(function(request, response){
+    var parsedUrl = url.parse(request.url,true);
+    var path = request.url;
+    var query = &apos;&apos;;
+    if(path.indexOf(&apos;?&apos;) &gt;= 0){
+        query = path.substring(path.indexOf(&apos;?&apos;) + 1);
+    }
+    var pathNoQuery = parsedUrl.pathname;
+    var queryObject = parsedUrl.query;
+    var method = request.method;
+
+    /******** 从这里开始看,上面不要看 ********/
+
+    console.log(&apos;HTTP 路径为\n&apos; + path );
+    if(path == &apos;/style.css&apos;){
+        response.setHeader(&apos;Content-Type&apos;,&apos;text/css; charset=utf-8&apos;);
+        response.write(&apos;body{background-color: #ddd;}h1{color:red}&apos;);
+        response.end();
+    }else if(path == &apos;/main.js&apos;){
+        response.setHeader(&apos;Content-Type&apos;,&apos;text/js; charset=utf-8&apos;);
+        response.write(&apos;alert(&quot;这是js执行的&quot;)&apos;);
+        response.end();
+    }else if(path == &apos;/&apos;){
+        response.setHeader(&apos;Content-Type&apos;,&apos;text/html; charset=utf-8&apos;);
+        response.write(&apos;&lt;!DOCTYPE&gt;\n&lt;html&gt;&apos; +
+        &apos;&lt;head&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/style.css&quot;&gt;&apos; +
+        &apos;&lt;/head&gt;&lt;/body&gt;&apos; +
+        &apos;&lt;h1&gt;你好&lt;/h1&gt;&apos; +
+        &apos;&lt;script src=&quot;/main.js&quot;&gt;&lt;/script&gt;&apos; +
+        &apos;&lt;body&gt;&lt;/html&gt;&apos;);
+        response.end();
+    }else {
+        response.statusCode = 404;
+        response.end();
+    }
+    /************ 代码结束,下面不要看 ***********/
+})
+
+server.listen(port);
+console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720度然后用电饭煲打开 http:localhost:&apos; + port);
+</code></pre><p>使用 <code>node server.js</code> 命令开启服务器,浏览器中打开<a href="http://localhost:8898/即可访问" target="_blank" rel="noopener">http://localhost:8898/即可访问</a></p>
+<ul>
+<li>response.setHeader(‘Content-Type’,’text/js; charset=utf-8’),设置第二部分的响应头,控制响应的文本格式</li>
+<li>response.write(‘文本’),返回的文本内容</li>
+<li>response.end(),响应结束</li>
+<li>response.statusCode = 404 ,设置状态码404 </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/01/HexoBlog/" rel="next" title="HexoBlog">
+                <i class="fa fa-chevron-left"></i> HexoBlog
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">汤井福</p>
+              <p class="site-description motion-element" itemprop="description">Don't back,just do it</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#server基础入门"><span class="nav-number">1.</span> <span class="nav-text">server基础入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本网络名词"><span class="nav-number">1.1.</span> <span class="nav-text">基本网络名词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-传输控制协议-Transmission-Control-Protocol"><span class="nav-number">1.1.1.</span> <span class="nav-text">TCP 传输控制协议(Transmission Control Protocol)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP-的特点是什么-与-UDP-的区别是什么"><span class="nav-number">1.1.1.0.1.</span> <span class="nav-text">TCP 的特点是什么 与 UDP 的区别是什么</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP-的三次握手"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">TCP 的三次握手</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-网络协议-Internet-Protocol"><span class="nav-number">1.1.2.</span> <span class="nav-text">IP 网络协议(Internet Protocol)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口-Port"><span class="nav-number">1.1.3.</span> <span class="nav-text">端口(Port)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我怎么知道应该使用什么端口"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">我怎么知道应该使用什么端口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一共有多少个端口"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">一共有多少个端口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.1.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-服务器"><span class="nav-number">1.2.</span> <span class="nav-text">node.js 服务器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">汤井福</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
