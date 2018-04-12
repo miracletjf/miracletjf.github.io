@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Home
           </a>
         </li>
       
@@ -261,7 +261,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-12T20:00:24+08:00">
                 2018-04-12
@@ -315,34 +315,39 @@
 <li>块级元素的流动方向，从上到下</li>
 </ul>
 </li>
-<li><code>div</code>的高度由其内部文档流元素的高度的总和决定。<h2 id="span相关"><a href="#span相关" class="headerlink" title="span相关"></a>span相关</h2></li>
+<li><code>div</code>的高度由其内部文档流元素的高度的总和决定。</li>
+</ul>
+<h2 id="span相关"><a href="#span相关" class="headerlink" title="span相关"></a>span相关</h2><ul>
 <li><code>span</code>有<code>border</code>，并且换行。</li>
 <li><code>word-break: break-all;</code>会断开单词</li>
-<li><code>word-break: break-word;</code>以单词为单位，断开<h2 id="字体的高度"><a href="#字体的高度" class="headerlink" title="字体的高度"></a>字体的高度</h2></li>
+<li><code>word-break: break-word;</code>以单词为单位，断开</li>
+</ul>
+<h2 id="字体的高度"><a href="#字体的高度" class="headerlink" title="字体的高度"></a>字体的高度</h2><ul>
 <li><code>font-size</code> 代表文字最高点到文字最低点之间的距离</li>
 <li>每个字体的默认行高，都是设计好的，存在着差异。</li>
-<li><p>设置<code>line-height</code>要大于字体默认行高，才会起效。</p>
+<li>设置<code>line-height</code>要大于字体默认行高，才会起效。</li>
+</ul>
 <h2 id="定位position"><a href="#定位position" class="headerlink" title="定位position"></a>定位<code>position</code></h2><p>css的定位总共有五种，其中包括一种实验样式<code>sticky</code></p>
-</li>
-<li><p><code>static</code> 默认属性，使用正常布局</p>
-</li>
+<ul>
+<li><code>static</code> 默认属性，使用正常布局</li>
 <li><code>relative</code> 相对定位，<code>z-index</code>可以生效，辅助<code>absolute</code></li>
 <li><code>absolute</code> 绝对定位，固定于最近的非<code>static</code>的祖先元素的位置。脱离文档流</li>
 <li><code>fixed</code> 固定定位，指定元素相对于视口的位置。脱离文档流。</li>
-<li><p><code>sticky</code> 粘滞定位，该属性是相对定位与绝对定位的混合。当元素达到特定的条件后，由相对定位转变为固定定位。事例:<code>#st{position: sticky;top:10px;}</code>当元素与视口的距离小于10px时，元素由相对定位，转变为固定定位。</p>
-<h2 id="设置div居中"><a href="#设置div居中" class="headerlink" title="设置div居中"></a>设置div居中</h2><p>设置固定宽度的<code>div</code>元素居中。<code>margin-left: auto;margin-right: auto;</code></p>
+<li><code>sticky</code> 粘滞定位，该属性是相对定位与绝对定位的混合。当元素达到特定的条件后，由相对定位转变为固定定位。事例:<code>#st{position: sticky;top:10px;}</code>当元素与视口的距离小于10px时，元素由相对定位，转变为固定定位。</li>
+<li><h2 id="设置div居中"><a href="#设置div居中" class="headerlink" title="设置div居中"></a>设置div居中</h2></li>
+</ul>
+<p>设置固定宽度的<code>div</code>元素居中。<code>margin-left: auto;margin-right: auto;</code></p>
 <h2 id="display-inline-block"><a href="#display-inline-block" class="headerlink" title="display: inline-block;"></a><code>display: inline-block;</code></h2><p>元素设置了<code>display: inline-block;</code>属性，元素的上下<code>margin</code>不会与其他元素的<code>margin</code>合并。</p>
 <h2 id="css三角形"><a href="#css三角形" class="headerlink" title="css三角形"></a>css三角形</h2><p>利用<code>css</code>的<code>border</code>属性，可以做出一个三角形。</p>
-<p>  <span class="triangle"></span></p>
-<p>  .triangle {</p>
-<pre><code>display: block;
-width: 0;
-border: solid 10px transparent;
-border-left-color: #ff0000;
-</code></pre><p>  }</p>
-</li>
-</ul>
+<pre><code>&lt;span class=&quot;triangle&quot;&gt;&lt;/span&gt;
 
+.triangle {
+    display: block;
+    width: 0;
+    border: solid 10px transparent;
+    border-left-color: #ff0000;
+}
+</code></pre>
           
         
       
@@ -419,7 +424,7 @@ border-left-color: #ff0000;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-07T21:38:55+08:00">
                 2018-04-07
@@ -579,7 +584,7 @@ border-left-color: #ff0000;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-06T22:52:33+08:00">
                 2018-04-06
@@ -808,7 +813,7 @@ border-left-color: #ff0000;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-05T22:58:37+08:00">
                 2018-04-05
@@ -1025,7 +1030,7 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T21:13:08+08:00">
                 2018-04-01
@@ -1187,7 +1192,7 @@ $ hexo sever
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-31T22:15:30+08:00">
                 2018-03-31
@@ -1306,7 +1311,7 @@ $ hexo sever
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T01:06:54+08:00">
                 2018-03-29
@@ -1739,7 +1744,7 @@ $ hexo sever
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T00:34:40+08:00">
                 2018-03-29
@@ -1858,7 +1863,7 @@ $ hexo sever
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T20:06:50+08:00">
                 2018-03-28
@@ -1991,7 +1996,7 @@ $ hexo sever
                 <a href="/archives/">
               
                   <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">articles</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2058,7 +2063,7 @@ $ hexo sever
 
 
 
-  <div class="theme-info">Thème &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
