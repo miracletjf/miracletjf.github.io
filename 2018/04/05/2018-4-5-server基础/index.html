@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-cn">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="http," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="server基础入门 要了解server,首先要了解一些网络的名词,基本概率,TCP,IP,端口.然后在了解什么叫做server,具体是怎么工作的. 基本网络名词TCP 传输控制协议(Transmission Control Protocol)TCP 的特点是什么 与 UDP 的区别是什么 TCP 是可靠的(因为它清楚的了解到数据包的收发状态),面向连接的,相对于UDP较慢;UDP 不可靠,不面向">
+<meta name="keywords" content="http">
 <meta property="og:type" content="article">
 <meta property="og:title" content="server入门">
 <meta property="og:url" content="http://yoursite.com/2018/04/05/2018-4-5-server基础/index.html">
 <meta property="og:site_name" content="Miralcetjf的网络日志">
 <meta property="og:description" content="server基础入门 要了解server,首先要了解一些网络的名词,基本概率,TCP,IP,端口.然后在了解什么叫做server,具体是怎么工作的. 基本网络名词TCP 传输控制协议(Transmission Control Protocol)TCP 的特点是什么 与 UDP 的区别是什么 TCP 是可靠的(因为它清楚的了解到数据包的收发状态),面向连接的,相对于UDP较慢;UDP 不可靠,不面向">
-<meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-04-05T16:12:08.871Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-25T13:31:21.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="server入门">
 <meta name="twitter:description" content="server基础入门 要了解server,首先要了解一些网络的名词,基本概率,TCP,IP,端口.然后在了解什么叫做server,具体是怎么工作的. 基本网络名词TCP 传输控制协议(Transmission Control Protocol)TCP 的特点是什么 与 UDP 的区别是什么 TCP 是可靠的(因为它清楚的了解到数据包的收发状态),面向连接的,相对于UDP较慢;UDP 不可靠,不面向">
@@ -105,7 +106,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -137,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -185,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -195,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -205,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -269,9 +270,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-05T22:58:37+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-05T22:58:37+08:00">
                 2018-04-05
               </time>
             
@@ -422,6 +423,12 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/http/" rel="tag"># http</a>
+          
+        </div>
+      
 
       
       
@@ -497,10 +504,10 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -521,7 +528,7 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
                 <a href="/archives/">
               
                   <span class="site-state-item-count">11</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -533,8 +540,8 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -596,7 +603,7 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -604,7 +611,7 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
