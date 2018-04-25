@@ -1,174 +1,309 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<!-- Head tag -->
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-cn">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Don&#39;t back,just do it">
-    <meta name="keyword" content="">
-    <meta name="theme-color" content="#600090">
-    <meta name="msapplication-navbutton-color" content="#600090">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
-    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
-    <link rel="alternate" type="application/atom+xml" title="Miralcetjf的网络日志" href="/atom.xml">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
-    <title>
-        
-        css常用技巧｜undefined
-        
-    </title>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
-    <link rel="canonical" href="http://yoursite.com/2018/04/13/css常用技巧/">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/blog-style.css">
 
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
-</head>
 
-<style>
 
-    header.intro-header {
-        background-image: url('')
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="css常用布局和居中本文主要介绍了css常用的布局，居中等其他小技巧。 css布局左右布局利用float实现左右布局左右模块设置float:left;,并且设置宽度，保证左右模块加起来的和等于100%，父级利用clear清除浮动。 html代码12345678&amp;lt;div class=&amp;quot;wrap clearfix&amp;quot;&amp;gt;  &amp;lt;div class=&amp;quot;left-">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css常用技巧">
+<meta property="og:url" content="http://yoursite.com/2018/04/13/css常用技巧/index.html">
+<meta property="og:site_name" content="Miralcetjf的网络日志">
+<meta property="og:description" content="css常用布局和居中本文主要介绍了css常用的布局，居中等其他小技巧。 css布局左右布局利用float实现左右布局左右模块设置float:left;,并且设置宽度，保证左右模块加起来的和等于100%，父级利用clear清除浮动。 html代码12345678&amp;lt;div class=&amp;quot;wrap clearfix&amp;quot;&amp;gt;  &amp;lt;div class=&amp;quot;left-">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfj08ydsj303g02kmwx.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfnqmablj304103gt8h.jpg">
+<meta property="og:updated_time" content="2018-04-23T11:40:41.279Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css常用技巧">
+<meta name="twitter:description" content="css常用布局和居中本文主要介绍了css常用的布局，居中等其他小技巧。 css布局左右布局利用float实现左右布局左右模块设置float:left;,并且设置宽度，保证左右模块加起来的和等于100%，父级利用clear清除浮动。 html代码12345678&amp;lt;div class=&amp;quot;wrap clearfix&amp;quot;&amp;gt;  &amp;lt;div class=&amp;quot;left-">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfj08ydsj303g02kmwx.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
-</style>
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="" class="animated fadeIn">
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
-" data-ishome = "false" >
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand animated pulse" href="/">
-                <span class="brand-logo">
-                    Miralcetjf的网络日志
-                </span>
-                's Blog
-            </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <!-- /.navbar-collapse -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-					
-                    
-					
-					
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-//    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
+  };
 </script>
 
-<!-- Main Content -->
-
-<!--only post-->
 
 
-<img class="wechat-title-img"
-     src="">
+  <link rel="canonical" href="http://yoursite.com/2018/04/13/css常用技巧/"/>
 
 
-<style>
+
+
+
+  <title>css常用技巧 | Miralcetjf的网络日志</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+
+  
+  
     
-    header.intro-header {
-        background-image: url('')
-    }
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Miralcetjf的网络日志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">从现在开始</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/css常用技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="汤井福">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miralcetjf的网络日志">
+    </span>
 
     
-</style>
+      <header class="post-header">
 
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>css常用技巧</h1>
-                    
-                    <span class="meta">
-                         作者 汤井福
-                        <span>
-                          日期 2018-04-13
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#css"
-                           title="css">css</a>
-                        
-                    </div>
-                </div>
-            </div>
+        
+        
+          <h1 class="post-title" itemprop="name headline">css常用技巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-13T20:11:30+08:00">
+                2018-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-    </div>
-    <div class="post-title-haojen">
-        <span>
-            css常用技巧
-        </span>
-    </div>
-</header>
+      </header>
+    
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="css常用布局和居中"><a href="#css常用布局和居中" class="headerlink" title="css常用布局和居中"></a>css常用布局和居中</h1><p>本文主要介绍了<code>css</code>常用的布局，居中等其他小技巧。</p>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="css常用布局和居中"><a href="#css常用布局和居中" class="headerlink" title="css常用布局和居中"></a>css常用布局和居中</h1><p>本文主要介绍了<code>css</code>常用的布局，居中等其他小技巧。</p>
 <h2 id="css布局"><a href="#css布局" class="headerlink" title="css布局"></a><code>css</code>布局</h2><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><h4 id="利用float实现左右布局"><a href="#利用float实现左右布局" class="headerlink" title="利用float实现左右布局"></a>利用<code>float</code>实现左右布局</h4><p>左右模块设置<code>float:left;</code>,并且设置宽度，保证左右模块加起来的和等于<code>100%</code>，父级利用<code>clear</code>清除浮动。</p>
 <p>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap clearfix&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left-box&quot;&gt;</span><br><span class="line">    这是左边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right-box&quot;&gt;</span><br><span class="line">    这是右边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
 <p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.wrap &#123;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">&#125;</span><br><span class="line">.left-box &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  background: #eaa;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  width: 40%;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br><span class="line">.right-box &#123;</span><br><span class="line">  float: right;</span><br><span class="line">  background: #6a8;</span><br><span class="line">  font-size: 30px;  </span><br><span class="line">  width: 60%;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -206,53 +341,214 @@
 <h3 id="文字间距"><a href="#文字间距" class="headerlink" title="文字间距"></a>文字间距</h3><p>写页面时，经常遇到需要扩大文字间间距的情况，尤其是标题，如果用空格去填充那就太麻烦了，代码也不够优雅。好在<code>css</code>提供了扩大文字间距的属性<code>letter-spacing</code>。<br><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfj08ydsj303g02kmwx.jpg" alt="文字并没有居中"><br>但是由于最后一个字符后也跟了一个间距，导致文字并没有完全居中。那么现在要使用<code>css</code>提供的第二个间距相关的属性<code>text-indent</code>，可以控制首行文本前的间距。设置与<code>letter-spacing</code>的值相同即可。<br><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfnqmablj304103gt8h.jpg" alt="text-indent配合letter-spacing"></p>
 <p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">letter-spacing: 0.5em;</span><br><span class="line">text-indent: 0.5em;</span><br></pre></td></tr></table></figure></p>
 
-                <hr>
-                
+      
+    </div>
+    
+    
+    
 
-                <ul class="pager">
-                    
-                    
-                    <li class="next">
-                        <a href="/2018/04/12/css入门/" data-toggle="tooltip" data-placement="top"
-                           title="css入门">Next Post &rarr;</a>
-                    </li>
-                    
-                </ul>
+    
 
-                
+    
 
-                
+    
 
-
-                <!--加入新的评论系统-->
-                
-            </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#css常用布局和居中"><span class="toc-text">css常用布局和居中</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#css布局"><span class="toc-text">css布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#左右布局"><span class="toc-text">左右布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用float实现左右布局"><span class="toc-text">利用float实现左右布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用flex实现左右布局"><span class="toc-text">利用flex实现左右布局</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#左中右布局"><span class="toc-text">左中右布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用float实现"><span class="toc-text">利用float实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用inline-block实现左中右居中"><span class="toc-text">利用inline-block实现左中右居中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex实现左中右布局"><span class="toc-text">flex实现左中右布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#圣杯布局"><span class="toc-text">圣杯布局</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#居中"><span class="toc-text">居中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#水平居中"><span class="toc-text">水平居中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#margin实现块级元素水平居中"><span class="toc-text">margin实现块级元素水平居中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inline-block实现水平居中"><span class="toc-text">inline-block实现水平居中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex实现水平居中"><span class="toc-text">flex实现水平居中</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垂直居中"><span class="toc-text">垂直居中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用padding或line"><span class="toc-text">利用padding或line</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用display-table"><span class="toc-text">利用display: table</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用伪元素实现"><span class="toc-text">利用伪元素实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用定位给已知高度的元素设置垂直居中"><span class="toc-text">利用定位给已知高度的元素设置垂直居中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用flex实现垂直居中"><span class="toc-text">利用flex实现垂直居中</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他小技巧"><span class="toc-text">其他小技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用margin实现水平和垂直同时居中。"><span class="toc-text">使用margin实现水平和垂直同时居中。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文字间距"><span class="toc-text">文字间距</span></a></li></ol></li></ol></li></ol>
-                </div>
-            </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
         </div>
+      
 
-        <div class="row">
-            <!-- Sidebar Container -->
+      
+      
+      
 
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/12/css入门/" rel="next" title="css入门">
+                <i class="fa fa-chevron-left"></i> css入门
+              </a>
+            
+          </div>
 
-                <!-- Featured Tags -->
-                
+          <span class="post-nav-divider"></span>
 
-                <!-- Friends Blog -->
-                
-            </div>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/24/堆排序算法/" rel="prev" title="堆排序算法">
+                堆排序算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
         </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">汤井福</p>
+              <p class="site-description motion-element" itemprop="description">Don't back,just do it</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">Tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css常用布局和居中"><span class="nav-number">1.</span> <span class="nav-text">css常用布局和居中</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#css布局"><span class="nav-number">1.1.</span> <span class="nav-text">css布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#左右布局"><span class="nav-number">1.1.1.</span> <span class="nav-text">左右布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#利用float实现左右布局"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">利用float实现左右布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用flex实现左右布局"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">利用flex实现左右布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左中右布局"><span class="nav-number">1.1.2.</span> <span class="nav-text">左中右布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#利用float实现"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">利用float实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用inline-block实现左中右居中"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">利用inline-block实现左中右居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex实现左中右布局"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">flex实现左中右布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#圣杯布局"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">圣杯布局</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#居中"><span class="nav-number">1.2.</span> <span class="nav-text">居中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#水平居中"><span class="nav-number">1.2.1.</span> <span class="nav-text">水平居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#margin实现块级元素水平居中"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">margin实现块级元素水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#inline-block实现水平居中"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">inline-block实现水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex实现水平居中"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">flex实现水平居中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直居中"><span class="nav-number">1.2.2.</span> <span class="nav-text">垂直居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#利用padding或line"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">利用padding或line</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用display-table"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">利用display: table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用伪元素实现"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">利用伪元素实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用定位给已知高度的元素设置垂直居中"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">利用定位给已知高度的元素设置垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用flex实现垂直居中"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">利用flex实现垂直居中</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他小技巧"><span class="nav-number">1.3.</span> <span class="nav-text">其他小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用margin实现水平和垂直同时居中。"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用margin实现水平和垂直同时居中。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字间距"><span class="nav-number">1.3.2.</span> <span class="nav-text">文字间距</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
 
     </div>
-</article>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">汤井福</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
 
 
 
@@ -260,104 +556,159 @@
 
 
 
-<!-- Footer -->
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <br>
-                <ul class="list-inline text-center">
-                
-                
-                
+        
+      </div>
+    </footer>
 
-                
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
-                
+    
 
-                
+  </div>
 
-                
+  
 
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Miralcetjf的网络日志 2018
-                    <br>
-                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
-                    <br>
-                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
-                </p>
-
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/blog.js"></script>
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-<!-- Google Analytics -->
-
-
-
-<!-- Baidu Tongji -->
-
-
-<!-- swiftype -->
 <script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','','2.0.0');
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<!--wechat title img-->
-<img class="wechat-title-img" src="">
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
-
 </html>
