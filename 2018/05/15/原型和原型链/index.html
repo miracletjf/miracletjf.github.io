@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="命令行," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="命令行基础 基础操作   用法 命令 选项 选项说明 事例     查看当前目录 pwd   pwd   查看文件 ls -a-l 查看所有文件查看详细信息 ls &amp;nbsp;&amp;nbsp; -a   进入目录 cd ..~/ 返回上一级home目录根目录 cd &amp;nbsp;&amp;nbsp; ..   创建文件 touch   touch &amp;nbsp;&amp;nbsp; a.html   创建文件夹 mkdi">
-<meta name="keywords" content="命令行">
+<meta name="description" content="js中的对象提到原型不得不说一下js中的对象，任何对象都有它的原型。原型中提供了对象的公用的方法，比如：valueOf/toString  我们定义一个对象 var obj = {name: &amp;#39;Mark&amp;#39;,age: 22} 我们调用valueof obj.valueOf(); 返回 {name:&amp;quot;Mark&amp;quot;,age:22}  obj函数中并没有valueOf方法">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="命令行基础">
-<meta property="og:url" content="http://yoursite.com/2018/03/29/2018-03-27-命令行基础/index.html">
+<meta property="og:title" content="原型和原型链">
+<meta property="og:url" content="http://yoursite.com/2018/05/15/原型和原型链/index.html">
 <meta property="og:site_name" content="Miralcetjf的网络日志">
-<meta property="og:description" content="命令行基础 基础操作   用法 命令 选项 选项说明 事例     查看当前目录 pwd   pwd   查看文件 ls -a-l 查看所有文件查看详细信息 ls &amp;nbsp;&amp;nbsp; -a   进入目录 cd ..~/ 返回上一级home目录根目录 cd &amp;nbsp;&amp;nbsp; ..   创建文件 touch   touch &amp;nbsp;&amp;nbsp; a.html   创建文件夹 mkdi">
+<meta property="og:description" content="js中的对象提到原型不得不说一下js中的对象，任何对象都有它的原型。原型中提供了对象的公用的方法，比如：valueOf/toString  我们定义一个对象 var obj = {name: &amp;#39;Mark&amp;#39;,age: 22} 我们调用valueof obj.valueOf(); 返回 {name:&amp;quot;Mark&amp;quot;,age:22}  obj函数中并没有valueOf方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-25T13:30:57.325Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1frcd2szutzj307902gt8m.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1frcd1oc9p7j30n907rdgp.jpg">
+<meta property="og:updated_time" content="2018-05-15T13:59:10.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="命令行基础">
-<meta name="twitter:description" content="命令行基础 基础操作   用法 命令 选项 选项说明 事例     查看当前目录 pwd   pwd   查看文件 ls -a-l 查看所有文件查看详细信息 ls &amp;nbsp;&amp;nbsp; -a   进入目录 cd ..~/ 返回上一级home目录根目录 cd &amp;nbsp;&amp;nbsp; ..   创建文件 touch   touch &amp;nbsp;&amp;nbsp; a.html   创建文件夹 mkdi">
+<meta name="twitter:title" content="原型和原型链">
+<meta name="twitter:description" content="js中的对象提到原型不得不说一下js中的对象，任何对象都有它的原型。原型中提供了对象的公用的方法，比如：valueOf/toString  我们定义一个对象 var obj = {name: &amp;#39;Mark&amp;#39;,age: 22} 我们调用valueof obj.valueOf(); 返回 {name:&amp;quot;Mark&amp;quot;,age:22}  obj函数中并没有valueOf方法">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1frcd2szutzj307902gt8m.jpg">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/29/2018-03-27-命令行基础/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/15/原型和原型链/"/>
 
 
 
 
 
-  <title>命令行基础 | Miralcetjf的网络日志</title>
+  <title>原型和原型链 | Miralcetjf的网络日志</title>
   
 
 
@@ -243,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/29/2018-03-27-命令行基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/15/原型和原型链/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="汤井福">
@@ -260,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">命令行基础</h1>
+          <h1 class="post-title" itemprop="name headline">原型和原型链</h1>
         
 
         <div class="post-meta">
@@ -272,8 +275,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T01:06:54+08:00">
-                2018-03-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T00:11:27+08:00">
+                2018-05-15
               </time>
             
 
@@ -310,320 +313,29 @@
       
 
       
-        <h1 id="命令行基础"><a href="#命令行基础" class="headerlink" title="命令行基础"></a>命令行基础</h1><hr>
-<h3 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">用法</th>
-<th style="text-align:center">命令</th>
-<th>选项</th>
-<th>选项说明</th>
-<th>事例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">查看当前目录</td>
-<td style="text-align:center"><strong>pwd</strong></td>
-<td></td>
-<td></td>
-<td>pwd</td>
-</tr>
-<tr>
-<td style="text-align:left">查看文件</td>
-<td style="text-align:center"><strong>ls</strong></td>
-<td>-a<br>-l</td>
-<td>查看所有文件<br>查看详细信息</td>
-<td>ls &nbsp;&nbsp; -a</td>
-</tr>
-<tr>
-<td style="text-align:left">进入目录</td>
-<td style="text-align:center"><strong>cd</strong></td>
-<td>..<br>~<br>/</td>
-<td>返回上一级<br>home目录<br>根目录</td>
-<td>cd &nbsp;&nbsp; ..</td>
-</tr>
-<tr>
-<td style="text-align:left">创建文件</td>
-<td style="text-align:center"><strong>touch</strong></td>
-<td></td>
-<td></td>
-<td>touch &nbsp;&nbsp; a.html</td>
-</tr>
-<tr>
-<td style="text-align:left">创建文件夹</td>
-<td style="text-align:center"><strong>mkdir</strong></td>
-<td></td>
-<td></td>
-<td>mkdir &nbsp;&nbsp; file</td>
-</tr>
-<tr>
-<td style="text-align:left">删除文件</td>
-<td style="text-align:center"><strong>rm</strong></td>
-<td></td>
-<td></td>
-<td>rm &nbsp;&amp;nbsp ;a.html</td>
-</tr>
-<tr>
-<td style="text-align:left">删除文件夹</td>
-<td style="text-align:center"><strong>rm&nbsp;&nbsp;-r</strong></td>
-<td></td>
-<td></td>
-<td>rm &nbsp;&nbsp;-r&nbsp;&nbsp; file</td>
-</tr>
-<tr>
-<td style="text-align:left">重命名文件</td>
-<td style="text-align:center"><strong>mv</strong></td>
-<td></td>
-<td></td>
-<td>mv &nbsp;&nbsp; a.html &nbsp;&nbsp; b.html</td>
-</tr>
-<tr>
-<td style="text-align:left">编辑器</td>
-<td style="text-align:center"><strong>vim</strong></td>
-<td></td>
-<td></td>
-<td>vim &nbsp;&nbsp; a.html</td>
-</tr>
-</tbody>
-</table>
-<h3 id="vim基本操作"><a href="#vim基本操作" class="headerlink" title="vim基本操作"></a>vim基本操作</h3><blockquote>
-<p>移动光标</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>h</td>
-<td>光标左移</td>
-</tr>
-<tr>
-<td>j</td>
-<td>光标下移</td>
-</tr>
-<tr>
-<td>k</td>
-<td>光标上移</td>
-</tr>
-<tr>
-<td>l</td>
-<td>光标右移</td>
-</tr>
-<tr>
-<td>ctrl + b</td>
-<td>上一页</td>
-</tr>
-<tr>
-<td>ctrl + f</td>
-<td>下一页</td>
-</tr>
-<tr>
-<td>w</td>
-<td>跳到下个单词，且把光标放在前面</td>
-</tr>
-<tr>
-<td>e</td>
-<td>跳到下个单词，且把光标放到后面</td>
-</tr>
-<tr>
-<td>^</td>
-<td>一行的开始</td>
-</tr>
-<tr>
-<td>$</td>
-<td>一行的结尾</td>
-</tr>
-<tr>
-<td>gg</td>
-<td>跳到开头</td>
-</tr>
-<tr>
-<td>G</td>
-<td>跳到结尾</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>插入</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i</td>
-<td>插入到当前光标前面</td>
-</tr>
-<tr>
-<td>I</td>
-<td>插入到当前行最前面</td>
-</tr>
-<tr>
-<td>o</td>
-<td>新开一行，并插入</td>
-</tr>
-<tr>
-<td>a</td>
-<td>插入到当前光标后面</td>
-</tr>
-<tr>
-<td>A</td>
-<td>插入到当前行最后面</td>
-</tr>
-<tr>
-<td>ESC</td>
-<td>关闭插入模式</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>行操作</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>r</td>
-<td>在插入模式替换光标所在的一个字符</td>
-</tr>
-<tr>
-<td>J</td>
-<td>合并下一行到上一行</td>
-</tr>
-<tr>
-<td>s</td>
-<td>删除光标多组的第一个字符，光标还在当前位置</td>
-</tr>
-<tr>
-<td>S</td>
-<td>删除当前行，光标还在当前行</td>
-</tr>
-<tr>
-<td>u</td>
-<td>撤销上一步操作(后退)</td>
-</tr>
-<tr>
-<td>ctrl+r</td>
-<td>恢复上一步操作(前进)</td>
-</tr>
-<tr>
-<td>.</td>
-<td>重复最后一个命令</td>
-</tr>
-<tr>
-<td>~</td>
-<td>变换大小写</td>
-</tr>
-<tr>
-<td>[N]&gt;&gt;</td>
-<td>[N行]向右缩进</td>
-</tr>
-<tr>
-<td>[N&lt;&lt;]</td>
-<td>[N行]向左缩进</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>保存，退出</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:w</td>
-<td>保存</td>
-</tr>
-<tr>
-<td>:wq</td>
-<td>保存并退出</td>
-</tr>
-<tr>
-<td>:q</td>
-<td>关闭(已保存)</td>
-</tr>
-<tr>
-<td>:q!</td>
-<td>强制退出</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>常用操作</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/abc</td>
-<td>“/“+搜索字符，N上一个匹配，n下一个匹配</td>
-</tr>
-<tr>
-<td>v</td>
-<td>选择一个或多个字符</td>
-</tr>
-<tr>
-<td>V</td>
-<td>选中一行</td>
-</tr>
-<tr>
-<td>dd</td>
-<td>删除一行</td>
-</tr>
-<tr>
-<td>dw</td>
-<td>删除一个单词</td>
-</tr>
-<tr>
-<td>x</td>
-<td>删除后一个字符（光标所在处）</td>
-</tr>
-<tr>
-<td>X</td>
-<td>删除前一个字符</td>
-</tr>
-<tr>
-<td>D</td>
-<td>删除一行</td>
-</tr>
-<tr>
-<td>[N]yy</td>
-<td>复制一[N]行</td>
-</tr>
-<tr>
-<td>选中+y</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>p</td>
-<td>粘贴</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="js中的对象"><a href="#js中的对象" class="headerlink" title="js中的对象"></a>js中的对象</h2><p>提到原型不得不说一下js中的对象，任何对象都有它的<code>原型</code>。<br>原型中提供了对象的公用的方法，比如：<code>valueOf</code>/<code>toString</code></p>
+<ul>
+<li>我们定义一个对象 <code>var obj = {name: &#39;Mark&#39;,age: 22}</code></li>
+<li>我们调用<code>valueof obj.valueOf()</code>;</li>
+<li>返回 <code>{name:&quot;Mark&quot;,age:22}</code></li>
+</ul>
+<p>obj函数中并没有valueOf方法，而我们却可以用，那么可以这样认为，对象用一种特殊的方式，把obj与valueOf这个方法联系起来了<br><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1frcd2szutzj307902gt8m.jpg" alt=""></p>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>其实任何一个函数都有一个隐藏的属性 <code>__proto__</code>，这个属性指向了包括该对象的公有属性的对象，而这个包含公有属性的对象，就是原型（<code>prototype</code>）。<br>这么一种无形的联系，就像是一条链子一样，也就是原型链。</p>
+<p>为什么<code>obj.valueOf</code>就可以调用原型的方法？</p>
+<ul>
+<li>执行<code>obj.valueOf()</code>等价于<code>obj.__proto__.valueOf.call(obj)</code>也等价于<code>Object.prototype.valueOf.call(obj)</code></li>
+<li>函数会接收<code>call</code>中的第一个参数，作为函数内部的<code>this</code>来执行</li>
+<li>返回对<code>obj</code>执行<code>valueOf</code>方法的结果</li>
+</ul>
+<p>构造函数一般都有自己的 <code>prototype</code> 这个属性里面存着该类型的公有属性，所有由构造函数生成的对象都可以使用共有属性里的方法<br>所有由构造函数生成的对象的<code>__proto__</code>都指向共有属性。</p>
+<p><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1frcd1oc9p7j30n907rdgp.jpg" alt="Object的prototype"></p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>那么原型的作用到底是什么？<br>原型的主要作用就是配合构造函数，批量生成某一类对象<br>比如说，要生成一只猫的对象</p>
+<ul>
+<li>猫都会爬树</li>
+<li>猫都会捕猎</li>
+<li>猫都会叫</li>
+</ul>
+<p>那就可以这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function 猫(名字)&#123;</span><br><span class="line">	this.名字 = 名字</span><br><span class="line">&#125;</span><br><span class="line">猫.prototype = &#123;</span><br><span class="line">	爬树: function()&#123;&#125;,</span><br><span class="line">	捕猎: function()&#123;&#125;.</span><br><span class="line">	叫: function()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var 毛毛 = new 猫(&apos;毛毛&apos;);</span><br><span class="line">var 豆豆 = new 猫(&apos;豆豆&apos;);</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -641,7 +353,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/命令行/" rel="tag"># 命令行</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -654,8 +366,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/29/My-New-Post/" rel="next" title="My New Post">
-                <i class="fa fa-chevron-left"></i> My New Post
+              <a href="/2018/04/24/堆排序算法/" rel="next" title="堆排序算法">
+                <i class="fa fa-chevron-left"></i> 堆排序算法
               </a>
             
           </div>
@@ -663,10 +375,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/31/second-md/" rel="prev" title="second.md">
-                second.md <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -789,7 +497,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令行基础"><span class="nav-number">1.</span> <span class="nav-text">命令行基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础操作"><span class="nav-number">1.0.1.</span> <span class="nav-text">基础操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim基本操作"><span class="nav-number">1.0.2.</span> <span class="nav-text">vim基本操作</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js中的对象"><span class="nav-number">1.</span> <span class="nav-text">js中的对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型"><span class="nav-number">2.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number">3.</span> <span class="nav-text">构造函数</span></a></li></ol></div>
             
 
           </div>

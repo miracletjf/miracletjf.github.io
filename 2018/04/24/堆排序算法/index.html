@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="堆排序算法堆排序堆排序动态演示堆的概念堆（Heap）是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以看做一棵树的数组对象。 节点之间的关系 若节点n%2=0,该节点为右节点；若节点n%2=1，该节点为左节点 若父亲节点为n,那么左子节点为：2n+1,右子节点为：2n+2 若子节点为n,那么父节点为：(n-1)/2实现思路">
+<meta name="description" content="堆排序算法堆排序堆排序动态演示堆的概念堆（Heap）是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以看做一棵树的数组对象。 节点之间的关系 若节点n%2=0,该节点为右节点；若节点n%2=1，该节点为左节点 若父亲节点为n,那么左子节点为：2n+1,右子节点为：2n+2 若子节点为n,那么父节点为：(n-1)/2  实现思路 从最后一个叶子节点开始遍历，比较兄弟节点，父节点，取得最大值，与">
 <meta property="og:type" content="article">
 <meta property="og:title" content="堆排序算法">
 <meta property="og:url" content="http://yoursite.com/2018/04/24/堆排序算法/index.html">
 <meta property="og:site_name" content="Miralcetjf的网络日志">
-<meta property="og:description" content="堆排序算法堆排序堆排序动态演示堆的概念堆（Heap）是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以看做一棵树的数组对象。 节点之间的关系 若节点n%2=0,该节点为右节点；若节点n%2=1，该节点为左节点 若父亲节点为n,那么左子节点为：2n+1,右子节点为：2n+2 若子节点为n,那么父节点为：(n-1)/2实现思路">
+<meta property="og:description" content="堆排序算法堆排序堆排序动态演示堆的概念堆（Heap）是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以看做一棵树的数组对象。 节点之间的关系 若节点n%2=0,该节点为右节点；若节点n%2=1，该节点为左节点 若父亲节点为n,那么左子节点为：2n+1,右子节点为：2n+2 若子节点为n,那么父节点为：(n-1)/2  实现思路 从最后一个叶子节点开始遍历，比较兄弟节点，父节点，取得最大值，与">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1fqo6pz1n41j30qs0buaaw.jpg">
-<meta property="og:updated_time" content="2018-04-24T16:04:44.448Z">
+<meta property="og:updated_time" content="2018-05-05T10:25:12.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆排序算法">
-<meta name="twitter:description" content="堆排序算法堆排序堆排序动态演示堆的概念堆（Heap）是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以看做一棵树的数组对象。 节点之间的关系 若节点n%2=0,该节点为右节点；若节点n%2=1，该节点为左节点 若父亲节点为n,那么左子节点为：2n+1,右子节点为：2n+2 若子节点为n,那么父节点为：(n-1)/2实现思路">
+<meta name="twitter:description" content="堆排序算法堆排序堆排序动态演示堆的概念堆（Heap）是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以看做一棵树的数组对象。 节点之间的关系 若节点n%2=0,该节点为右节点；若节点n%2=1，该节点为左节点 若父亲节点为n,那么左子节点为：2n+1,右子节点为：2n+2 若子节点为n,那么父节点为：(n-1)/2  实现思路 从最后一个叶子节点开始遍历，比较兄弟节点，父节点，取得最大值，与">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1fqo6pz1n41j30qs0buaaw.jpg">
 
 
@@ -315,8 +315,20 @@
 <h3 id="节点之间的关系"><a href="#节点之间的关系" class="headerlink" title="节点之间的关系"></a>节点之间的关系</h3><ul>
 <li>若节点<code>n%2=0</code>,该节点为<code>右节点</code>；若节点<code>n%2=1</code>，该节点为<code>左节点</code></li>
 <li>若父亲节点为<code>n</code>,那么左子节点为：<code>2n+1</code>,右子节点为：<code>2n+2</code></li>
-<li>若子节点为<code>n</code>,那么父节点为：<code>(n-1)/2</code><h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3></li>
+<li>若子节点为<code>n</code>,那么父节点为：<code>(n-1)/2</code></li>
 </ul>
+<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><ol>
+<li>从最后一个叶子节点开始遍历，比较兄弟节点，父节点，取得最大值，与父节点位置交换</li>
+<li>取得交换后的值，与子节点进行比较，取最大节点与当前节点交换</li>
+<li>若不存在子节点，或比子节点都大，继续向前遍遍历</li>
+<li>直到根节点，这时候就形成了一个最大堆（<code>最大值出现在根节点，堆中的每个父节点都比子节点大（如果存在）</code>）</li>
+<li>交换根节点与最后一个叶子节点，排除掉最后一个节点，即最大值节点</li>
+<li>从根节点开始，与子节点比较，若小于子节点中的最大值，则交换</li>
+<li>若不存在子节点，或比子节点中的最大值大，则再次形成最大堆</li>
+<li>重复步骤5~7，直到只剩最后一个节点</li>
+<li>排序完成</li>
+</ol>
+<h3 id="算法流程图"><a href="#算法流程图" class="headerlink" title="算法流程图"></a>算法流程图</h3><p>这是我画的一个堆排序的流程图，详细内容可以点击<a href="https://www.processon.com/view/link/5aed681fe4b0958cdad29e93" target="_blank" rel="noopener">堆算法流程图</a></p>
 
       
     </div>
@@ -350,6 +362,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/15/原型和原型链/" rel="prev" title="原型和原型链">
+                原型和原型链 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -426,7 +442,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -439,7 +455,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -472,7 +488,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#堆排序算法"><span class="nav-number">1.</span> <span class="nav-text">堆排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#堆排序"><span class="nav-number">1.1.</span> <span class="nav-text">堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序动态演示"><span class="nav-number">1.1.1.</span> <span class="nav-text">堆排序动态演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆的概念"><span class="nav-number">1.1.2.</span> <span class="nav-text">堆的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点之间的关系"><span class="nav-number">1.1.3.</span> <span class="nav-text">节点之间的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现思路"><span class="nav-number">1.1.4.</span> <span class="nav-text">实现思路</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#堆排序算法"><span class="nav-number">1.</span> <span class="nav-text">堆排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#堆排序"><span class="nav-number">1.1.</span> <span class="nav-text">堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序动态演示"><span class="nav-number">1.1.1.</span> <span class="nav-text">堆排序动态演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆的概念"><span class="nav-number">1.1.2.</span> <span class="nav-text">堆的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点之间的关系"><span class="nav-number">1.1.3.</span> <span class="nav-text">节点之间的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现思路"><span class="nav-number">1.1.4.</span> <span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程图"><span class="nav-number">1.1.5.</span> <span class="nav-text">算法流程图</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
