@@ -242,6 +242,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/10/Ajax与http请求/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="汤井福">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miralcetjf的网络日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/10/Ajax与http请求/" itemprop="url">Ajax与HTTP请求</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T12:34:49+08:00">
+                2018-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在学习<code>Ajax</code>相关的内容。谈到<code>Ajax</code>就不得不提<code>HTTP协议</code>，<code>Ajax</code>就是使用<code>JavaScript</code>来发送，一个<code>HTTP请求</code>，并且可以接收从服务器返回的<code>HTTP响应</code>。下面我们来聊一下<code>Ajax</code>和<code>HTTP</code>协议。</p>
+<h2 id="HTTP-协议"><a href="#HTTP-协议" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h2><p><code>HTTP</code>的全称是超文本传输协议<code>(英文：HyperText Transfer Protocol)</code>，它是<code>客户端</code>与<code>服务器</code>请求和响应的标准。<code>HTTP</code>使得<code>客户端</code>与<code>服务器</code>之间可以进行通信，传输与接收数据。更详细的定义可以查看维基百科:<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">HTTP协议</a>。<br>我们具体来看一下，<code>HTTP</code>的请求与响应。</p>
+<h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p><code>HTTP</code>请求分为四部分，格式如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1 请求的动词 路径 协议/版本</span><br><span class="line">2 key1: value1</span><br><span class="line">2 key2: value2</span><br><span class="line">2 key3: value3</span><br><span class="line">2 ...</span><br><span class="line">2 Content-Type: value</span><br><span class="line">2 Host: www.baidu.com</span><br><span class="line">2 User-Agent: curl/7.57.0</span><br><span class="line">3 (回车)</span><br><span class="line">4 要上传的数据</span><br></pre></td></tr></table></figure></p>
+<p>对于第一部分，第三部分，第四部分都好理解，第二部分需要说明一下。第二部分是请求的头信息，用来描述一些元数据，服务器会根据头信息，作出相应的处理方式。</p>
+<h3 id="HTTP-响应"><a href="#HTTP-响应" class="headerlink" title="HTTP 响应"></a>HTTP 响应</h3><p><code>HTTP</code>响应也有四部分，格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1 协议/版本号 状态码 状态解释</span><br><span class="line">2 key1: value1</span><br><span class="line">2 key2: value2</span><br><span class="line">2 Content-Length: 2443</span><br><span class="line">2 Content-Type: text/html</span><br><span class="line">2 ...</span><br><span class="line">3 (回车)</span><br><span class="line">4 要下载的内容</span><br></pre></td></tr></table></figure></p>
+<p>响应部分也是一样，第一，第三部分不用多解释，第二部分返回响应头信息，客户端根据头信息，作出相应的处理操作。第四部分是请求体，即：服务器根据请求响应的内容。</p>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p><code>Ajax</code>的全称是<code>Asynchronous JavaScript and XML</code>。在没有<code>Ajax</code>之前，前端想要向请求后端的数据，可以使用的方式有：</p>
+<ul>
+<li><code>form</code> 表单请求 『缺点：页面会刷新』</li>
+<li><code>img</code> 通过 img 标签，向服务器发送请求 『缺点：只能发送GET,页面没有刷新，只能请求图片』</li>
+<li><code>script</code> 标签请求，传递回调函数给后台，后台把数据放入回调函数中，当作参数，执行。『缺点：只能发送<code>GET</code>请求』（这就是<code>jsonp</code>）</li>
+<li>…</li>
+</ul>
+<p>以上这些方式要么需要刷新页面，要么只能发送<code>get</code>请求。做不到既可以发送除<code>GET</code>以外的请求，并且不刷新页面的效果。而<code>Ajax</code>就是为了解决这么一个问题出现的，说白了<code>Ajax</code>就是让<code>JavaScript</code>可以发送<code>HTTP</code>请求和接收<code>HTTP</code>响应。</p>
+<h3 id="Ajax-的历史"><a href="#Ajax-的历史" class="headerlink" title="Ajax 的历史"></a>Ajax 的历史</h3><p>1999年微软就在<code>IE5.0</code>上就引入了可以让<code>JavaScript</code>发送请求的接口，但是一开始并没有引起重视，直到2004年<code>Gmail</code>的发布，才引起广泛的关注。在2005年<code>Ajax</code>这个词被提出。后来<code>Ajax</code>这个词就成为了<code>JavaScript</code>脚本发起<code>HTTP</code>通信的代名词。</p>
+<h3 id="Ajax-的使用"><a href="#Ajax-的使用" class="headerlink" title="Ajax 的使用"></a>Ajax 的使用</h3><p><code>Ajax</code>一般包括以下步骤</p>
+<blockquote>
+<ol>
+<li>创建 <code>XMLHttpRequest</code> 实例</li>
+<li>发出 <code>HTTP</code> 请求</li>
+<li>接收服务器传回的数据</li>
+<li>处理网页数据 </li>
+</ol>
+</blockquote>
+<h4 id="Ajax-请求-前端代码"><a href="#Ajax-请求-前端代码" class="headerlink" title="Ajax 请求 前端代码"></a>Ajax 请求 前端代码</h4><p>以下是一个简单的<code>Ajax</code>的示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let xhr = new XMLHttpRequest();</span><br><span class="line">xhr.open(&apos;GET&apos;,&apos;http://jack.com/ajax&apos;);</span><br><span class="line">xhr.setRequestHeader(&apos;Content-Type&apos;,&apos;application/x-www-form-urlencode;charset=utf-8&apos;);</span><br><span class="line">xhr.onreadystatechange = ()=&gt;&#123;</span><br><span class="line">  if(xhr.readyState === 4)&#123;</span><br><span class="line">    if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)&#123;</span><br><span class="line">      let string = xhr.responseText;</span><br><span class="line">      let obj = JSON.parse(string);</span><br><span class="line">      console.log(&apos;请求成功&apos;);</span><br><span class="line">    &#125; else if(xhr.status &gt;= 400)&#123;</span><br><span class="line">      console.log(&apos;请求失败&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(&apos;a=9&amp;b=6&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>上述代码与<code>HTTP</code>请求方式相对应</p>
+<ul>
+<li><code>xhr.open()</code> 对应了<code>HTTP</code>请求的 <code>请求方式</code>、<code>请求路径</code>、<code>请求的域名</code></li>
+<li><code>xhr.setRequestHeader()</code> 配置 请求头信息</li>
+<li><code>xhr.onreadystatechange()</code> 当状态发生改变时，判断当前的请求状态以及响应的状态。定义成功与失败的回调函数。</li>
+<li><code>xhr.send()</code> 请求的数据</li>
+</ul>
+<h4 id="Ajax-响应-node-js后端代码"><a href="#Ajax-响应-node-js后端代码" class="headerlink" title="Ajax 响应 node.js后端代码"></a>Ajax 响应 node.js后端代码</h4><p>以下是一个简单的<code>node.js</code>服务端处理<code>HTTP</code>响应的示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(pathNoQuery === &apos;/ajax&apos;)&#123;</span><br><span class="line">   response.statusCode = 200;</span><br><span class="line">   response.setHeader(&apos;Access-Control-Allow-Origin&apos;,&apos;http://testa.com:8890&apos;);	//设置允许跨域请求的 源</span><br><span class="line">   response.setHeader(&apos;Content-Type&apos;,&apos;application/json&apos;);		//设置返回的数据形式是 JSON</span><br><span class="line">   response.write(`&#123;&quot;name&quot;:&quot;miralce&quot;,&quot;method&quot;:&quot;ajax&quot;&#125;`);</span><br><span class="line">   response.end();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述代码跟<code>HTTP</code>的响应方式相对应</p>
+<ul>
+<li><code>response.statusCode</code> 设置状态码，告知请求的状态，成功与否</li>
+<li><code>response.setHeader</code> 设置响应的响应头信息</li>
+<li><code>response.write</code> 设置响应体数据，返回给前端的数据</li>
+<li><code>response.end()</code> 响应结束发送</li>
+</ul>
+<h3 id="Ajax-的封装"><a href="#Ajax-的封装" class="headerlink" title="Ajax 的封装"></a>Ajax 的封装</h3><p>一般来说直接写<code>Ajax</code>代码比较多，不利于书写，所以可能需要对<code>Ajax</code>进行封装，利用<code>jQuer</code>的思路，在结合<code>ES6</code>的<code>Promise</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery.ajax = function(&#123;url,method,header,body&#125;)&#123;</span><br><span class="line">  return new Promise(function(resolve,reject)&#123;</span><br><span class="line">    let xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(method,url);</span><br><span class="line">    for(let key in header)&#123;</span><br><span class="line">      xhr.setRequestHeader(key,header[key]);</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.onreadystatechange = function()&#123;</span><br><span class="line">      if(xhr.readyState === 4)&#123;</span><br><span class="line">        if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)&#123;</span><br><span class="line">          resolve(xhr.responseText);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">          reject(xhr);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    let bodys = &apos;&apos;;</span><br><span class="line">    for(let key in body)&#123;</span><br><span class="line">      bodys += `$&#123;key&#125;=$&#123;body[key]&#125;`; </span><br><span class="line">    &#125;</span><br><span class="line">    xhr.send(bodys);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>调用的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: &apos;/ajax&apos;,</span><br><span class="line">  method: &apos;post&apos;,</span><br><span class="line">  header: &#123;</span><br><span class="line">    &apos;Content-Type&apos;: &apos;application/x-www-form-urlencode;charset=utf-8&apos;,</span><br><span class="line">    &apos;user&apos;: &apos;miracle&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  body: &#123;</span><br><span class="line">    &apos;name&apos;: &apos;miracle&apos;,</span><br><span class="line">    &apos;time&apos;: Date.now()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).then(resText=&gt;&#123;</span><br><span class="line">    let res = JSON.parse(resText);</span><br><span class="line">    console.log(res);</span><br><span class="line">  &#125;,xhr=&gt;&#123;</span><br><span class="line">    console.log(xhr);</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>Ajax</code>技术是前端的一个里程碑，它的出现直接改变了人们对前端的认识，对前端的发展有着巨大的推动作用。也是现在的前端开发人员不得不掌握的技能之一。<br>以上只是本人对<code>Ajax</code>和<code>HTTP</code>简单的看法，若有写的不正确或者不好的地方，欢迎指正。<br>本文仅供学习与交流使用，转载请注明出处。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/简述jQuery实现原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1562,235 +1724,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/06/html简介/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="汤井福">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miralcetjf的网络日志">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/06/html简介/" itemprop="url">html简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-06T22:52:33+08:00">
-                2018-04-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="html简介"><a href="#html简介" class="headerlink" title="html简介"></a>html简介</h1><hr>
-<p>html规范是由W3C组织制定的</p>
-<h2 id="W3C（万维网联盟）简介"><a href="#W3C（万维网联盟）简介" class="headerlink" title="W3C（万维网联盟）简介"></a>W3C（万维网联盟）简介</h2><p>W3C是由万维网的发明者蒂姆·伯纳斯-李于1994年10月离开欧洲核子研究中心后成立的，该组织试图通过W3C制定的新标准来促进业界成员间的兼容性和协议。不兼容的HTML版本由不同的供应商提供，导致网页显示方式不一致。联盟视图让所有的供应商实施一套由联盟选择的核心原则和组件。</p>
-<h2 id="MDN（Mozilla-Developer-Center）简介"><a href="#MDN（Mozilla-Developer-Center）简介" class="headerlink" title="MDN（Mozilla Developer Center）简介"></a>MDN（Mozilla Developer Center）简介</h2><p>MDN Web Docs（旧称Mozilla Developer Network、Mozilla Developer Center，简称MDN）是一个汇集众多Mozilla基金会产品和网络技术开发文档的免费网站。</p>
-<h2 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h2><h4 id="根元素"><a href="#根元素" class="headerlink" title="根元素"></a>根元素</h4><ul>
-<li><code>&lt;html&gt;</code> 代表HTML或XHTML文档的根。其他所有元素必须是这个元素的子节点<h4 id="文档元数据"><a href="#文档元数据" class="headerlink" title="文档元数据"></a>文档元数据</h4></li>
-<li><code>&lt;head&gt;</code> 代表关于文档元数据的一个集合，包括脚本或样式表的链接或内容</li>
-<li><code>&lt;titld&gt;</code> 定义文档标题，将像是在浏览器标题栏或标签页上。该元素只能包含文本，包含的标签不会被解释。</li>
-<li><code>&lt;base&gt;</code> 定义玉面上相对URL的基准URL</li>
-<li><code>&lt;link&gt;</code> 用于链接外部的CSS到该文档</li>
-<li><code>&lt;meta&gt;</code> 定义其他HTML元素无法描述的元数据。</li>
-<li><code>&lt;style&gt;</code> 用于内联的CSS。<h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4></li>
-<li><code>&lt;script&gt;</code> 定义一个内联脚本或链接到外部脚本。脚本语言是JavaScript。</li>
-<li><code>&lt;noscript&gt;</code> 定义当浏览器不支持脚本显示的替代文字。</li>
-<li><code>&lt;template&gt;</code> 通过JavaScript在运行时实例化内容的容器。<h4 id="章节"><a href="#章节" class="headerlink" title="章节"></a>章节</h4></li>
-<li><code>&lt;body&gt;</code> 代表HTML文档的内容。在文档中只能有一个<code>&lt;body&gt;</code>元素。</li>
-<li><code>&lt;section&gt;</code> 定义文档中的一个章节</li>
-<li><code>&lt;nav&gt;</code> 定义只包含导航链接的章节。</li>
-<li><code>&lt;article&gt;</code> 第一可以独立于内容其余部分的完整独立内容块。</li>
-<li><code>&lt;aside&gt;</code> 定义和页面内容关联度较低的内容——如果被删除，剩下内容任然很合理</li>
-<li><code>&lt;h1&gt;,&lt;h2&gt;,&lt;h3&gt;,&lt;h4&gt;,&lt;h5&gt;,&lt;h6&gt;</code> 标题元素实现了六层文档标题，<code>&lt;h1&gt;</code>是最大的标题，<code>&lt;h6&gt;</code>是最小的标题。标题元素简要地描述章节的主题。</li>
-<li><code>&lt;header&gt;</code> 定义页面或章节的头部。它经常包含logo、页面标题和导航性的目录。</li>
-<li><code>&lt;footer&gt;</code> 定义页面或章节的尾部。它经常包含版权信息、法律信息链接、和反馈建议用的地址。</li>
-<li><code>&lt;address&gt;</code> 定义包含联系信息的章节</li>
-<li><code>&lt;main&gt;</code> 定义文档中主要或者重要的信息。<h4 id="组织内容"><a href="#组织内容" class="headerlink" title="组织内容"></a>组织内容</h4></li>
-<li><code>&lt;p&gt;</code> 定义一个段落</li>
-<li><code>&lt;hr&gt;</code> 代表章节、文章或其他长内容段落之间的分隔符。</li>
-<li><code>&lt;pre&gt;</code> 代表其内容已经预先排版过，格式应当保留。</li>
-<li><code>&lt;blockquote&gt;</code> 代表引用自其他来源的内容。</li>
-<li><code>&lt;ol&gt;</code> 定义给一个有序列表。</li>
-<li><code>&lt;ul&gt;</code> 定义一个无序列表。</li>
-<li><code>&lt;li&gt;</code> 定义列表中的一个列表项</li>
-<li><code>&lt;dl&gt;</code> 定义一个定义列表（一系列术语和其定义）</li>
-<li><code>&lt;dt&gt;</code> 代表一个由下一个<code>&lt;dd&gt;</code>定义的术语</li>
-<li><code>&lt;dd&gt;</code> 代表出现在它之前术语的定义</li>
-<li><code>&lt;figure&gt;</code> 代表一个和文档有关的图例</li>
-<li><code>&lt;figcaption&gt;</code> 代表一个图例的说明</li>
-<li><code>&lt;div&gt;</code> 一个通用的容器，没有特殊含义。<h4 id="文字形式"><a href="#文字形式" class="headerlink" title="文字形式"></a>文字形式</h4></li>
-<li><code>&lt;a&gt;</code> 代表一个链接到其他资源的超链接</li>
-<li><code>&lt;em&gt;</code> 代表强调文字。</li>
-<li><code>&lt;strong&gt;</code> 代表特别重要的文字</li>
-<li><code>&lt;small&gt;</code> 代表注释，如免责声明、版权声明等，等理解文档不重要。</li>
-<li><code>&lt;s&gt;</code> 代表不准确或不相关的内容。</li>
-<li><code>&lt;cite&gt;</code> 代表作品标题</li>
-<li><code>&lt;q&gt;</code> 代表内联的引用</li>
-<li><code>&lt;dfn&gt;</code> 代表一个术语包含在其最近的祖先内容中的定义。</li>
-<li><code>&lt;abbr&gt;</code> 代表省略或缩写，其完整内容在title属性中。</li>
-<li><code>&lt;data&gt;</code> 关联一个内容的积极可读的等价形式（该元素只在WHATWG版本的HTML标准中，不在W3C标准中）。</li>
-<li><code>&lt;time&gt;</code> 代表日期和时间值；机器可读的等价形式通过datetimg属性指定。</li>
-<li><code>&lt;code&gt;</code> 代表计算机代码。</li>
-<li><code>&lt;var&gt;</code> 代表代码中的变量。</li>
-<li><code>&lt;samp&gt;</code> 代表程序或电脑的输出</li>
-<li><code>&lt;kbd&gt;</code> 代表用户输入，一般从键盘输出，但也可以代表其他输入，如语音输入。</li>
-<li><code>&lt;sub&gt;,&lt;sup&gt;</code> 分别代表下标和上标。</li>
-<li><code>&lt;i&gt;</code> 代表一段不同性质的文字，如技术术语，外文短语等。</li>
-<li><code>&lt;b&gt;</code> 代表一段需要被关注的文字。</li>
-<li><code>&lt;u&gt;</code> 代表一段需要下划线程序的文本注释，如标记出拼写错误的文字等。</li>
-<li><code>&lt;mark&gt;</code> 代表一段需要被高亮的引用文字。</li>
-<li><code>&lt;ruby&gt;</code> 代表被ruby注释标记的文本，如中文和他的拼音。</li>
-<li><code>&lt;rt&gt;</code> 代表ruby注释</li>
-<li><code>&lt;rp&gt;</code> 代表ruby注释两边额外插入的文本。它允许嵌入一段不同或未知文本方向格式的文本。</li>
-<li><code>&lt;bdo&gt;</code> 指定子元素的文本方向，显示地覆盖默认的文本方向。</li>
-<li><code>&lt;span&gt;</code> 代表一段没有特殊含义的文本，当其他语义元素都不适合文本的时候可以使用该元素。</li>
-<li><code>&lt;br&gt;</code> 代表换行</li>
-<li><code>&lt;wbr&gt;</code> 代表建议换行(World Break Opportunity)，当文本太长需要换行时将会在此处添加换行符<h4 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h4></li>
-<li><code>&lt;ins&gt;</code> 定义增加到文档的内容</li>
-<li><code>&lt;del&gt;</code> 定义从文档移除的内容<h4 id="嵌入内容"><a href="#嵌入内容" class="headerlink" title="嵌入内容"></a>嵌入内容</h4></li>
-<li><code>&lt;img&gt;</code> 代表一张图片</li>
-<li><code>&lt;iframe&gt;</code> 代表一个内联的框架</li>
-<li><code>&lt;embed&gt;</code> 代表一个嵌入的外部资源，如应用程序和交互内容。</li>
-<li><code>&lt;object&gt;</code> 待遇一个外部资源，如图片，HTML子文档，插件等。</li>
-<li><code>&lt;param&gt;</code> 代表<code>&lt;object&gt;</code>元素指定的插件的参数。</li>
-<li><code>&lt;video&gt;</code> 代表一段视频及其视频文件和字幕，并提供播放视频的用户界面。</li>
-<li><code>&lt;audio&gt;</code> 代表一段声音，或音频流。</li>
-<li><code>&lt;source&gt;</code> 为<code>&lt;video&gt;</code>或<code>&lt;audio&gt;</code>这类每天元素指定媒体源。</li>
-<li><code>&lt;track&gt;</code> 为<code>&lt;video&gt;</code>或<code>&lt;audio&gt;</code>这类媒体元素指定文本轨道（字幕）。</li>
-<li><code>&lt;canvas&gt;</code> 代表位图区域，可以通过脚本在他上面实时呈现图形，如图表、游戏绘图等。</li>
-<li><code>&lt;map&gt;</code> 与<code>&lt;area&gt;</code>元素共同定义图像映射区域。</li>
-<li><code>&lt;area&gt;</code> 与<code>&lt;map&gt;</code>元素共同定义图像映射区域。</li>
-<li><code>&lt;svg&gt;</code> 定义一个嵌入式矢量图。</li>
-<li><code>&lt;math&gt;</code> 定义一段数学公式。<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4></li>
-<li><code>table</code> 定义一个多维数据。</li>
-<li><code>&lt;caption&gt;</code> 代表表格的标题。</li>
-<li><code>&lt;cogroup&gt;</code> 代表表格中一组单列或多列。</li>
-<li><code>&lt;col&gt;</code> 代表表格中的列。</li>
-<li><code>&lt;tbody&gt;</code> 代表表格中一块具体数据（表格主体）。</li>
-<li><code>&lt;thead&gt;</code> 代表表格中一块列标签。</li>
-<li><code>&lt;tfoot&gt;</code> 代表表格中一块列摘要（表尾）。<em>过时</em></li>
-<li><code>&lt;tr&gt;</code> 代表表格中的行。</li>
-<li><code>&lt;td&gt;</code> 代表表格中的单元格。</li>
-<li><code>&lt;th&gt;</code> 代表表格中的头部单元格。<em>过时</em><h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4></li>
-<li><code>&lt;form&gt;</code> 代表一个表单，有控件组成。</li>
-<li><code>&lt;fieldset&gt;</code> 代表控件组。</li>
-<li><code>&lt;legend&gt;</code> 代表<code>&lt;fieldset&gt;</code>控件组的标题。</li>
-<li><code>&lt;label&gt;</code> 代表表单控件标题。</li>
-<li><code>&lt;input&gt;</code> 代表允许用户编辑数据的数据区（文本框，单选框，复选框等）。</li>
-<li><code>&lt;button&gt;</code> 代表按钮。</li>
-<li><code>&lt;select&gt;</code> 代表下拉框。</li>
-<li><code>&lt;datalist&gt;</code> 代表提供给其他控件的一组预定选项。</li>
-<li><code>&lt;option&gt;</code> 代表一个<code>&lt;select&gt;</code>元素或<code>&lt;datalist&gt;</code>元素中的一个选项。</li>
-<li><code>&lt;textarea&gt;</code> 代表多行文本框。</li>
-<li><code>&lt;keygen&gt;</code> 代表一个密钥对生成器控件。</li>
-<li><code>&lt;output&gt;</code> 代表计算值。</li>
-<li><code>&lt;progress&gt;</code> 代表进度条。</li>
-<li><code>&lt;meter&gt;</code> 代表滑动条。<h4 id="交互元素"><a href="#交互元素" class="headerlink" title="交互元素"></a>交互元素</h4></li>
-<li><code>&lt;details&gt;</code> 代表一个用户可以（点击）获取额外信息的控件的小部分。</li>
-<li><code>&lt;summary&gt;</code> 代表<code>&lt;details&gt;</code>元素的综述或标题。</li>
-<li><code>&lt;menuitem&gt;</code> 代表一个用户可以点击的菜单项。</li>
-<li><code>&lt;menu&gt;</code> 代表菜单。<h2 id="空标签"><a href="#空标签" class="headerlink" title="空标签"></a>空标签</h2>一个<strong>不可能存在子节点</strong>的标签叫做<strong>空标签</strong>。在HTML中空标签有：<code>&lt;area&gt;</code>,<code>&lt;base&gt;</code>,<br><code>&lt;br&gt;</code>,<code>&lt;col&gt;</code>,<code>&lt;colgroup&gt;</code>,<code>&lt;embed&gt;</code>,<code>&lt;hr&gt;</code>,<code>&lt;img&gt;</code>,<code>&lt;input&gt;</code>,<code>&lt;keygen&gt;</code>,<br><code>&lt;link&gt;</code>,<code>&lt;meta&gt;</code>,<code>&lt;param&gt;</code>,<code>&lt;source&gt;</code>,<code>&lt;track&gt;</code>,<code>&lt;wbr&gt;</code><h2 id="可替换标签"><a href="#可替换标签" class="headerlink" title="可替换标签"></a>可替换标签</h2>css里，可替换标签的展现并不是由css来控制。这类元素是一类外观渲染独立于css的外部对象。典型的可替换元素有<code>&lt;img&gt;</code>,<code>&lt;object&gt;</code>,<code>&lt;video&gt;</code>和表单元素。如<code>&lt;input&gt;</code>,<code>&lt;textarea&gt;</code>。某些元素只在特殊情况下表现为可替换元素，例如<code>&lt;audio&gt;</code>和<code>&lt;canvas&gt;</code>。通过css<code>&lt;content&gt;</code>属性来插入的对象被称作匿名可替换元素。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1841,7 +1774,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
