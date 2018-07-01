@@ -242,6 +242,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/07/html常用标签介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="汤井福">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miralcetjf的网络日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/07/html常用标签介绍/" itemprop="url">html常用标签介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-07T21:38:55+08:00">
+                2018-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="html-常用标签介绍"><a href="#html-常用标签介绍" class="headerlink" title="html 常用标签介绍"></a>html 常用标签介绍</h1><hr>
+<p>HTML标签的数量是有很多的，每个标签都有自己的用途。这就是HTML语义化的一方面。方便理解，运用。具体的每个标签的含义可以查看我的上篇文档<a href="https://miracletjf.github.io/2018/04/06/html%E7%AE%80%E4%BB%8B/" target="_blank" rel="noopener">html简介</a>下面介绍一些比较常用标签，但是他们又有一些小的技巧是我们平时不容易发现的。</p>
+<h2 id="iframe标签"><a href="#iframe标签" class="headerlink" title="iframe标签"></a>iframe标签</h2><ul>
+<li>iframe标签自带一个<code>frameborder=&quot;1&quot;</code>的属性，我们使用时应该把它给去掉，用<code>frameborder=&quot;0&quot;</code>覆盖。</li>
+<li><code>name</code> 属性，定义自身窗口的名称，配合<code>a</code>标签的<code>target</code>属性，可以实现点击<code>a</code>标签，在指定的<code>frame</code>窗口中打开的功能。</li>
+<li><code>src</code>属性，定义了<code>iframe</code>窗口要展示的网页地址。</li>
+<li><code>sandbox</code>可以对<code>iframe</code>启动额外的限制条件。如果属性值为空，表示限制条件全部启用，若不为空，即用空格分隔的一系列指定的字符串。比如说允许窗口执行JavaScript,只有这样写<code>sandbox=&quot;allow-scripts&quot;</code><h2 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h2></li>
+<li><code>target</code> 属性代表指定位置打开链接，对应的值有<ul>
+<li><code>_blank</code> 在新窗口打开链接</li>
+<li><code>_self</code> 在自身窗口打开链接，默认值</li>
+<li><code>_parent</code> 在父窗口打开链接</li>
+<li><code>_top</code> 在顶级窗口打开链接</li>
+</ul>
+</li>
+<li><code>download</code> 下载链接地址的内容（有的网站会禁止你下载的）。</li>
+<li><p><code>href</code> 代表链接地址</p>
+<ul>
+<li><code>http://www.baidu.com</code> 打开指定链接地址</li>
+<li><code>//www.baidu.com</code> 用与当前网页相同的协议打开链接地址，有<code>http</code>，<code>https</code>，一般ftp方式打开</li>
+<li><code>/xxx.html</code> 直接打开在域名后接/xxx.html的链接地址</li>
+<li><code>#sss</code> 跳转到锚点位置</li>
+<li><code>?name=666</code> 添加查询参数，并跳转<h2 id="form标签"><a href="#form标签" class="headerlink" title="form标签"></a>form标签</h2>form标签其实也是在跳转链接，只不过form跳转链接是发起的是post请求，并且可以携带第四部分的参数到服务器。</li>
+</ul>
+</li>
+<li><p><code>method</code> 指定发起的请求的方式一般指定为<code>post</code></p>
+</li>
+<li><code>form</code> 提交也可以携带查询参数</li>
+<li>只要是<code>http</code>协议提交数据，密码在网络中就是明文传递的，不安全。推荐使用<code>https</code>，传递机密数据。<h2 id="button标签"><a href="#button标签" class="headerlink" title="button标签"></a>button标签</h2></li>
+<li>如果<code>form</code>标签中只用一个<code>&lt;button&gt;</code>标签，并且标签的<code>type</code>属性未指定，那么<code>button</code>按钮，自动升级为<code>submit</code>按钮</li>
+<li>指定<code>input</code>的<code>type</code>类型为<code>submit</code>也可以提交<code>form</code><h2 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h2></li>
+<li>把<code>input</code>标签包裹在<code>label</code>中，可以建立<code>label</code>与<code>input</code>的联系。点击<code>label</code>中的内容，可以触发<code>input</code>点击效果。<h2 id="textarea标签"><a href="#textarea标签" class="headerlink" title="textarea标签"></a>textarea标签</h2></li>
+<li>css设置<code>resize:none;</code>可以禁用可拖拽功能<h2 id="table标签"><a href="#table标签" class="headerlink" title="table标签"></a>table标签</h2></li>
+<li><code>&lt;thead&gt;</code> 表格头部</li>
+<li><code>&lt;tbody&gt;</code> 表格主体</li>
+<li><code>&lt;tfoot&gt;</code> 表格底部</li>
+<li><code>&lt;tr&gt;</code> table row 表格行</li>
+<li><code>&lt;th&gt;</code> table header 表头</li>
+<li><code>&lt;td&gt;</code> table data 表格数据</li>
+<li><code>&lt;colgroup&gt;</code> 表格列组，用来定义列表中的一组列表。</li>
+<li><code>&lt;col&gt;</code> 表示表格中的列，属性<code>bgcolor</code>可以订阅某列的背景色。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/06/html简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1686,7 +1846,7 @@ $ hexo sever
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
