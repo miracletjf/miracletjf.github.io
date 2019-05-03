@@ -312,108 +312,15 @@
 
       
         
-          
-            <h1 id="server基础入门"><a href="#server基础入门" class="headerlink" title="server基础入门"></a>server基础入门</h1><hr>
+          <h1 id="server基础入门"><a href="#server基础入门" class="headerlink" title="server基础入门"></a>server基础入门</h1><hr>
 <p>要了解server,首先要了解一些网络的名词,基本概率,TCP,IP,端口.然后在了解什么叫做server,具体是怎么工作的.</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="基本网络名词"><a href="#基本网络名词" class="headerlink" title="基本网络名词"></a>基本网络名词</h2><h3 id="TCP-传输控制协议-Transmission-Control-Protocol"><a href="#TCP-传输控制协议-Transmission-Control-Protocol" class="headerlink" title="TCP 传输控制协议(Transmission Control Protocol)"></a>TCP 传输控制协议(Transmission Control Protocol)</h3><h5 id="TCP-的特点是什么-与-UDP-的区别是什么"><a href="#TCP-的特点是什么-与-UDP-的区别是什么" class="headerlink" title="TCP 的特点是什么 与 UDP 的区别是什么"></a>TCP 的特点是什么 与 UDP 的区别是什么</h5><blockquote>
-<p>TCP 是可靠的(因为它清楚的了解到数据包的收发状态),面向连接的,相对于UDP较慢;UDP 不可靠,不面向连接,相对于TCP较快.</p>
-</blockquote>
-<h4 id="TCP-的三次握手"><a href="#TCP-的三次握手" class="headerlink" title="TCP 的三次握手"></a>TCP 的三次握手</h4><blockquote>
-<p>TCP在每次连接前,客户端与服务端之间都要进行三次对话才正式开始传输内容,三次对话大概是以下意思</p>
-</blockquote>
-<ol>
-<li>客户端: 我要连接你了,可以吗</li>
-<li>服务端: 嗯,我准备好了,连接我吧</li>
-<li>客户端: 那我连接了</li>
-<li>开始数据传输</li>
-</ol>
-<h3 id="IP-网络协议-Internet-Protocol"><a href="#IP-网络协议-Internet-Protocol" class="headerlink" title="IP 网络协议(Internet Protocol)"></a>IP 网络协议(Internet Protocol)</h3><p>只要你在互联网中,你就有会有一个IP.通俗上理解,IP分为[内网IP] 和 [外网IP].内网IP对应你在路由器控制的范围内的IP,外网IP就是你的路由器所对应的Ip地址.</p>
-<ul>
-<li>你用电信的网,电信给你提供DNS服务</li>
-<li>你有一个路由器,只要它连接到电信的服务器,那么路由器就会有一个外网IP,但是一般这个IP是不固定的,想要固定的就要多花几千去电信租用IP</li>
-<li>所有连接到路由器的设备,都在内网中,公用的外网IP是路由器的IP</li>
-<li>外网的信息都是通过从路由器发送到你的设备的</li>
-<li>路由器还是一个网关,内网和外网就像是两个隔绝的空间,无法互通,唯一的联通点就是路由器.</li>
-<li>路由器的ip是192.168.1.1</li>
-<li>127.0.0.1 指向 localhost 自己的本机</li>
-<li>0.0.0.0 不代表任何设备</li>
-</ul>
-<h3 id="端口-Port"><a href="#端口-Port" class="headerlink" title="端口(Port)"></a>端口(Port)</h3><p>要想访问一个设备,光知道IP是不够的,还必须指定端口,端口是一个编号并不是一个硬件.一个服务器不一定至提供一个服务,比如HTTP服务,有提供FTP服务,还提供SMTP(邮件服务)服务,那么只有一个IP是无法告诉服务器你想有那种服务的.<br>比如</p>
-<ol>
-<li>要提供HTTP服务,你最好使用80服务(能不能使用其他端口?可以,不过不建议你违反约定)</li>
-<li>要提供HTTPS服务,你最好使用443端口(能不能使用别的端口?可以,不过不建议你违反约定)</li>
-<li>要提供FTP服务,你最好使用21端口(能不能使用别的端口?可以,不过不建议你违反约定)</li>
-</ol>
-<h4 id="我怎么知道应该使用什么端口"><a href="#我怎么知道应该使用什么端口" class="headerlink" title="我怎么知道应该使用什么端口"></a>我怎么知道应该使用什么端口</h4><p><a href="https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8#0.E5.88.B01023.E5.8F.B7.E7.AB.AF.E5.8F.A3" target="_blank" rel="noopener">维基百科</a></p>
-<h4 id="一共有多少个端口"><a href="#一共有多少个端口" class="headerlink" title="一共有多少个端口"></a>一共有多少个端口</h4><p>每个机器一共有65535(2^16 - 1)个端口.请0-1023个端口需要管理员权限才可以使用</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
-<p>使用HTTP协议访问另一个IP时,要同时提供IP和端口号,缺一不可</p>
-</blockquote>
-<p>我访问<a href="http://qq.com时并没有提供端口号,为什么我依然可以访问" target="_blank" rel="noopener">http://qq.com时并没有提供端口号,为什么我依然可以访问</a></p>
-<blockquote>
-<p>因为浏览器会帮你加上默认端口 80</p>
-</blockquote>
-<h2 id="node-js-服务器"><a href="#node-js-服务器" class="headerlink" title="node.js 服务器"></a>node.js 服务器</h2><p>在本地建立一个node服务器,新建一个server.js文件,内容如下</p>
-<pre><code>var http = require(&apos;http&apos;);
-var fs = require(&apos;fs&apos;);
-var url = require(&apos;url&apos;);
-var port = process.argv[2];
-
-if(!port){
-    console.log(&apos;指定端口号好不?\nnode server.js 8898&apos;);
-    process.exit(1);
-}
-
-var server = http.createServer(function(request, response){
-    var parsedUrl = url.parse(request.url,true);
-    var path = request.url;
-    var query = &apos;&apos;;
-    if(path.indexOf(&apos;?&apos;) &gt;= 0){
-        query = path.substring(path.indexOf(&apos;?&apos;) + 1);
-    }
-    var pathNoQuery = parsedUrl.pathname;
-    var queryObject = parsedUrl.query;
-    var method = request.method;
-
-    /******** 从这里开始看,上面不要看 ********/
-
-    console.log(&apos;HTTP 路径为\n&apos; + path );
-    if(path == &apos;/style.css&apos;){
-        response.setHeader(&apos;Content-Type&apos;,&apos;text/css; charset=utf-8&apos;);
-        response.write(&apos;body{background-color: #ddd;}h1{color:red}&apos;);
-        response.end();
-    }else if(path == &apos;/main.js&apos;){
-        response.setHeader(&apos;Content-Type&apos;,&apos;text/js; charset=utf-8&apos;);
-        response.write(&apos;alert(&quot;这是js执行的&quot;)&apos;);
-        response.end();
-    }else if(path == &apos;/&apos;){
-        response.setHeader(&apos;Content-Type&apos;,&apos;text/html; charset=utf-8&apos;);
-        response.write(&apos;&lt;!DOCTYPE&gt;\n&lt;html&gt;&apos; +
-        &apos;&lt;head&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/style.css&quot;&gt;&apos; +
-        &apos;&lt;/head&gt;&lt;/body&gt;&apos; +
-        &apos;&lt;h1&gt;你好&lt;/h1&gt;&apos; +
-        &apos;&lt;script src=&quot;/main.js&quot;&gt;&lt;/script&gt;&apos; +
-        &apos;&lt;body&gt;&lt;/html&gt;&apos;);
-        response.end();
-    }else {
-        response.statusCode = 404;
-        response.end();
-    }
-    /************ 代码结束,下面不要看 ***********/
-})
-
-server.listen(port);
-console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720度然后用电饭煲打开 http:localhost:&apos; + port);
-</code></pre><p>使用 <code>node server.js</code> 命令开启服务器,浏览器中打开<a href="http://localhost:8898/即可访问" target="_blank" rel="noopener">http://localhost:8898/即可访问</a></p>
-<ul>
-<li>response.setHeader(‘Content-Type’,’text/js; charset=utf-8’),设置第二部分的响应头,控制响应的文本格式</li>
-<li>response.write(‘文本’),返回的文本内容</li>
-<li>response.end(),响应结束</li>
-<li>response.statusCode = 404 ,设置状态码404 </li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/14/2018-4-5-server基础/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -530,8 +437,7 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
 
       
         
-          
-            <h1 id="命令行基础"><a href="#命令行基础" class="headerlink" title="命令行基础"></a>命令行基础</h1><hr>
+          <h1 id="命令行基础"><a href="#命令行基础" class="headerlink" title="命令行基础"></a>命令行基础</h1><hr>
 <h3 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h3><table>
 <thead>
 <tr>
@@ -608,246 +514,13 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
 </tr>
 </tbody>
 </table>
-<p>&lt; !–more–&gt;</p>
-<h3 id="vim基本操作"><a href="#vim基本操作" class="headerlink" title="vim基本操作"></a>vim基本操作</h3><blockquote>
-<p>移动光标</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>h</td>
-<td>光标左移</td>
-</tr>
-<tr>
-<td>j</td>
-<td>光标下移</td>
-</tr>
-<tr>
-<td>k</td>
-<td>光标上移</td>
-</tr>
-<tr>
-<td>l</td>
-<td>光标右移</td>
-</tr>
-<tr>
-<td>ctrl + b</td>
-<td>上一页</td>
-</tr>
-<tr>
-<td>ctrl + f</td>
-<td>下一页</td>
-</tr>
-<tr>
-<td>w</td>
-<td>跳到下个单词，且把光标放在前面</td>
-</tr>
-<tr>
-<td>e</td>
-<td>跳到下个单词，且把光标放到后面</td>
-</tr>
-<tr>
-<td>^</td>
-<td>一行的开始</td>
-</tr>
-<tr>
-<td>$</td>
-<td>一行的结尾</td>
-</tr>
-<tr>
-<td>gg</td>
-<td>跳到开头</td>
-</tr>
-<tr>
-<td>G</td>
-<td>跳到结尾</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>插入</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i</td>
-<td>插入到当前光标前面</td>
-</tr>
-<tr>
-<td>I</td>
-<td>插入到当前行最前面</td>
-</tr>
-<tr>
-<td>o</td>
-<td>新开一行，并插入</td>
-</tr>
-<tr>
-<td>a</td>
-<td>插入到当前光标后面</td>
-</tr>
-<tr>
-<td>A</td>
-<td>插入到当前行最后面</td>
-</tr>
-<tr>
-<td>ESC</td>
-<td>关闭插入模式</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>行操作</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>r</td>
-<td>在插入模式替换光标所在的一个字符</td>
-</tr>
-<tr>
-<td>J</td>
-<td>合并下一行到上一行</td>
-</tr>
-<tr>
-<td>s</td>
-<td>删除光标多组的第一个字符，光标还在当前位置</td>
-</tr>
-<tr>
-<td>S</td>
-<td>删除当前行，光标还在当前行</td>
-</tr>
-<tr>
-<td>u</td>
-<td>撤销上一步操作(后退)</td>
-</tr>
-<tr>
-<td>ctrl+r</td>
-<td>恢复上一步操作(前进)</td>
-</tr>
-<tr>
-<td>.</td>
-<td>重复最后一个命令</td>
-</tr>
-<tr>
-<td>~</td>
-<td>变换大小写</td>
-</tr>
-<tr>
-<td>[N]&gt;&gt;</td>
-<td>[N行]向右缩进</td>
-</tr>
-<tr>
-<td>[N&lt;&lt;]</td>
-<td>[N行]向左缩进</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>保存，退出</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>:w</td>
-<td>保存</td>
-</tr>
-<tr>
-<td>:wq</td>
-<td>保存并退出</td>
-</tr>
-<tr>
-<td>:q</td>
-<td>关闭(已保存)</td>
-</tr>
-<tr>
-<td>:q!</td>
-<td>强制退出</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>常用操作</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/abc</td>
-<td>“/“+搜索字符，N上一个匹配，n下一个匹配</td>
-</tr>
-<tr>
-<td>v</td>
-<td>选择一个或多个字符</td>
-</tr>
-<tr>
-<td>V</td>
-<td>选中一行</td>
-</tr>
-<tr>
-<td>dd</td>
-<td>删除一行</td>
-</tr>
-<tr>
-<td>dw</td>
-<td>删除一个单词</td>
-</tr>
-<tr>
-<td>x</td>
-<td>删除后一个字符（光标所在处）</td>
-</tr>
-<tr>
-<td>X</td>
-<td>删除前一个字符</td>
-</tr>
-<tr>
-<td>D</td>
-<td>删除一行</td>
-</tr>
-<tr>
-<td>[N]yy</td>
-<td>复制一[N]行</td>
-</tr>
-<tr>
-<td>选中+y</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>p</td>
-<td>粘贴</td>
-</tr>
-</tbody>
-</table>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/14/2018-03-27-命令行基础/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1254,53 +927,14 @@ console.log(&apos;监听&apos; + port + &apos;成功\n请用在空中转体720�
 
       
         
-          
-            <p>最近在学习<code>Ajax</code>相关的内容。谈到<code>Ajax</code>就不得不提<code>HTTP协议</code>，<code>Ajax</code>就是使用<code>JavaScript</code>来发送，一个<code>HTTP请求</code>，并且可以接收从服务器返回的<code>HTTP响应</code>。下面我们来聊一下<code>Ajax</code>和<code>HTTP</code>协议。</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="HTTP-协议"><a href="#HTTP-协议" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h2><p><code>HTTP</code>的全称是超文本传输协议<code>(英文：HyperText Transfer Protocol)</code>，它是<code>客户端</code>与<code>服务器</code>请求和响应的标准。<code>HTTP</code>使得<code>客户端</code>与<code>服务器</code>之间可以进行通信，传输与接收数据。更详细的定义可以查看维基百科:<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">HTTP协议</a>。<br>我们具体来看一下，<code>HTTP</code>的请求与响应。</p>
-<h3 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h3><p><code>HTTP</code>请求分为四部分，格式如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1 请求的动词 路径 协议/版本</span><br><span class="line">2 key1: value1</span><br><span class="line">2 key2: value2</span><br><span class="line">2 key3: value3</span><br><span class="line">2 ...</span><br><span class="line">2 Content-Type: value</span><br><span class="line">2 Host: www.baidu.com</span><br><span class="line">2 User-Agent: curl/7.57.0</span><br><span class="line">3 (回车)</span><br><span class="line">4 要上传的数据</span><br></pre></td></tr></table></figure></p>
-<p>对于第一部分，第三部分，第四部分都好理解，第二部分需要说明一下。第二部分是请求的头信息，用来描述一些元数据，服务器会根据头信息，作出相应的处理方式。</p>
-<h3 id="HTTP-响应"><a href="#HTTP-响应" class="headerlink" title="HTTP 响应"></a>HTTP 响应</h3><p><code>HTTP</code>响应也有四部分，格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1 协议/版本号 状态码 状态解释</span><br><span class="line">2 key1: value1</span><br><span class="line">2 key2: value2</span><br><span class="line">2 Content-Length: 2443</span><br><span class="line">2 Content-Type: text/html</span><br><span class="line">2 ...</span><br><span class="line">3 (回车)</span><br><span class="line">4 要下载的内容</span><br></pre></td></tr></table></figure></p>
-<p>响应部分也是一样，第一，第三部分不用多解释，第二部分返回响应头信息，客户端根据头信息，作出相应的处理操作。第四部分是请求体，即：服务器根据请求响应的内容。</p>
-<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p><code>Ajax</code>的全称是<code>Asynchronous JavaScript and XML</code>。在没有<code>Ajax</code>之前，前端想要向请求后端的数据，可以使用的方式有：</p>
-<ul>
-<li><code>form</code> 表单请求 『缺点：页面会刷新』</li>
-<li><code>img</code> 通过 img 标签，向服务器发送请求 『缺点：只能发送GET,页面没有刷新，只能请求图片』</li>
-<li><code>script</code> 标签请求，传递回调函数给后台，后台把数据放入回调函数中，当作参数，执行。『缺点：只能发送<code>GET</code>请求』（这就是<code>jsonp</code>）</li>
-<li>…</li>
-</ul>
-<p>以上这些方式要么需要刷新页面，要么只能发送<code>get</code>请求。做不到既可以发送除<code>GET</code>以外的请求，并且不刷新页面的效果。而<code>Ajax</code>就是为了解决这么一个问题出现的，说白了<code>Ajax</code>就是让<code>JavaScript</code>可以发送<code>HTTP</code>请求和接收<code>HTTP</code>响应。</p>
-<h3 id="Ajax-的历史"><a href="#Ajax-的历史" class="headerlink" title="Ajax 的历史"></a>Ajax 的历史</h3><p>1999年微软就在<code>IE5.0</code>上就引入了可以让<code>JavaScript</code>发送请求的接口，但是一开始并没有引起重视，直到2004年<code>Gmail</code>的发布，才引起广泛的关注。在2005年<code>Ajax</code>这个词被提出。后来<code>Ajax</code>这个词就成为了<code>JavaScript</code>脚本发起<code>HTTP</code>通信的代名词。</p>
-<h3 id="Ajax-的使用"><a href="#Ajax-的使用" class="headerlink" title="Ajax 的使用"></a>Ajax 的使用</h3><p><code>Ajax</code>一般包括以下步骤</p>
-<blockquote>
-<ol>
-<li>创建 <code>XMLHttpRequest</code> 实例</li>
-<li>发出 <code>HTTP</code> 请求</li>
-<li>接收服务器传回的数据</li>
-<li>处理网页数据 </li>
-</ol>
-</blockquote>
-<h4 id="Ajax-请求-前端代码"><a href="#Ajax-请求-前端代码" class="headerlink" title="Ajax 请求 前端代码"></a>Ajax 请求 前端代码</h4><p>以下是一个简单的<code>Ajax</code>的示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let xhr = new XMLHttpRequest();</span><br><span class="line">xhr.open(&apos;GET&apos;,&apos;http://jack.com/ajax&apos;);</span><br><span class="line">xhr.setRequestHeader(&apos;Content-Type&apos;,&apos;application/x-www-form-urlencode;charset=utf-8&apos;);</span><br><span class="line">xhr.onreadystatechange = ()=&gt;&#123;</span><br><span class="line">  if(xhr.readyState === 4)&#123;</span><br><span class="line">    if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)&#123;</span><br><span class="line">      let string = xhr.responseText;</span><br><span class="line">      let obj = JSON.parse(string);</span><br><span class="line">      console.log(&apos;请求成功&apos;);</span><br><span class="line">    &#125; else if(xhr.status &gt;= 400)&#123;</span><br><span class="line">      console.log(&apos;请求失败&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(&apos;a=9&amp;b=6&apos;);</span><br></pre></td></tr></table></figure></p>
-<p>上述代码与<code>HTTP</code>请求方式相对应</p>
-<ul>
-<li><code>xhr.open()</code> 对应了<code>HTTP</code>请求的 <code>请求方式</code>、<code>请求路径</code>、<code>请求的域名</code></li>
-<li><code>xhr.setRequestHeader()</code> 配置 请求头信息</li>
-<li><code>xhr.onreadystatechange()</code> 当状态发生改变时，判断当前的请求状态以及响应的状态。定义成功与失败的回调函数。</li>
-<li><code>xhr.send()</code> 请求的数据</li>
-</ul>
-<h4 id="Ajax-响应-node-js后端代码"><a href="#Ajax-响应-node-js后端代码" class="headerlink" title="Ajax 响应 node.js后端代码"></a>Ajax 响应 node.js后端代码</h4><p>以下是一个简单的<code>node.js</code>服务端处理<code>HTTP</code>响应的示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(pathNoQuery === &apos;/ajax&apos;)&#123;</span><br><span class="line">   response.statusCode = 200;</span><br><span class="line">   response.setHeader(&apos;Access-Control-Allow-Origin&apos;,&apos;http://testa.com:8890&apos;);	//设置允许跨域请求的 源</span><br><span class="line">   response.setHeader(&apos;Content-Type&apos;,&apos;application/json&apos;);		//设置返回的数据形式是 JSON</span><br><span class="line">   response.write(`&#123;&quot;name&quot;:&quot;miralce&quot;,&quot;method&quot;:&quot;ajax&quot;&#125;`);</span><br><span class="line">   response.end();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>上述代码跟<code>HTTP</code>的响应方式相对应</p>
-<ul>
-<li><code>response.statusCode</code> 设置状态码，告知请求的状态，成功与否</li>
-<li><code>response.setHeader</code> 设置响应的响应头信息</li>
-<li><code>response.write</code> 设置响应体数据，返回给前端的数据</li>
-<li><code>response.end()</code> 响应结束发送</li>
-</ul>
-<h3 id="Ajax-的封装"><a href="#Ajax-的封装" class="headerlink" title="Ajax 的封装"></a>Ajax 的封装</h3><p>一般来说直接写<code>Ajax</code>代码比较多，不利于书写，所以可能需要对<code>Ajax</code>进行封装，利用<code>jQuer</code>的思路，在结合<code>ES6</code>的<code>Promise</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery.ajax = function(&#123;url,method,header,body&#125;)&#123;</span><br><span class="line">  return new Promise(function(resolve,reject)&#123;</span><br><span class="line">    let xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(method,url);</span><br><span class="line">    for(let key in header)&#123;</span><br><span class="line">      xhr.setRequestHeader(key,header[key]);</span><br><span class="line">    &#125;</span><br><span class="line">    xhr.onreadystatechange = function()&#123;</span><br><span class="line">      if(xhr.readyState === 4)&#123;</span><br><span class="line">        if(xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)&#123;</span><br><span class="line">          resolve(xhr.responseText);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">          reject(xhr);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    let bodys = &apos;&apos;;</span><br><span class="line">    for(let key in body)&#123;</span><br><span class="line">      bodys += `$&#123;key&#125;=$&#123;body[key]&#125;`; </span><br><span class="line">    &#125;</span><br><span class="line">    xhr.send(bodys);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>调用的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: &apos;/ajax&apos;,</span><br><span class="line">  method: &apos;post&apos;,</span><br><span class="line">  header: &#123;</span><br><span class="line">    &apos;Content-Type&apos;: &apos;application/x-www-form-urlencode;charset=utf-8&apos;,</span><br><span class="line">    &apos;user&apos;: &apos;miracle&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  body: &#123;</span><br><span class="line">    &apos;name&apos;: &apos;miracle&apos;,</span><br><span class="line">    &apos;time&apos;: Date.now()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).then(resText=&gt;&#123;</span><br><span class="line">    let res = JSON.parse(resText);</span><br><span class="line">    console.log(res);</span><br><span class="line">  &#125;,xhr=&gt;&#123;</span><br><span class="line">    console.log(xhr);</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>Ajax</code>技术是前端的一个里程碑，它的出现直接改变了人们对前端的认识，对前端的发展有着巨大的推动作用。也是现在的前端开发人员不得不掌握的技能之一。<br>以上只是本人对<code>Ajax</code>和<code>HTTP</code>简单的看法，若有写的不正确或者不好的地方，欢迎指正。<br>本文仅供学习与交流使用，转载请注明出处。</p>
-
-          
+          <p>最近在学习<code>Ajax</code>相关的内容。谈到<code>Ajax</code>就不得不提<code>HTTP协议</code>，<code>Ajax</code>就是使用<code>JavaScript</code>来发送，一个<code>HTTP请求</code>，并且可以接收从服务器返回的<code>HTTP响应</code>。下面我们来聊一下<code>Ajax</code>和<code>HTTP</code>协议。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/10/Ajax与http请求/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
