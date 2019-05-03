@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="基本概念参照阮一峰老师的说法  数组是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。  &amp;lt; !–more–&amp;gt; js中的数组js中的数组其实并不是标准意义上的数组，其实是一种特殊的hash表，原型链中有Array.prototype。由于js中的数组数据在内存中并不是连续的，所以很容易对数组进行删除，新增，修改等操作。12345678//下面这种写法，等同于">
+<meta name="description" content="基本概念参照阮一峰老师的说法  数组是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js数组初探">
 <meta property="og:url" content="http://yoursite.com/2018/05/19/js数组初探/index.html">
 <meta property="og:site_name" content="Miralcetjf的网络日志">
-<meta property="og:description" content="基本概念参照阮一峰老师的说法  数组是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。  &amp;lt; !–more–&amp;gt; js中的数组js中的数组其实并不是标准意义上的数组，其实是一种特殊的hash表，原型链中有Array.prototype。由于js中的数组数据在内存中并不是连续的，所以很容易对数组进行删除，新增，修改等操作。12345678//下面这种写法，等同于">
+<meta property="og:description" content="基本概念参照阮一峰老师的说法  数组是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-03T14:29:30.080Z">
+<meta property="og:updated_time" content="2019-05-03T14:46:58.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js数组初探">
-<meta name="twitter:description" content="基本概念参照阮一峰老师的说法  数组是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。  &amp;lt; !–more–&amp;gt; js中的数组js中的数组其实并不是标准意义上的数组，其实是一种特殊的hash表，原型链中有Array.prototype。由于js中的数组数据在内存中并不是连续的，所以很容易对数组进行删除，新增，修改等操作。12345678//下面这种写法，等同于">
+<meta name="twitter:description" content="基本概念参照阮一峰老师的说法  数组是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。">
 
 
 
@@ -314,7 +314,7 @@
 <blockquote>
 <p>数组是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。</p>
 </blockquote>
-<p>&lt; !–more–&gt;</p>
+<a id="more"></a>
 <h2 id="js中的数组"><a href="#js中的数组" class="headerlink" title="js中的数组"></a>js中的数组</h2><p>js中的数组其实并不是标准意义上的数组，其实是一种特殊的<code>hash表</code>，原型链中有<code>Array.prototype</code>。由于js中的数组数据在内存中并不是连续的，所以很容易对数组进行删除，新增，修改等操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//下面这种写法，等同于于一个js数组</span><br><span class="line">var arr = &#123;</span><br><span class="line">	&apos;0&apos;:1,</span><br><span class="line">	&apos;1&apos;:2,</span><br><span class="line">	&apos;2&apos;:3,</span><br><span class="line">	&apos;length&apos;:3</span><br><span class="line">&#125;</span><br><span class="line">arr.__proto__ = Array.prototype;</span><br></pre></td></tr></table></figure></p>
 <h2 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h2><ol>
 <li><code>var arr = Array(3)</code> 声明一个数组长度为3的数组</li>

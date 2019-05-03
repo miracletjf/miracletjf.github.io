@@ -312,28 +312,14 @@
 
       
         
-          
-            <h1 id="堆排序算法"><a href="#堆排序算法" class="headerlink" title="堆排序算法"></a>堆排序算法</h1><h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><h3 id="堆排序动态演示"><a href="#堆排序动态演示" class="headerlink" title="堆排序动态演示"></a><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html" target="_blank" rel="noopener">堆排序动态演示</a></h3><p>&lt; !–more–&gt;</p>
-<h3 id="堆的概念"><a href="#堆的概念" class="headerlink" title="堆的概念"></a>堆的概念</h3><p>堆（Heap）是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以看做一棵树的数组对象。<br><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1fqo6pz1n41j30qs0buaaw.jpg" alt="推事例图"></p>
-<h3 id="节点之间的关系"><a href="#节点之间的关系" class="headerlink" title="节点之间的关系"></a>节点之间的关系</h3><ul>
-<li>若节点<code>n%2=0</code>,该节点为<code>右节点</code>；若节点<code>n%2=1</code>，该节点为<code>左节点</code></li>
-<li>若父亲节点为<code>n</code>,那么左子节点为：<code>2n+1</code>,右子节点为：<code>2n+2</code></li>
-<li>若子节点为<code>n</code>,那么父节点为：<code>(n-1)/2</code></li>
-</ul>
-<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><ol>
-<li>从最后一个叶子节点开始遍历，比较兄弟节点，父节点，取得最大值，与父节点位置交换</li>
-<li>取得交换后的值，与子节点进行比较，取最大节点与当前节点交换</li>
-<li>若不存在子节点，或比子节点都大，继续向前遍遍历</li>
-<li>直到根节点，这时候就形成了一个最大堆（<code>最大值出现在根节点，堆中的每个父节点都比子节点大（如果存在）</code>）</li>
-<li>交换根节点与最后一个叶子节点，排除掉最后一个节点，即最大值节点</li>
-<li>从根节点开始，与子节点比较，若小于子节点中的最大值，则交换</li>
-<li>若不存在子节点，或比子节点中的最大值大，则再次形成最大堆</li>
-<li>重复步骤5~7，直到只剩最后一个节点</li>
-<li>排序完成</li>
-</ol>
-<h3 id="算法流程图"><a href="#算法流程图" class="headerlink" title="算法流程图"></a>算法流程图</h3><p>这是我画的一个堆排序的流程图，详细内容可以点击<a href="https://www.processon.com/view/link/5aed681fe4b0958cdad29e93" target="_blank" rel="noopener">堆算法流程图</a></p>
-
-          
+          <h1 id="堆排序算法"><a href="#堆排序算法" class="headerlink" title="堆排序算法"></a>堆排序算法</h1><h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><h3 id="堆排序动态演示"><a href="#堆排序动态演示" class="headerlink" title="堆排序动态演示"></a><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html" target="_blank" rel="noopener">堆排序动态演示</a></h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/24/堆排序算法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -450,47 +436,14 @@
 
       
         
-          
-            <h1 id="css常用布局和居中"><a href="#css常用布局和居中" class="headerlink" title="css常用布局和居中"></a>css常用布局和居中</h1><p>本文主要介绍了<code>css</code>常用的布局，居中等其他小技巧。</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="css布局"><a href="#css布局" class="headerlink" title="css布局"></a><code>css</code>布局</h2><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><h4 id="利用float实现左右布局"><a href="#利用float实现左右布局" class="headerlink" title="利用float实现左右布局"></a>利用<code>float</code>实现左右布局</h4><p>左右模块设置<code>float:left;</code>,并且设置宽度，保证左右模块加起来的和等于<code>100%</code>，父级利用<code>clear</code>清除浮动。</p>
-<p>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap clearfix&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left-box&quot;&gt;</span><br><span class="line">    这是左边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right-box&quot;&gt;</span><br><span class="line">    这是右边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.wrap &#123;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">&#125;</span><br><span class="line">.left-box &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  background: #eaa;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  width: 40%;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br><span class="line">.right-box &#123;</span><br><span class="line">  float: right;</span><br><span class="line">  background: #6a8;</span><br><span class="line">  font-size: 30px;  </span><br><span class="line">  width: 60%;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="利用flex实现左右布局"><a href="#利用flex实现左右布局" class="headerlink" title="利用flex实现左右布局"></a>利用<code>flex</code>实现左右布局</h4><p>利用<code>css3</code>的弹性布局盒子，实现左右布局。直接在父元素上设置<code>display:flex;</code>即可。<br>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left-box&quot;&gt;</span><br><span class="line">    这是左边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right-box&quot;&gt;</span><br><span class="line">    这是右边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.wrap &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">&#125;</span><br><span class="line">.left-box &#123;</span><br><span class="line">  background: #eaa;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  width: 40%;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br><span class="line">.right-box &#123;</span><br><span class="line">  background: #6a8;</span><br><span class="line">  font-size: 30px;  </span><br><span class="line">  width: 60%;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>若其中有一个模块为宽度为定宽，那么只需要在另一个模块上设置<code>flex: 1;</code>即可。</p>
-<h3 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h3><p>实现左中右布局，可以使用<code>float</code>,<code>inline-blok</code>,<code>flex</code>等多种方式来实现。</p>
-<h4 id="利用float实现"><a href="#利用float实现" class="headerlink" title="利用float实现"></a>利用<code>float</code>实现</h4><p>利用<code>float</code>实现左中右布局，原理跟上文的左右布局类似，只需要添加一个中间模块即可。<br>html 代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap clearfix&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left-box&quot;&gt;</span><br><span class="line">    这是左边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;middle-box&quot;&gt;</span><br><span class="line">    这是中间</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right-box&quot;&gt;</span><br><span class="line">    这是右边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  clear: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrap &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">&#125;</span><br><span class="line">.left-box &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 30%;</span><br><span class="line">  background: #eaa;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br><span class="line">.middle-box &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 40%;</span><br><span class="line">  background: #a8a;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br><span class="line">.right-box &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 30%;</span><br><span class="line">  background: #6a8;</span><br><span class="line">  font-size: 30px;  </span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="利用inline-block实现左中右居中"><a href="#利用inline-block实现左中右居中" class="headerlink" title="利用inline-block实现左中右居中"></a>利用<code>inline-block</code>实现左中右居中</h4><p>理由<code>inline-block</code>实现左中右布局，有一个细节要注意一下，需要在父节点上面设置<code>font-size: 0;</code>除去标签之间回车引起的空格。还有就是圣杯布局，兼容性好一点。<br>html带代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left-box&quot;&gt;</span><br><span class="line">    这是左边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;middle-box&quot;&gt;</span><br><span class="line">    这是中间</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right-box&quot;&gt;</span><br><span class="line">    这是右边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">.wrap &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.left-box &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: 30%;</span><br><span class="line">  background: #eaa;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br><span class="line">.middle-box &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: 40%;</span><br><span class="line">  background: #a8a;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br><span class="line">.right-box &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: 30%;</span><br><span class="line">  background: #6a8;</span><br><span class="line">  font-size: 30px;  </span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="flex实现左中右布局"><a href="#flex实现左中右布局" class="headerlink" title="flex实现左中右布局"></a><code>flex</code>实现左中右布局</h4><p>原理如上文提到的左右布局相似，只需要多添加一个模块即可。</p>
-<h4 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h4><p>圣杯布局是为了兼容老版本的ie浏览器使用的手段。功能是左右固定宽度，中间可变。相对来说，圣杯布局的复杂度高一点，但只要理解了，也就很容易搞清楚。<br>htm代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap clearfix&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;middle box&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;margin-inner&quot;&gt;</span><br><span class="line">            这是中间</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;left box&quot;&gt;</span><br><span class="line">    这是左边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right box&quot;&gt;</span><br><span class="line">    这是右边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.box &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  min-height: 300px;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  text-align :center;</span><br><span class="line">&#125;</span><br><span class="line">.wrap &#123;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  display: block;</span><br><span class="line">  background: #ccc;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.left &#123;</span><br><span class="line">  margin-left: -100%;</span><br><span class="line">  width: 200px;</span><br><span class="line">  background: #eaa;</span><br><span class="line">&#125;</span><br><span class="line">.middle &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">&#125;</span><br><span class="line">.middle .margin-inner &#123;</span><br><span class="line">  margin: 0 220px 0 200px;</span><br><span class="line">  background: #a8a;</span><br><span class="line">  min-height: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.right &#123;</span><br><span class="line">  margin-left: -220px;</span><br><span class="line">  width: 220px;</span><br><span class="line">  background: #6a8;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h2><h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><h4 id="margin实现块级元素水平居中"><a href="#margin实现块级元素水平居中" class="headerlink" title="margin实现块级元素水平居中"></a><code>margin</code>实现块级元素水平居中</h4><p>给设置好宽度的块级元素设置的<code>margin: 0 auto;</code>实现水平居中</p>
-<h4 id="inline-block实现水平居中"><a href="#inline-block实现水平居中" class="headerlink" title="inline-block实现水平居中"></a><code>inline-block</code>实现水平居中</h4><p>给元素设置<code>display: inline-block;</code>,设置父级元素的属性<code>width: 100%;text-align: center;</code></p>
-<h4 id="flex实现水平居中"><a href="#flex实现水平居中" class="headerlink" title="flex实现水平居中"></a><code>flex</code>实现水平居中</h4><p>父级元素设置<code>display: flex;justify-content: center;</code>即可<br>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">    第一行文字&lt;br&gt;</span><br><span class="line">    第一行文字&lt;br&gt;</span><br><span class="line">    第一行文字&lt;br&gt;</span><br><span class="line">    第一行文字</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.wrap &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  height: 600px;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><h4 id="利用padding或line"><a href="#利用padding或line" class="headerlink" title="利用padding或line"></a>利用<code>padding</code>或<code>line</code></h4><ul>
-<li>可以设置上下<code>padding</code></li>
-<li><code>line-height</code>和<code>height</code>相等实现。</li>
-</ul>
-<h4 id="利用display-table"><a href="#利用display-table" class="headerlink" title="利用display: table"></a>利用<code>display: table</code></h4><p>父级元素设置<code>display: table;</code>,子元素设置<code>display: table-cell;vertical-align: middle;</code><br>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">    第一行文字&lt;br&gt;</span><br><span class="line">    第一行文字&lt;br&gt;</span><br><span class="line">    第一行文字&lt;br&gt;</span><br><span class="line">    第一行文字</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.wrap &#123;</span><br><span class="line">  display: table;</span><br><span class="line">  height: 600px;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  text-align:center;</span><br><span class="line">&#125;</span><br><span class="line">.box &#123;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  display: table-cell;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  background: #ccc;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="利用伪元素实现"><a href="#利用伪元素实现" class="headerlink" title="利用伪元素实现"></a>利用伪元素实现</h4><p>设置伪元素高度100%,宽度为0，然后利用垂直对齐属性<code>vertical-align: middle;</code>实现垂直居中。<br>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">    第一行文字&lt;br&gt;</span><br><span class="line">    第一行文字&lt;br&gt;</span><br><span class="line">    第一行文字&lt;br&gt;</span><br><span class="line">    第一行文字</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">.wrap &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  height: 600px;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.wrap::before &#123;</span><br><span class="line">  content: &apos;&apos;;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  width: 0;</span><br><span class="line">  height: 100%;</span><br><span class="line">&#125;</span><br><span class="line">.box &#123;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意细节，需要把父级元素<code>font-size</code>设置为<code>0</code>。如果想要兼容ie8及以下，需要把<code>::before</code>改为<code>:before</code>。</p>
-<h4 id="利用定位给已知高度的元素设置垂直居中"><a href="#利用定位给已知高度的元素设置垂直居中" class="headerlink" title="利用定位给已知高度的元素设置垂直居中"></a>利用定位给已知高度的元素设置垂直居中</h4><p>父级元素设置<code>position: relative;</code>，子元素设置<code>positon:absolute;</code>,在利用<code>margin</code>实现垂直居中<br>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.wrap &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: 600px;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  margin-top: -90px;</span><br><span class="line">  width: 150px;</span><br><span class="line">  height: 180px;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  background: #987;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="利用flex实现垂直居中"><a href="#利用flex实现垂直居中" class="headerlink" title="利用flex实现垂直居中"></a>利用<code>flex</code>实现垂直居中</h4><p>父级元素设置<code>flex</code>和<code>align-items: center;</code>即可<br>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.wrap &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  align-items: center;</span><br><span class="line">  height: 600px;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">  font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box &#123;</span><br><span class="line">  top: 50%;</span><br><span class="line">  width: 150px;</span><br><span class="line">  height: 180px;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  background: #987;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="其他小技巧"><a href="#其他小技巧" class="headerlink" title="其他小技巧"></a>其他小技巧</h2><h3 id="使用margin实现水平和垂直同时居中。"><a href="#使用margin实现水平和垂直同时居中。" class="headerlink" title="使用margin实现水平和垂直同时居中。"></a>使用<code>margin</code>实现水平和垂直同时居中。</h3><p>给元素设置绝对定位，左右上下距离设置为<code>0</code>，再利用<code>margin： auto;</code>使得上下左右距离均匀分配。</p>
-<p>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  right: 0;</span><br><span class="line">  bottom: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  margin: auto;</span><br><span class="line">  width: 150px;</span><br><span class="line">  height: 180px;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  background: #987;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="文字间距"><a href="#文字间距" class="headerlink" title="文字间距"></a>文字间距</h3><p>写页面时，经常遇到需要扩大文字间间距的情况，尤其是标题，如果用空格去填充那就太麻烦了，代码也不够优雅。好在<code>css</code>提供了扩大文字间距的属性<code>letter-spacing</code>。<br><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfj08ydsj303g02kmwx.jpg" alt="文字并没有居中"><br>但是由于最后一个字符后也跟了一个间距，导致文字并没有完全居中。那么现在要使用<code>css</code>提供的第二个间距相关的属性<code>text-indent</code>，可以控制首行文本前的间距。设置与<code>letter-spacing</code>的值相同即可。<br><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfnqmablj304103gt8h.jpg" alt="text-indent配合letter-spacing"></p>
-<p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">letter-spacing: 0.5em;</span><br><span class="line">text-indent: 0.5em;</span><br></pre></td></tr></table></figure></p>
-
-          
+          <h1 id="css常用布局和居中"><a href="#css常用布局和居中" class="headerlink" title="css常用布局和居中"></a>css常用布局和居中</h1><p>本文主要介绍了<code>css</code>常用的布局，居中等其他小技巧。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/13/css常用技巧/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -735,51 +688,15 @@
 
       
         
-          
-            <h1 id="html-常用标签介绍"><a href="#html-常用标签介绍" class="headerlink" title="html 常用标签介绍"></a>html 常用标签介绍</h1><hr>
+          <h1 id="html-常用标签介绍"><a href="#html-常用标签介绍" class="headerlink" title="html 常用标签介绍"></a>html 常用标签介绍</h1><hr>
 <p>HTML标签的数量是有很多的，每个标签都有自己的用途。这就是HTML语义化的一方面。方便理解，运用。具体的每个标签的含义可以查看我的上篇文档<a href="https://miracletjf.github.io/2018/04/06/html%E7%AE%80%E4%BB%8B/" target="_blank" rel="noopener">html简介</a>下面介绍一些比较常用标签，但是他们又有一些小的技巧是我们平时不容易发现的。</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="iframe标签"><a href="#iframe标签" class="headerlink" title="iframe标签"></a>iframe标签</h2><ul>
-<li>iframe标签自带一个<code>frameborder=&quot;1&quot;</code>的属性，我们使用时应该把它给去掉，用<code>frameborder=&quot;0&quot;</code>覆盖。</li>
-<li><code>name</code> 属性，定义自身窗口的名称，配合<code>a</code>标签的<code>target</code>属性，可以实现点击<code>a</code>标签，在指定的<code>frame</code>窗口中打开的功能。</li>
-<li><code>src</code>属性，定义了<code>iframe</code>窗口要展示的网页地址。</li>
-<li><code>sandbox</code>可以对<code>iframe</code>启动额外的限制条件。如果属性值为空，表示限制条件全部启用，若不为空，即用空格分隔的一系列指定的字符串。比如说允许窗口执行JavaScript,只有这样写<code>sandbox=&quot;allow-scripts&quot;</code><h2 id="a标签"><a href="#a标签" class="headerlink" title="a标签"></a>a标签</h2></li>
-<li><code>target</code> 属性代表指定位置打开链接，对应的值有<ul>
-<li><code>_blank</code> 在新窗口打开链接</li>
-<li><code>_self</code> 在自身窗口打开链接，默认值</li>
-<li><code>_parent</code> 在父窗口打开链接</li>
-<li><code>_top</code> 在顶级窗口打开链接</li>
-</ul>
-</li>
-<li><code>download</code> 下载链接地址的内容（有的网站会禁止你下载的）。</li>
-<li><p><code>href</code> 代表链接地址</p>
-<ul>
-<li><code>http://www.baidu.com</code> 打开指定链接地址</li>
-<li><code>//www.baidu.com</code> 用与当前网页相同的协议打开链接地址，有<code>http</code>，<code>https</code>，一般ftp方式打开</li>
-<li><code>/xxx.html</code> 直接打开在域名后接/xxx.html的链接地址</li>
-<li><code>#sss</code> 跳转到锚点位置</li>
-<li><code>?name=666</code> 添加查询参数，并跳转<h2 id="form标签"><a href="#form标签" class="headerlink" title="form标签"></a>form标签</h2>form标签其实也是在跳转链接，只不过form跳转链接是发起的是post请求，并且可以携带第四部分的参数到服务器。</li>
-</ul>
-</li>
-<li><p><code>method</code> 指定发起的请求的方式一般指定为<code>post</code></p>
-</li>
-<li><code>form</code> 提交也可以携带查询参数</li>
-<li>只要是<code>http</code>协议提交数据，密码在网络中就是明文传递的，不安全。推荐使用<code>https</code>，传递机密数据。<h2 id="button标签"><a href="#button标签" class="headerlink" title="button标签"></a>button标签</h2></li>
-<li>如果<code>form</code>标签中只用一个<code>&lt;button&gt;</code>标签，并且标签的<code>type</code>属性未指定，那么<code>button</code>按钮，自动升级为<code>submit</code>按钮</li>
-<li>指定<code>input</code>的<code>type</code>类型为<code>submit</code>也可以提交<code>form</code><h2 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a>label标签</h2></li>
-<li>把<code>input</code>标签包裹在<code>label</code>中，可以建立<code>label</code>与<code>input</code>的联系。点击<code>label</code>中的内容，可以触发<code>input</code>点击效果。<h2 id="textarea标签"><a href="#textarea标签" class="headerlink" title="textarea标签"></a>textarea标签</h2></li>
-<li>css设置<code>resize:none;</code>可以禁用可拖拽功能<h2 id="table标签"><a href="#table标签" class="headerlink" title="table标签"></a>table标签</h2></li>
-<li><code>&lt;thead&gt;</code> 表格头部</li>
-<li><code>&lt;tbody&gt;</code> 表格主体</li>
-<li><code>&lt;tfoot&gt;</code> 表格底部</li>
-<li><code>&lt;tr&gt;</code> table row 表格行</li>
-<li><code>&lt;th&gt;</code> table header 表头</li>
-<li><code>&lt;td&gt;</code> table data 表格数据</li>
-<li><code>&lt;colgroup&gt;</code> 表格列组，用来定义列表中的一组列表。</li>
-<li><code>&lt;col&gt;</code> 表示表格中的列，属性<code>bgcolor</code>可以订阅某列的背景色。</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/07/html常用标签介绍/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -896,120 +813,17 @@
 
       
         
-          
-            <h1 id="html简介"><a href="#html简介" class="headerlink" title="html简介"></a>html简介</h1><hr>
+          <h1 id="html简介"><a href="#html简介" class="headerlink" title="html简介"></a>html简介</h1><hr>
 <p>html规范是由W3C组织制定的</p>
 <h2 id="W3C（万维网联盟）简介"><a href="#W3C（万维网联盟）简介" class="headerlink" title="W3C（万维网联盟）简介"></a>W3C（万维网联盟）简介</h2><p>W3C是由万维网的发明者蒂姆·伯纳斯-李于1994年10月离开欧洲核子研究中心后成立的，该组织试图通过W3C制定的新标准来促进业界成员间的兼容性和协议。不兼容的HTML版本由不同的供应商提供，导致网页显示方式不一致。联盟视图让所有的供应商实施一套由联盟选择的核心原则和组件。</p>
 <h2 id="MDN（Mozilla-Developer-Center）简介"><a href="#MDN（Mozilla-Developer-Center）简介" class="headerlink" title="MDN（Mozilla Developer Center）简介"></a>MDN（Mozilla Developer Center）简介</h2><p>MDN Web Docs（旧称Mozilla Developer Network、Mozilla Developer Center，简称MDN）是一个汇集众多Mozilla基金会产品和网络技术开发文档的免费网站。</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h2><h4 id="根元素"><a href="#根元素" class="headerlink" title="根元素"></a>根元素</h4><ul>
-<li><code>&lt;html&gt;</code> 代表HTML或XHTML文档的根。其他所有元素必须是这个元素的子节点<h4 id="文档元数据"><a href="#文档元数据" class="headerlink" title="文档元数据"></a>文档元数据</h4></li>
-<li><code>&lt;head&gt;</code> 代表关于文档元数据的一个集合，包括脚本或样式表的链接或内容</li>
-<li><code>&lt;titld&gt;</code> 定义文档标题，将像是在浏览器标题栏或标签页上。该元素只能包含文本，包含的标签不会被解释。</li>
-<li><code>&lt;base&gt;</code> 定义玉面上相对URL的基准URL</li>
-<li><code>&lt;link&gt;</code> 用于链接外部的CSS到该文档</li>
-<li><code>&lt;meta&gt;</code> 定义其他HTML元素无法描述的元数据。</li>
-<li><code>&lt;style&gt;</code> 用于内联的CSS。<h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4></li>
-<li><code>&lt;script&gt;</code> 定义一个内联脚本或链接到外部脚本。脚本语言是JavaScript。</li>
-<li><code>&lt;noscript&gt;</code> 定义当浏览器不支持脚本显示的替代文字。</li>
-<li><code>&lt;template&gt;</code> 通过JavaScript在运行时实例化内容的容器。<h4 id="章节"><a href="#章节" class="headerlink" title="章节"></a>章节</h4></li>
-<li><code>&lt;body&gt;</code> 代表HTML文档的内容。在文档中只能有一个<code>&lt;body&gt;</code>元素。</li>
-<li><code>&lt;section&gt;</code> 定义文档中的一个章节</li>
-<li><code>&lt;nav&gt;</code> 定义只包含导航链接的章节。</li>
-<li><code>&lt;article&gt;</code> 第一可以独立于内容其余部分的完整独立内容块。</li>
-<li><code>&lt;aside&gt;</code> 定义和页面内容关联度较低的内容——如果被删除，剩下内容任然很合理</li>
-<li><code>&lt;h1&gt;,&lt;h2&gt;,&lt;h3&gt;,&lt;h4&gt;,&lt;h5&gt;,&lt;h6&gt;</code> 标题元素实现了六层文档标题，<code>&lt;h1&gt;</code>是最大的标题，<code>&lt;h6&gt;</code>是最小的标题。标题元素简要地描述章节的主题。</li>
-<li><code>&lt;header&gt;</code> 定义页面或章节的头部。它经常包含logo、页面标题和导航性的目录。</li>
-<li><code>&lt;footer&gt;</code> 定义页面或章节的尾部。它经常包含版权信息、法律信息链接、和反馈建议用的地址。</li>
-<li><code>&lt;address&gt;</code> 定义包含联系信息的章节</li>
-<li><code>&lt;main&gt;</code> 定义文档中主要或者重要的信息。<h4 id="组织内容"><a href="#组织内容" class="headerlink" title="组织内容"></a>组织内容</h4></li>
-<li><code>&lt;p&gt;</code> 定义一个段落</li>
-<li><code>&lt;hr&gt;</code> 代表章节、文章或其他长内容段落之间的分隔符。</li>
-<li><code>&lt;pre&gt;</code> 代表其内容已经预先排版过，格式应当保留。</li>
-<li><code>&lt;blockquote&gt;</code> 代表引用自其他来源的内容。</li>
-<li><code>&lt;ol&gt;</code> 定义给一个有序列表。</li>
-<li><code>&lt;ul&gt;</code> 定义一个无序列表。</li>
-<li><code>&lt;li&gt;</code> 定义列表中的一个列表项</li>
-<li><code>&lt;dl&gt;</code> 定义一个定义列表（一系列术语和其定义）</li>
-<li><code>&lt;dt&gt;</code> 代表一个由下一个<code>&lt;dd&gt;</code>定义的术语</li>
-<li><code>&lt;dd&gt;</code> 代表出现在它之前术语的定义</li>
-<li><code>&lt;figure&gt;</code> 代表一个和文档有关的图例</li>
-<li><code>&lt;figcaption&gt;</code> 代表一个图例的说明</li>
-<li><code>&lt;div&gt;</code> 一个通用的容器，没有特殊含义。<h4 id="文字形式"><a href="#文字形式" class="headerlink" title="文字形式"></a>文字形式</h4></li>
-<li><code>&lt;a&gt;</code> 代表一个链接到其他资源的超链接</li>
-<li><code>&lt;em&gt;</code> 代表强调文字。</li>
-<li><code>&lt;strong&gt;</code> 代表特别重要的文字</li>
-<li><code>&lt;small&gt;</code> 代表注释，如免责声明、版权声明等，等理解文档不重要。</li>
-<li><code>&lt;s&gt;</code> 代表不准确或不相关的内容。</li>
-<li><code>&lt;cite&gt;</code> 代表作品标题</li>
-<li><code>&lt;q&gt;</code> 代表内联的引用</li>
-<li><code>&lt;dfn&gt;</code> 代表一个术语包含在其最近的祖先内容中的定义。</li>
-<li><code>&lt;abbr&gt;</code> 代表省略或缩写，其完整内容在title属性中。</li>
-<li><code>&lt;data&gt;</code> 关联一个内容的积极可读的等价形式（该元素只在WHATWG版本的HTML标准中，不在W3C标准中）。</li>
-<li><code>&lt;time&gt;</code> 代表日期和时间值；机器可读的等价形式通过datetimg属性指定。</li>
-<li><code>&lt;code&gt;</code> 代表计算机代码。</li>
-<li><code>&lt;var&gt;</code> 代表代码中的变量。</li>
-<li><code>&lt;samp&gt;</code> 代表程序或电脑的输出</li>
-<li><code>&lt;kbd&gt;</code> 代表用户输入，一般从键盘输出，但也可以代表其他输入，如语音输入。</li>
-<li><code>&lt;sub&gt;,&lt;sup&gt;</code> 分别代表下标和上标。</li>
-<li><code>&lt;i&gt;</code> 代表一段不同性质的文字，如技术术语，外文短语等。</li>
-<li><code>&lt;b&gt;</code> 代表一段需要被关注的文字。</li>
-<li><code>&lt;u&gt;</code> 代表一段需要下划线程序的文本注释，如标记出拼写错误的文字等。</li>
-<li><code>&lt;mark&gt;</code> 代表一段需要被高亮的引用文字。</li>
-<li><code>&lt;ruby&gt;</code> 代表被ruby注释标记的文本，如中文和他的拼音。</li>
-<li><code>&lt;rt&gt;</code> 代表ruby注释</li>
-<li><code>&lt;rp&gt;</code> 代表ruby注释两边额外插入的文本。它允许嵌入一段不同或未知文本方向格式的文本。</li>
-<li><code>&lt;bdo&gt;</code> 指定子元素的文本方向，显示地覆盖默认的文本方向。</li>
-<li><code>&lt;span&gt;</code> 代表一段没有特殊含义的文本，当其他语义元素都不适合文本的时候可以使用该元素。</li>
-<li><code>&lt;br&gt;</code> 代表换行</li>
-<li><code>&lt;wbr&gt;</code> 代表建议换行(World Break Opportunity)，当文本太长需要换行时将会在此处添加换行符<h4 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h4></li>
-<li><code>&lt;ins&gt;</code> 定义增加到文档的内容</li>
-<li><code>&lt;del&gt;</code> 定义从文档移除的内容<h4 id="嵌入内容"><a href="#嵌入内容" class="headerlink" title="嵌入内容"></a>嵌入内容</h4></li>
-<li><code>&lt;img&gt;</code> 代表一张图片</li>
-<li><code>&lt;iframe&gt;</code> 代表一个内联的框架</li>
-<li><code>&lt;embed&gt;</code> 代表一个嵌入的外部资源，如应用程序和交互内容。</li>
-<li><code>&lt;object&gt;</code> 待遇一个外部资源，如图片，HTML子文档，插件等。</li>
-<li><code>&lt;param&gt;</code> 代表<code>&lt;object&gt;</code>元素指定的插件的参数。</li>
-<li><code>&lt;video&gt;</code> 代表一段视频及其视频文件和字幕，并提供播放视频的用户界面。</li>
-<li><code>&lt;audio&gt;</code> 代表一段声音，或音频流。</li>
-<li><code>&lt;source&gt;</code> 为<code>&lt;video&gt;</code>或<code>&lt;audio&gt;</code>这类每天元素指定媒体源。</li>
-<li><code>&lt;track&gt;</code> 为<code>&lt;video&gt;</code>或<code>&lt;audio&gt;</code>这类媒体元素指定文本轨道（字幕）。</li>
-<li><code>&lt;canvas&gt;</code> 代表位图区域，可以通过脚本在他上面实时呈现图形，如图表、游戏绘图等。</li>
-<li><code>&lt;map&gt;</code> 与<code>&lt;area&gt;</code>元素共同定义图像映射区域。</li>
-<li><code>&lt;area&gt;</code> 与<code>&lt;map&gt;</code>元素共同定义图像映射区域。</li>
-<li><code>&lt;svg&gt;</code> 定义一个嵌入式矢量图。</li>
-<li><code>&lt;math&gt;</code> 定义一段数学公式。<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4></li>
-<li><code>table</code> 定义一个多维数据。</li>
-<li><code>&lt;caption&gt;</code> 代表表格的标题。</li>
-<li><code>&lt;cogroup&gt;</code> 代表表格中一组单列或多列。</li>
-<li><code>&lt;col&gt;</code> 代表表格中的列。</li>
-<li><code>&lt;tbody&gt;</code> 代表表格中一块具体数据（表格主体）。</li>
-<li><code>&lt;thead&gt;</code> 代表表格中一块列标签。</li>
-<li><code>&lt;tfoot&gt;</code> 代表表格中一块列摘要（表尾）。<em>过时</em></li>
-<li><code>&lt;tr&gt;</code> 代表表格中的行。</li>
-<li><code>&lt;td&gt;</code> 代表表格中的单元格。</li>
-<li><code>&lt;th&gt;</code> 代表表格中的头部单元格。<em>过时</em><h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4></li>
-<li><code>&lt;form&gt;</code> 代表一个表单，有控件组成。</li>
-<li><code>&lt;fieldset&gt;</code> 代表控件组。</li>
-<li><code>&lt;legend&gt;</code> 代表<code>&lt;fieldset&gt;</code>控件组的标题。</li>
-<li><code>&lt;label&gt;</code> 代表表单控件标题。</li>
-<li><code>&lt;input&gt;</code> 代表允许用户编辑数据的数据区（文本框，单选框，复选框等）。</li>
-<li><code>&lt;button&gt;</code> 代表按钮。</li>
-<li><code>&lt;select&gt;</code> 代表下拉框。</li>
-<li><code>&lt;datalist&gt;</code> 代表提供给其他控件的一组预定选项。</li>
-<li><code>&lt;option&gt;</code> 代表一个<code>&lt;select&gt;</code>元素或<code>&lt;datalist&gt;</code>元素中的一个选项。</li>
-<li><code>&lt;textarea&gt;</code> 代表多行文本框。</li>
-<li><code>&lt;keygen&gt;</code> 代表一个密钥对生成器控件。</li>
-<li><code>&lt;output&gt;</code> 代表计算值。</li>
-<li><code>&lt;progress&gt;</code> 代表进度条。</li>
-<li><code>&lt;meter&gt;</code> 代表滑动条。<h4 id="交互元素"><a href="#交互元素" class="headerlink" title="交互元素"></a>交互元素</h4></li>
-<li><code>&lt;details&gt;</code> 代表一个用户可以（点击）获取额外信息的控件的小部分。</li>
-<li><code>&lt;summary&gt;</code> 代表<code>&lt;details&gt;</code>元素的综述或标题。</li>
-<li><code>&lt;menuitem&gt;</code> 代表一个用户可以点击的菜单项。</li>
-<li><code>&lt;menu&gt;</code> 代表菜单。<h2 id="空标签"><a href="#空标签" class="headerlink" title="空标签"></a>空标签</h2>一个<strong>不可能存在子节点</strong>的标签叫做<strong>空标签</strong>。在HTML中空标签有：<code>&lt;area&gt;</code>,<code>&lt;base&gt;</code>,<br><code>&lt;br&gt;</code>,<code>&lt;col&gt;</code>,<code>&lt;colgroup&gt;</code>,<code>&lt;embed&gt;</code>,<code>&lt;hr&gt;</code>,<code>&lt;img&gt;</code>,<code>&lt;input&gt;</code>,<code>&lt;keygen&gt;</code>,<br><code>&lt;link&gt;</code>,<code>&lt;meta&gt;</code>,<code>&lt;param&gt;</code>,<code>&lt;source&gt;</code>,<code>&lt;track&gt;</code>,<code>&lt;wbr&gt;</code><h2 id="可替换标签"><a href="#可替换标签" class="headerlink" title="可替换标签"></a>可替换标签</h2>css里，可替换标签的展现并不是由css来控制。这类元素是一类外观渲染独立于css的外部对象。典型的可替换元素有<code>&lt;img&gt;</code>,<code>&lt;object&gt;</code>,<code>&lt;video&gt;</code>和表单元素。如<code>&lt;input&gt;</code>,<code>&lt;textarea&gt;</code>。某些元素只在特殊情况下表现为可替换元素，例如<code>&lt;audio&gt;</code>和<code>&lt;canvas&gt;</code>。通过css<code>&lt;content&gt;</code>属性来插入的对象被称作匿名可替换元素。</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/06/html简介/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1126,53 +940,14 @@
 
       
         
-          
-            <h1 id="Hexo-搭建个人博客（入门教程）"><a href="#Hexo-搭建个人博客（入门教程）" class="headerlink" title="Hexo 搭建个人博客（入门教程）"></a>Hexo 搭建个人博客（入门教程）</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去google搜索，因为英文比较烂，第一篇能看懂的就是阮一峰前辈的博客了。点进去，按照教程里面讲的，借助jekyll,实现一个简单的demo。因为是demo版本，只能发布一些html，想写一个md发布也没有什么效果。接着受不了默认的没有样式的页面，就去网上找一些好看的主题过来，找到了以后fork下来，还是怎么的，也没有成功。（可能是接触的不多，不知道具体操作）后来群群里问了一下班级的新望老师，因为他用的是Hexo，jekyll不怎么熟也就推荐我去看一下hexo。我去看了hexo的教程以后，觉得简单易懂，于是就改换hexo，搭建blog。下面就是我搭建blog的步骤，中间也遇到了很多的问题，后来也解决了，结果还是很满意的。(本人是windows操作系统，接下的操作都是基于windows的操作)</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><p>因为node，我之前有安装过。我的电脑里已经有node和npm了。需要下载的可以去<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node官网</a>下载，根据提示一步一步安装。</p>
-<h2 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h2><p>如果你已经安装好node和npm了，接下来安装hexo。<br>代开git bash</p>
-<pre><code>$ npm install hexo-cli -g
-</code></pre><p>然后输入命令<code>hexo v</code>查看是否安装成功，我试了一下我是没有安装成功的（没有成功它会提示<code>hexo command not foundm</code>，成功的话它会输出版本信息），然后去Google搜索了一下，接下来就是我尝试的过程了。</p>
-<ul>
-<li>有一种说法是环境变量没有配置，我就去配置了一下系统环境变量，我安装在<code>D:\development\node\npm_global\node_modules</code>目录下，环境变量就是<code>D:\development\node\npm_global\node_modules\hexo-cli\bin</code>这个目录。然后关闭git bash 重新打开试了一下，还是不行。（怀疑是系统没有反应过来？）我就重启了电脑，再次尝试，没有成功。。。</li>
-<li>于是就换另一种解决方法，那就是说可能是node的版本太高的问题。按照文章，我就安装了<code>nvm</code> node版本控制工具，切换到低一点的7.2.0版本。重新试了一下，无果。重启一下，无果。再降一个版本，试一遍，无果。这时候已经是凌晨2：00多了，没办法只能睡了，明天还要上班。</li>
-<li>第二天再次尝试，一直觉得可能是环境变量那里出了什么问题，于是重新删掉，配了一遍，结果还是一样。不知道是怎么想到了，觉得可能是盘的问题？然后又去重新配了一遍环境变量，之前一直是在E盘尝试，现在改去了D盘（node所在盘，hexo所在盘）尝试，然后就成功了。。。再去E盘试一下，也可以了。。。(神奇！或许这是node，或者windows上的一个bug吧，或者不是。。。不过如果你也是我这样子的情况，你可以试一下，说不定可以少走弯路)</li>
-</ul>
-<p>好吧，终于成功了。一个hexo安装就搞了这么久，但是接下来是一帆风顺的。</p>
-<h2 id="Hexo-搭建本地blog"><a href="#Hexo-搭建本地blog" class="headerlink" title="Hexo 搭建本地blog"></a>Hexo 搭建本地blog</h2><h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><pre><code>$ hexo miralcetjf.github.io
-</code></pre><p>miracletjf是我的github上的用户名，如果你想部署到github上，最好跟你的github用户名一致。<br>    $ cd miracletjf.github.io<br>执行上一步后，hexo会自动在当前生成一个miracletjf.github.io的文件夹，里面有一些自动生成的目录和文件。进入该目录<br>    $ npm install<br>成功以后，会在你的目录下新建一个node_modules</p>
-<h3 id="生成静态页"><a href="#生成静态页" class="headerlink" title="生成静态页"></a>生成静态页</h3><pre><code>$ hexo clean
-</code></pre><p>清楚缓存文件（db.json）和已生成的静态文件（public）<br>    $ hexo generate<br>使用Hexo 生成静态文件</p>
-<h3 id="本地服务器运行"><a href="#本地服务器运行" class="headerlink" title="本地服务器运行"></a>本地服务器运行</h3><pre><code>$ hexo sever
-</code></pre><p>打开浏览器，在地址栏输入localhost://4000</p>
-<h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><pre><code>$ hexo new helloHexo
-</code></pre><p>然后在source/_posts目录下生成helloHexo.md文件，打开，输入<code># hello World</code>,保存。</p>
-<pre><code>$ hexo clean
-$ hexo generate
-$ hexo sever
-</code></pre><p>打开locallost://4000查看变化</p>
-<h2 id="在github上部署"><a href="#在github上部署" class="headerlink" title="在github上部署"></a>在github上部署</h2><p>在github上新建仓库miracletjf.github.io</p>
-<h2 id="配置网站"><a href="#配置网站" class="headerlink" title="配置网站"></a>配置网站</h2><p>打开_config.yml配置文件，修改以下配置</p>
-<ul>
-<li>title 改成你想要的名字</li>
-<li>author 你的名字</li>
-<li>type: git</li>
-<li>加一行repo: 仓库地址(用ssh地址)，左边与type对其</li>
-</ul>
-<pre><code>$ npm install hexo-deployer-git --save
-</code></pre><p>安装 git部署插件<br>    hexo deployer<br>进入 github上 miracletjf.github.io仓库，打开github pages功能，如果已经打开，直接点击预览链接</p>
-<h2 id="换主题"><a href="#换主题" class="headerlink" title="换主题"></a>换主题</h2><ol>
-<li><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">hexo主题下载站</a>可以下载主题</li>
-<li>找到一个主题，进入github，我用的是比较常用的一个主题，<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a></li>
-<li>复制ssh地址</li>
-<li>进入本地的blog部署文件夹</li>
-<li>进入themes ，<code>git clone</code>加上选中的ssh地址</li>
-<li>返回上级目录，更改_config.yml第75行theme：hexo-theme-next (你所选主题的名称)，保存</li>
-<li><code>hexo generate</code> </li>
-<li><code>hexo deploy</code><h2 id="上传源代码"><a href="#上传源代码" class="headerlink" title="上传源代码"></a>上传源代码</h2>为了保障数据，你可能还需要上传源代码，在git上面新建一个仓库blog-generator空仓库，然后在本地blog仓库主目录下<code>git init</code>，把代码同步到github上。每次新增文章，更换主题，都要重新部署发布，并且重新github上更新源码</li>
-</ol>
-
-          
+          <h1 id="Hexo-搭建个人博客（入门教程）"><a href="#Hexo-搭建个人博客（入门教程）" class="headerlink" title="Hexo 搭建个人博客（入门教程）"></a>Hexo 搭建个人博客（入门教程）</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>上周刚进饥人谷任务班的学习群时，看到群里有人在聊一个前端blog相关的东西，是借助github来实现的。在此之前自己曾经也有过这么个打算，后来可能是因为国内搜索引擎的原因，费了一些功夫也没有找到什么相关的东西，后来也就抛在脑后了。这次听到了群里的讨论，也就让我再次点燃了我想实现这么一个功能的热情。听到了一个关键的词 git pages，然后就是去google搜索，因为英文比较烂，第一篇能看懂的就是阮一峰前辈的博客了。点进去，按照教程里面讲的，借助jekyll,实现一个简单的demo。因为是demo版本，只能发布一些html，想写一个md发布也没有什么效果。接着受不了默认的没有样式的页面，就去网上找一些好看的主题过来，找到了以后fork下来，还是怎么的，也没有成功。（可能是接触的不多，不知道具体操作）后来群群里问了一下班级的新望老师，因为他用的是Hexo，jekyll不怎么熟也就推荐我去看一下hexo。我去看了hexo的教程以后，觉得简单易懂，于是就改换hexo，搭建blog。下面就是我搭建blog的步骤，中间也遇到了很多的问题，后来也解决了，结果还是很满意的。(本人是windows操作系统，接下的操作都是基于windows的操作)</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/01/HexoBlog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

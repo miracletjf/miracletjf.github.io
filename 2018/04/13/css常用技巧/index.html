@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="css常用布局和居中本文主要介绍了css常用的布局，居中等其他小技巧。 &amp;lt; !–more–&amp;gt; css布局左右布局利用float实现左右布局左右模块设置float:left;,并且设置宽度，保证左右模块加起来的和等于100%，父级利用clear清除浮动。 html代码12345678&amp;lt;div class=&amp;quot;wrap clearfix&amp;quot;&amp;gt;  &amp;lt;div">
+<meta name="description" content="css常用布局和居中本文主要介绍了css常用的布局，居中等其他小技巧。">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css常用技巧">
 <meta property="og:url" content="http://yoursite.com/2018/04/13/css常用技巧/index.html">
 <meta property="og:site_name" content="Miralcetjf的网络日志">
-<meta property="og:description" content="css常用布局和居中本文主要介绍了css常用的布局，居中等其他小技巧。 &amp;lt; !–more–&amp;gt; css布局左右布局利用float实现左右布局左右模块设置float:left;,并且设置宽度，保证左右模块加起来的和等于100%，父级利用clear清除浮动。 html代码12345678&amp;lt;div class=&amp;quot;wrap clearfix&amp;quot;&amp;gt;  &amp;lt;div">
+<meta property="og:description" content="css常用布局和居中本文主要介绍了css常用的布局，居中等其他小技巧。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfj08ydsj303g02kmwx.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfnqmablj304103gt8h.jpg">
-<meta property="og:updated_time" content="2019-05-03T14:28:31.006Z">
+<meta property="og:updated_time" content="2019-05-03T14:46:25.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css常用技巧">
-<meta name="twitter:description" content="css常用布局和居中本文主要介绍了css常用的布局，居中等其他小技巧。 &amp;lt; !–more–&amp;gt; css布局左右布局利用float实现左右布局左右模块设置float:left;,并且设置宽度，保证左右模块加起来的和等于100%，父级利用clear清除浮动。 html代码12345678&amp;lt;div class=&amp;quot;wrap clearfix&amp;quot;&amp;gt;  &amp;lt;div">
+<meta name="twitter:description" content="css常用布局和居中本文主要介绍了css常用的布局，居中等其他小技巧。">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005NgZr8gy1fqcfj08ydsj303g02kmwx.jpg">
 
 
@@ -314,7 +314,7 @@
 
       
         <h1 id="css常用布局和居中"><a href="#css常用布局和居中" class="headerlink" title="css常用布局和居中"></a>css常用布局和居中</h1><p>本文主要介绍了<code>css</code>常用的布局，居中等其他小技巧。</p>
-<p>&lt; !–more–&gt;</p>
+<a id="more"></a>
 <h2 id="css布局"><a href="#css布局" class="headerlink" title="css布局"></a><code>css</code>布局</h2><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><h4 id="利用float实现左右布局"><a href="#利用float实现左右布局" class="headerlink" title="利用float实现左右布局"></a>利用<code>float</code>实现左右布局</h4><p>左右模块设置<code>float:left;</code>,并且设置宽度，保证左右模块加起来的和等于<code>100%</code>，父级利用<code>clear</code>清除浮动。</p>
 <p>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap clearfix&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left-box&quot;&gt;</span><br><span class="line">    这是左边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right-box&quot;&gt;</span><br><span class="line">    这是右边</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
 <p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.wrap &#123;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  background: #ccc;</span><br><span class="line">&#125;</span><br><span class="line">.left-box &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  background: #eaa;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  width: 40%;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br><span class="line">.right-box &#123;</span><br><span class="line">  float: right;</span><br><span class="line">  background: #6a8;</span><br><span class="line">  font-size: 30px;  </span><br><span class="line">  width: 60%;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 300px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>

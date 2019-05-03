@@ -637,30 +637,14 @@
 
       
         
-          
-            <p>今天终于发布上线了自己的第一个web项目，决定把这个过程记录下来，一方面做个记录，方便后续查看，另一方面，为了纪念这一历史性的时刻。下面就是一个从一个小白到项目发布成功的过程。</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><h3 id="申请服务器"><a href="#申请服务器" class="headerlink" title="申请服务器"></a>申请服务器</h3><p>首先申请一台服务器，我用的是腾讯云的服务器，用的系统是<code>centOS 7</code></p>
-<h3 id="登录服务器"><a href="#登录服务器" class="headerlink" title="登录服务器"></a>登录服务器</h3><p>下载一个<a href="https://www.bitvise.com/ssh-client-download" target="_blank" rel="noopener">Bitvise SSH Client</a> 软件访问服务器</p>
-<p><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1fvuagy4ib1j30i10i9t9c.jpg" alt="登录服务器"></p>
-<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p><code>nginx</code>是一个异步框架的<code>web服务器</code>，本质是一个服务器。更多内容参考<a href="https://zh.wikipedia.org/wiki/Nginx" target="_blank" rel="noopener">维基百科</a></p>
-<h3 id="安装于配置-nginx"><a href="#安装于配置-nginx" class="headerlink" title="安装于配置 nginx"></a>安装于配置 nginx</h3><p>关于安装与配置<code>nginx</code>，在网上找了一篇文档，照着从头做到尾就行了。<a href="http://www.souvc.com/?p=1661" target="_blank" rel="noopener">CentOS 7 下 Nginx安装以及配置</a></p>
-<h2 id="pm2-持久化链接"><a href="#pm2-持久化链接" class="headerlink" title="pm2 持久化链接"></a>pm2 持久化链接</h2><p><code>pm2</code>的作用就是将命令行的程序 持久化为 后台进程，即便窗口关闭，也不会影响到后台进程。因为我的项目中有一个 node server 需要持久化为后台进程。</p>
-<p><code>pm2</code> 是基于<code>node</code>的,并且使用<code>npm</code>安装,所以要下载 <code>node</code>,<code>node</code>中自带<code>npm</code></p>
-<h3 id="下载node安装包"><a href="#下载node安装包" class="headerlink" title="下载node安装包"></a>下载node安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -</span><br></pre></td></tr></table></figure>
-<h3 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install nodejs</span><br></pre></td></tr></table></figure>
-<h3 id="切换淘宝的源"><a href="#切换淘宝的源" class="headerlink" title="切换淘宝的源"></a>切换淘宝的源</h3><p>因为 npm 默认是使用国外的库来下载的，在国内网速受限，我们使用淘宝的镜像 命令行如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<p>使用以下命令查看是否切换成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure></p>
-<h3 id="下载安装-pm2"><a href="#下载安装-pm2" class="headerlink" title="下载安装 pm2"></a>下载安装 pm2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pm2 -g</span><br></pre></td></tr></table></figure>
-<h3 id="使用-pm2"><a href="#使用-pm2" class="headerlink" title="使用 pm2"></a>使用 pm2</h3><p>把需要持久化的程序命令前 加上<code>pm2</code> 例如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 node server</span><br></pre></td></tr></table></figure>
-<p>但是 如果需要参数那就要再加上 <code>--</code>,然后再接参数。例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 node server -- 9901</span><br></pre></td></tr></table></figure></p>
-<h2 id="项目发布"><a href="#项目发布" class="headerlink" title="项目发布"></a>项目发布</h2><p>项目发布虽然简单，但是这个问题的本质一直困扰了我很久。在此之前，常听身边的人讲起发布项目，过程听着都是如何如何复杂。自己今天弄懂了才明白是怎么一回事，也就是将自己要发布的文件夹放到可以服务器监听端口对应的目录下，然后在访问地址定位到文件夹中的文件，仅此而已！</p>
-<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>关于<code>nginx</code>配置多个端口，本地能访问，但是使用腾讯云的公网却访问不了。试了很多方法，都未解决。希望能有前辈能够提点提点，十分感谢。本人邮箱：<a href="mailto:`1398988546@qq.com" target="_blank" rel="noopener">`1398988546@qq.com</a>`</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过这个过程，我意识到亲自动手实践的问题的重要性，也提高了自己对问题搜索与解决的能力。期待自已有更大的进步!</p>
-
-          
+          <p>今天终于发布上线了自己的第一个web项目，决定把这个过程记录下来，一方面做个记录，方便后续查看，另一方面，为了纪念这一历史性的时刻。下面就是一个从一个小白到项目发布成功的过程。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/02/发布我的一个web项目/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -777,40 +761,14 @@
 
       
         
-          
-            <h2 id="cookie-概述"><a href="#cookie-概述" class="headerlink" title="cookie 概述"></a>cookie 概述</h2><p><code>cookie</code>是服务器保存在浏览器端的一小段文本信息，每个<code>cookie</code>的大小一般不超过4KB。服务器给浏览器设置了<code>cookie</code>以后，浏览器没错向服务器发送请求时，就会附上<code>cookie</code>。每一个<code>cookie</code>都有对应的<code>域名</code>和<code>浏览器</code>。<br><code>cookie</code>是提供给<code>HTTP</code>协议使用的，可以通过<code>HTTP</code>协议传送。</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="cookie-内容"><a href="#cookie-内容" class="headerlink" title="cookie 内容"></a>cookie 内容</h2><p><code>cookie</code> 一般包括一下内容</p>
-<ul>
-<li>cookie的名字</li>
-<li>cookie的值</li>
-<li>到期时间</li>
-<li>所属域名    （默认当前域名）</li>
-<li>生效的路径 （默认当前网址）</li>
-</ul>
-<h2 id="cookie-作用"><a href="#cookie-作用" class="headerlink" title="cookie 作用"></a>cookie 作用</h2><p>一般的<code>cookie</code>的用途有：</p>
-<ul>
-<li>对话： 保存用户登录状态，购物车信息等</li>
-<li>个性化：保存用户的偏好设置，例如：字体大小，配色等</li>
-<li>追踪：记录和分析用户的行为</li>
-</ul>
-<h2 id="生成-cookie"><a href="#生成-cookie" class="headerlink" title="生成 cookie"></a>生成 cookie</h2><p>服务器生成<code>cookie</code>是通过设置<code>HTTP</code>请求头的<code>Set-Cookie</code>来设置的。<code>Set-Cookie</code>可以有多个。除了可以设置<code>Cookie</code>的值，还可以设置附加的<code>Cookie的属性</code>,一个<code>Set-Cookie</code>字段，可以包括多个属性，没有次序要求。</p>
-<p>附加的属性有以下几点：</p>
-<ul>
-<li>Expires=<date> (UTC格式的日期)</date></li>
-<li>Max-Age=<non-zero-digit> (最大失效时间，定义自设置<code>cookie</code>开始后失效的<code>秒数</code>)</non-zero-digit></li>
-<li>Domain=<domain-value> (指定域名，默认指当前的一级域名)</domain-value></li>
-<li>Path=<path-value> (指定路径)</path-value></li>
-<li>Secure (一个带有安全属性的<code>cookie</code>,只有在请求使用<code>HTTPS</code>和<code>SSL</code>协议时，才发送到服务器。)</li>
-<li>HttpOnly (禁止JavaScript访问<code>cookie</code>,可以防范<code>XSS</code>跨站脚本攻击)</li>
-</ul>
-<h3 id="Set-Cookie-语法"><a href="#Set-Cookie-语法" class="headerlink" title="Set-Cookie 语法"></a>Set-Cookie 语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt; </span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Expires=&lt;date&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Max-Age=&lt;non-zero-digit&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Domain=&lt;domain-value&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Path=&lt;path-value&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Secure</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; HttpOnly</span><br></pre></td></tr></table></figure>
-<h3 id="node-js-设置示例"><a href="#node-js-设置示例" class="headerlink" title="node.js 设置示例"></a>node.js 设置示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(&apos;Set-Cookie&apos;,[`email=$&#123;user[&apos;email&apos;]&#125;`,`Max-Age=$&#123;60*60*24*7&#125;`]);</span><br></pre></td></tr></table></figure>
-<h2 id="发送-cookie"><a href="#发送-cookie" class="headerlink" title="发送 cookie"></a>发送 cookie</h2><p>在服务器给浏览器设置好<code>cookie</code>后，浏览器访问服务器都会带上相应的<code>cookie</code>（满足限制条件的前提下）。<br>服务器根据浏览器发送的<code>cookie</code>获取用户数据，并返回给用户，实现记住用户的状态等功能。</p>
-<h2 id="浏览器-访问"><a href="#浏览器-访问" class="headerlink" title="浏览器 访问"></a>浏览器 访问</h2><p>浏览器可以通过<code>document.cookie</code>访问当前域名下的<code>cookie</code>,也可以通过这个属性设置<code>cookie</code>。如果服务器设置了<code>HttpOnly</code>，那么就无法使用<code>javascript</code>来操作<code>cookie</code>l。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是对在下对<code>cookie</code>的简单的理解，要想深入的了解还是需要动手操作的。本文参考来一些网上的开源文章（<a href="http://javascript.ruanyifeng.com/bom/cookie.html" target="_blank" rel="noopener">阮老师的Cookie</a>，<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies" target="_blank" rel="noopener">MDN的开源文档</a>）。<br>文中有认识不正确的地方，欢迎指正（可以发送邮件到本人邮箱『<a href="mailto:1398988546@qq.com" target="_blank" rel="noopener">1398988546@qq.com</a>』），转载请注明文章来源。</p>
-
-          
+          <h2 id="cookie-概述"><a href="#cookie-概述" class="headerlink" title="cookie 概述"></a>cookie 概述</h2><p><code>cookie</code>是服务器保存在浏览器端的一小段文本信息，每个<code>cookie</code>的大小一般不超过4KB。服务器给浏览器设置了<code>cookie</code>以后，浏览器没错向服务器发送请求时，就会附上<code>cookie</code>。每一个<code>cookie</code>都有对应的<code>域名</code>和<code>浏览器</code>。<br><code>cookie</code>是提供给<code>HTTP</code>协议使用的，可以通过<code>HTTP</code>协议传送。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/01/js之cookie/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1051,19 +1009,14 @@
 
       
         
-          
-            <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p><code>jQuery</code>可以说是流行最广，使用量最多的一个<code>js库</code>了。它极大的提高了人们工作的效率，解决了困扰人们很久的<code>dom</code>不一致性所带来的各种问题。<code>jQuery</code>最大的贡献就是在<code>dom</code>操作这方面，当然它还提供其他方面的操作。下面我们来通过一个小的例子简单介绍一下<code>jQuery</code>的实现原理。</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="内部结构"><a href="#内部结构" class="headerlink" title="内部结构"></a>内部结构</h2><p><code>jQuery</code>内部其实是一个伪数组对象，对象上还绑定一些自带的属性，比如说<code>context</code>,<code>selector</code>等。最重要的是<code>jQuery</code>的原型，接下来我们讲。</p>
-<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>把<code>jQuery</code>写成构造函数，把所有的共用属性写在<code>JQuery.prototype</code>上，方便每个示例的调用，也节省了大量的内存空间。如果是非构造函数形式调用，那么就<code>new</code>一个实例并返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery = function(nodes)&#123;</span><br><span class="line">  //判断是否使用 new 关键字</span><br><span class="line">  if(this instanceof jQuery)&#123;</span><br><span class="line">    this.init(nodes);</span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    return new jQuery(nodes);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h2><p><code>jQuery</code>基于原生的<code>Dom</code>属性与方法封装了自己的选择器方法。通过选择器方法，可以把原生节点，选择器字符串转换为<code>jQuery</code>内部节点。然后对节点进行操作。由于选择器方法比较复杂，我们就用现有的<code>document.querSelectorAll()</code>来代替，实现的效果相同。在构造函数初始化的时候就去执行这个方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//初始化函数，把nodes节点传给this</span><br><span class="line">jQuery.prototype.init = function(nodes)&#123;</span><br><span class="line">  var _this = this;</span><br><span class="line">  _this.length = 0;</span><br><span class="line">  if(typeof nodes === &apos;string&apos;)&#123;</span><br><span class="line">    nodes = document.querySelectorAll(nodes);</span><br><span class="line">  &#125;</span><br><span class="line">  for(var i=0;i&lt;nodes.length;i++)&#123;</span><br><span class="line">    _this[_this.length] = nodes[i];</span><br><span class="line">    _this.length++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="addClass方法"><a href="#addClass方法" class="headerlink" title="addClass方法"></a>addClass方法</h2><p><code>jQuery</code>有一个<code>addClass</code>方法，我们这里模拟一下。不过只是一个简易版，了解一下原理即可。首先遍历所有实例中的节点对象，然后每个执行<code>dom</code>原生提供的<code>classList.add()</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//添加class</span><br><span class="line">jQuery.prototype.addClass = function(className)&#123;</span><br><span class="line">  var _this = this;</span><br><span class="line">  for(var i = 0;i &lt; _this.length;i++)&#123;</span><br><span class="line">    _this[i].classList.add(className)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="setText方法"><a href="#setText方法" class="headerlink" title="setText方法"></a>setText方法</h2><p><code>setText</code>方法和<code>addClass</code>方法原理类似，都要遍历实例中的节点对象，然后每个执行一遍<code>dom</code>提供的<code>textContent</code>的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//添加文字</span><br><span class="line">jQuery.prototype.setText = function(text)&#123;</span><br><span class="line">  var _this = this;</span><br><span class="line">  for(var i = 0;i &lt; _this.length;i++)&#123;</span><br><span class="line">    _this[i].textContent = text;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="window"><a href="#window" class="headerlink" title="window.$"></a>window.$</h2><p>为了使用户用的方便，最好能像<code>jQuery</code>一样，直接使用<code>$</code>就可以，只需要设置<code>window.$ = jQuery</code>即可。刚刚已经讲过内部已经判断过是否是通过<code>new</code> 来构造实例的，如果不是，内部<code>return new jQuery</code>。</p>
-<h2 id="调用测试"><a href="#调用测试" class="headerlink" title="调用测试"></a>调用测试</h2><p>通过以下代码调用，基本都实现功能。如果想要实现链式调用，直接在每个方法结尾<code>return this</code>即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;div&apos;).addClass(&apos;red&apos;);</span><br><span class="line">$(&apos;div&apos;).setText(&apos;h1&apos;);</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>jQuery</code>内部提供了大量的<code>api</code>,如果有兴趣，可以自己多实现一些方法。本文只是简单介绍一下实现原理与结构。本文内容仅供学习与交流使用，转载请注明出处。</p>
-
-          
+          <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p><code>jQuery</code>可以说是流行最广，使用量最多的一个<code>js库</code>了。它极大的提高了人们工作的效率，解决了困扰人们很久的<code>dom</code>不一致性所带来的各种问题。<code>jQuery</code>最大的贡献就是在<code>dom</code>操作这方面，当然它还提供其他方面的操作。下面我们来通过一个小的例子简单介绍一下<code>jQuery</code>的实现原理。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/23/简述jQuery实现原理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1180,69 +1133,14 @@
 
       
         
-          
-            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>函数的定义就是一段可以反复调用的代码块，可以接受参数，并且可以根据不同参数返回不同的返回值。js的函数属于复杂类型，属于Object类型，但是它有自己的构造函数，且能够使用<code>typeof</code>运算符返回<code>function</code>。js中不指定函数返回值，默认返回<code>undefined</code>。函数的原型链经过<code>Function.prototype</code>。</p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><p>函数声明的方式目前已知的有五种。</p>
-<ul>
-<li><code>function fn(a,b){return a+b}</code> function命令声明具名函数</li>
-<li><code>var fn = function(a,b){return a+b}</code> function命令声明匿名函数，赋值给变量fn</li>
-<li><code>var fn = function f(a,b){return a+b}</code> function命令声明具名函数，且赋值给fn</li>
-<li><code>var fn = new Function(&#39;a&#39;,&#39;b&#39;,&#39;return a+b&#39;)</code> Function构造函数声明匿名函数，赋值给fn</li>
-<li><code>var fn = (a,b)=&gt;{return a+b}</code> 箭头函数声明一个匿名函数，赋值给fn</li>
-</ul>
-<p>比较常用的声明方式是第一，第二，第五种。js的函数声明方面还存在着一个比较反常规的地方，那就是函数的<code>name</code>属性。请看以下示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//具名函数</span><br><span class="line">function fn(a,b)&#123;return a+b&#125;</span><br><span class="line">console.log(fn.name) //&apos;fn&apos;</span><br><span class="line">//匿名函数赋值给变量fn</span><br><span class="line">var fn = function(a,b)&#123;return a+b&#125;</span><br><span class="line">console.log(fn.name) //&apos;fn&apos;</span><br><span class="line">//具名函数赋值给变量fn</span><br><span class="line">var fn = function f(a,b)&#123;return a+b&#125;</span><br><span class="line">console.log(fn.name) //&apos;f&apos;</span><br><span class="line">//Function构造函数声明函数，赋值给fn</span><br><span class="line">var fn = new Function(&apos;a&apos;,&apos;b&apos;,&apos;return a+b&apos;)</span><br><span class="line">console.log(fn.name) //&apos;anonymous&apos;（匿名）</span><br><span class="line">//箭头函数声明一个匿名函数，赋值给fn</span><br><span class="line">var fn = (a,b)=&gt;&#123;return a+b&#125;</span><br><span class="line">console.log(fn.name) //&apos;fn&apos;</span><br></pre></td></tr></table></figure></p>
-<p>由此看出，js函数的声明与<code>name</code>属性也有很强的不一致性，容易让人产生误解。需要刻意的去记忆。</p>
-<h2 id="函数提升"><a href="#函数提升" class="headerlink" title="函数提升"></a>函数提升</h2><p>函数可以向变量一样提升到代码头部。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fn(); //undefined</span><br><span class="line">var a = 0;</span><br><span class="line">function fn()&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>之所以以上代码没有报错，是因为，整个<code>function</code>被提升到代码头部了。以上代码相当于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a;</span><br><span class="line">function fn()&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fn(); //undefined</span><br><span class="line">a = 0;</span><br></pre></td></tr></table></figure></p>
-<h2 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h2><p>函数的调用方式一般有三种直接调用，使用<code>call</code>,使用<code>apply</code>;</p>
-<h3 id="直接调用"><a href="#直接调用" class="headerlink" title="直接调用"></a>直接调用</h3><p>函数直接调用，传入参数，函数内部执行，返回需要返回的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;console.log(&apos;直接调用&apos;)&#125;</span><br><span class="line">fn()//直接调用</span><br></pre></td></tr></table></figure></p>
-<h3 id="call方式调用"><a href="#call方式调用" class="headerlink" title="call方式调用"></a>call方式调用</h3><p><code>call</code>方式调用以也是比较常见的调用方式，它接收的第一个参数内部<code>this</code>指定的值，若不传即为<code>undefined</code>，内部<code>this</code>自动转为<code>window</code>对象，若使用严格模式<code>use strict</code>，则内部<code>this</code>为<code>undefined</code>。从第二个参数开始为函数所要接收的参数。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fn(a,b)&#123;</span><br><span class="line">	console.log(this,a,b);</span><br><span class="line">&#125;</span><br><span class="line">fn.call();	//window undefined undefined</span><br><span class="line">fn.call(undefined,1,2);	//window 1 2</span><br><span class="line">fn.call(&#123;ff:&apos;f&apos;&#125;,1,2);	//&#123;ff:&apos;f&apos;&#125; 1 2</span><br></pre></td></tr></table></figure></p>
-<h3 id="apply方式调用"><a href="#apply方式调用" class="headerlink" title="apply方式调用"></a>apply方式调用</h3><p><code>apply</code>方式调用与<code>call</code>基本一致，只是接收的参数有一点区别，第一个参数没差别，都是指定内部<code>this</code>变量，第二个参数，<code>apply</code>接收一个数组或者伪数组对象。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fn(a,b)&#123;</span><br><span class="line">	console.log(this,a,b);</span><br><span class="line">&#125;</span><br><span class="line">fn.apply();	//window undefined undefined</span><br><span class="line">fn.apply(undefined,[1,2]);	//window 1 2</span><br><span class="line">fn.apply(&#123;ff:&apos;f&apos;&#125;,[1,2]);	//&#123;ff:&apos;f&apos;&#125; 1 2</span><br></pre></td></tr></table></figure></p>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>关于<code>this</code>是<code>js</code>语言设计者布兰登·艾克为了满足当时的需求（长得像<code>Java</code>）而加入的一个属性，<code>this</code>指代了属性和方法’当前’所在的对象。刚刚提过，使用<code>call</code>或者<code>apply</code>可以指代调用函数时内部的<code>this</code>对象。</p>
-<h3 id="构造函数中的this"><a href="#构造函数中的this" class="headerlink" title="构造函数中的this"></a>构造函数中的this</h3><p>构造函数中的<code>this</code>指代了当前的实例。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function F()&#123;</span><br><span class="line">	this.name = &apos;ff&apos;;</span><br><span class="line">	this.t = this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1frhqif5hf5j30d3084gls.jpg" alt="构造函数中的this"></p>
-<h3 id="函数中的this"><a href="#函数中的this" class="headerlink" title="函数中的this"></a>函数中的this</h3><p>函数中的<code>this</code>只有在函数被调用时，才有意义。当调用函数时，我们把调用方式改为<code>call</code>的形式调用，可以轻松确定。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	a: 1,</span><br><span class="line">	b: function()&#123;</span><br><span class="line">		console.log(this)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.b() // &#123;a:1,b:function()&#123;console.log(this)&#125;&#125;</span><br><span class="line">//等价于 obj.b.call(obj) .call前面的第二个参数开始往前，即为函数内部的this</span><br></pre></td></tr></table></figure></p>
-<h3 id="其他情况下的this"><a href="#其他情况下的this" class="headerlink" title="其他情况下的this"></a>其他情况下的this</h3><p>在其他情况下，this指向当前作用域的对象。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	a: &apos;0&apos;,</span><br><span class="line">	b: this</span><br><span class="line">&#125;</span><br><span class="line">obj.b // window</span><br><span class="line">var obj = &#123;</span><br><span class="line">	a: &apos;0&apos;,</span><br><span class="line">	b: &#123;</span><br><span class="line">		t:this</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.b.t // window</span><br></pre></td></tr></table></figure></p>
-<h2 id="arguments"><a href="#arguments" class="headerlink" title="arguments"></a>arguments</h2><p><code>arguments</code>可以接收传给函数的所有参数。<code>arguments</code>本身是一个伪数组。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;console.log(arguments)&#125;</span><br><span class="line">fn(1,2,3,&apos;d&apos;) // [1,2,3,&apos;d&apos;]</span><br></pre></td></tr></table></figure></p>
-<h2 id="调用栈（call-stack）"><a href="#调用栈（call-stack）" class="headerlink" title="调用栈（call stack）"></a>调用栈（call stack）</h2><p><code>call stack</code> 是指函数在执行时，内部的处理方式。可以帮助理解，函数在执行过程中，怎么一步一步执行，并且返回到之前的位置的。请看简单的<a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYSgpewogICAgY29uc29sZS5sb2coJ2EnKQogICAgYigpCiAgICBjb25zb2xlLmxvZygnLWEnKQp9CmZ1bmN0aW9uIGIoKXsKICAgIGNvbnNvbGUubG9nKCdiJykKfQphKCk%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" target="_blank" rel="noopener">示例</a><br><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1frhr1rg9rwj306s09ijr9.jpg" alt="调用栈"></p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域是一个比较难理解的概念，但是如果结合数据结构去理解，也就直观了很多。目前，js中的作用域只有全局作用域<code>window</code>和函数作用域。</p>
-<ol>
-<li>作用域是一个树形结构</li>
-<li>若当前作用域无变量名所对应的变量，则去父作用域中寻找，直到根节点（全局作用域）。若存在则去值，若不存在，则取<code>undefined</code>。这就是作用域的<code>就近原则</code></li>
-<li>在作用域中确定某个变量的值，第一步要做的就是<code>变量提升</code>，然后再去分析变量的值。</li>
-</ol>
-<h3 id="典型例题"><a href="#典型例题" class="headerlink" title="典型例题"></a>典型例题</h3><h4 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">function f1()&#123;</span><br><span class="line">	console.log(a)</span><br><span class="line">	var a = 2 </span><br><span class="line">&#125;</span><br><span class="line">f1.call() //undefined</span><br></pre></td></tr></table></figure>
-<p>分析：</p>
-<ol>
-<li><p>变量提升,声明提升</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a</span><br><span class="line">function f1()&#123;</span><br><span class="line">	var a</span><br><span class="line">	console.log(a)</span><br><span class="line">	a = 2</span><br><span class="line">&#125;</span><br><span class="line">a = 1</span><br><span class="line">f1.call()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>分析作用域<br>因为在<code>f1()</code>中<code>console.log(a)</code>的作用域是<code>f1</code>，所以在内部<code>console.log(a)</code>之前的代码中寻找<code>a</code>，发现<code>a</code>是<code>undefined</code></p>
-</li>
-</ol>
-<h4 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">function f1()&#123;</span><br><span class="line">    var a = 2</span><br><span class="line">    f2.call()</span><br><span class="line">&#125;</span><br><span class="line">function f2()&#123;</span><br><span class="line">    console.log(a)</span><br><span class="line">&#125;</span><br><span class="line">f1.call()	//1</span><br></pre></td></tr></table></figure>
-<p>分析：</p>
-<ol>
-<li><p>变量提升，提升声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a</span><br><span class="line">function f1()&#123;</span><br><span class="line">	var a</span><br><span class="line">	a = 2</span><br><span class="line">	f2.call()</span><br><span class="line">&#125;</span><br><span class="line">function f2()&#123;</span><br><span class="line">	console.log(a)</span><br><span class="line">&#125;</span><br><span class="line">a = 1</span><br><span class="line">f1.call()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>分析作用域<br>因为<code>f1()</code>执行时，内部执行<code>f2()</code>,而<code>f2()</code>在全局作用域中。这时<code>f2()</code>中的<code>console.log(a)</code>之前没有变量<code>a</code>,沿着作用域链向上寻找，在全局作用域中有变量<code>a</code>，那么<code>f2()</code>中的<code>console.log(a)</code>即为全局的变量<code>a</code>。在执行<code>f2()</code>之前，<code>a</code>已经被赋值为<code>1</code>，所以打印出<code>1</code>。</p>
-</li>
-</ol>
-<h4 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//有6个li</span><br><span class="line">var liTags = document.querySelectorAll(&apos;li&apos;)</span><br><span class="line">for(var i = 0; i&lt;liTags.length; i++)&#123;</span><br><span class="line">    liTags[i].onclick = function()&#123;</span><br><span class="line">        console.log(i) // 点击第3个 li 时，打印 2 还是打印 6？</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>分析：</p>
-<ol>
-<li><p>变量提升，提升声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var liTags</span><br><span class="line">var i</span><br><span class="line">liTags = document.querySelectorAll(&apos;li&apos;)</span><br><span class="line">for(i=0;i&lt;liTags.length;i++)&#123;</span><br><span class="line">	liTags[i].onclick = function()&#123;</span><br><span class="line">		console.log(i)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当点击第三li的时候，会执行函数<code>function(){console.log(i)}</code>。因为<code>i</code>变量在当前函数中并不存在，所以要去父作用域（全局作用域）寻找，找到了全局的<code>i</code>,这时循环已经结束，而<code>i</code>的值已经变为<code>liTags.length</code>。所以打印出<code>6</code></p>
-</li>
-</ol>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包就是一个函数是用来它范围外的变量，那么 <code>这个函数</code> + <code>这个变量</code> 就组成了 <code>闭包</code>。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">	var aa = &apos;aa&apos;</span><br><span class="line">	function b()&#123;</span><br><span class="line">		bb = aa;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>函数是整个js的核心，必须完全弄明白。这对以后的工作和提升会有很大的影响。再者就是数据结构是可以帮助理解抽象化知识，使抽象化的知识在大脑中形成一个更加明确的结构。<br>本文仅供交流与学习使用，转载请注明出处。</p>
-
-          
+          <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>函数的定义就是一段可以反复调用的代码块，可以接受参数，并且可以根据不同参数返回不同的返回值。js的函数属于复杂类型，属于Object类型，但是它有自己的构造函数，且能够使用<code>typeof</code>运算符返回<code>function</code>。js中不指定函数返回值，默认返回<code>undefined</code>。函数的原型链经过<code>Function.prototype</code>。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/20/js函数初探/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1359,50 +1257,17 @@
 
       
         
-          
-            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>参照阮一峰老师的说法</p>
+          <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>参照阮一峰老师的说法</p>
 <blockquote>
 <p>数组是按次序排列的一组值。每个值的位置都有编号（从0开始），整个数组用方括号表示。</p>
 </blockquote>
-<p>&lt; !–more–&gt;</p>
-<h2 id="js中的数组"><a href="#js中的数组" class="headerlink" title="js中的数组"></a>js中的数组</h2><p>js中的数组其实并不是标准意义上的数组，其实是一种特殊的<code>hash表</code>，原型链中有<code>Array.prototype</code>。由于js中的数组数据在内存中并不是连续的，所以很容易对数组进行删除，新增，修改等操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//下面这种写法，等同于于一个js数组</span><br><span class="line">var arr = &#123;</span><br><span class="line">	&apos;0&apos;:1,</span><br><span class="line">	&apos;1&apos;:2,</span><br><span class="line">	&apos;2&apos;:3,</span><br><span class="line">	&apos;length&apos;:3</span><br><span class="line">&#125;</span><br><span class="line">arr.__proto__ = Array.prototype;</span><br></pre></td></tr></table></figure></p>
-<h2 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h2><ol>
-<li><code>var arr = Array(3)</code> 声明一个数组长度为3的数组</li>
-<li><code>var arr = Array(1,2,3)</code> 声明一个值为1,2,3的数组，即[1,2,3]</li>
-<li><code>var arr = new Array(3)</code>声明一个数组长度为3的数组</li>
-<li><code>var arr = new Array(1,2,3)</code>声明一个值为1,2,3的数组，即[1,2,3]</li>
-<li><code>var arr = [1,2,3]</code>声明一个数组[1,2,3] </li>
-</ol>
-<p>通过以上代码了解到，加不加关键字<code>new</code>对声明数组无影响。<br>由于<code>Array</code>方法存在很强的不一致性，一般不用这种方式，常规的方式是最后一种声明方式。</p>
-<h2 id="常用的api"><a href="#常用的api" class="headerlink" title="常用的api"></a>常用的api</h2><p><code>Array.prototype</code>提供了许多<code>api</code>，其中常见的有：</p>
-<ul>
-<li><code>Array.prototype.concat()</code>连接两个数组</li>
-<li><code>Array.prototype.slice()</code>获取子数组</li>
-<li><code>Array.prototype.sort()</code>对数组排序(注意：此方法会改变原数组，因为sort内部使用的是快排，属于原地排序方法)</li>
-<li><code>Array.prototype.push()</code>在数组尾部添加数据</li>
-<li><code>Array.prototype.pop()</code>弹出数组尾部数据</li>
-<li><code>Array.prototype.shift()</code>弹出数组第一个数据</li>
-<li><code>Array.prototype.unshift()</code>在数组开头位置添加一个数据</li>
-<li><code>Array.prototype.splice()</code>删除数组中的数据</li>
-<li><code>Array.prototype.join()</code>连接数组中的所有数据，并且放回组成的字符串</li>
-<li><code>Array.prototype.indexOf()</code>返回与值匹配的数组的下标，若没有返回-1</li>
-<li><code>Array.prototype.forEach()</code>遍历数组，无返回值</li>
-<li><code>Array.prototype.map()</code>遍历数组，有返回值</li>
-<li><code>Array.prototype.filter()</code>过滤数组元素</li>
-<li><code>Array.prototype.reduce()</code>对数组中的每个元素应用一个函数，将其减少为单个值</li>
-</ul>
-<p>以下重点介绍一下<code>sort</code>,<code>forEach</code>,<code>map</code>,<code>filter</code>,<code>reduce</code>,<code>join</code></p>
-<h3 id="Array-prototype-sort-排序"><a href="#Array-prototype-sort-排序" class="headerlink" title="Array.prototype.sort() 排序"></a>Array.prototype.sort() 排序</h3><p><code>sort</code>方法接收一个函数参数，函数接两个参数，代表当前值与下一个值，若返回一个正数，交换两个数的位置，否则不变。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [3,2,1,4,5]</span><br><span class="line">arr.sort(function(a,b)&#123; //a当前值，b下一个值</span><br><span class="line">  return a-b;</span><br><span class="line">&#125;)  // [1,2,3,4,5]</span><br></pre></td></tr></table></figure></p>
-<h3 id="Array-prototype-forEach-遍历数组"><a href="#Array-prototype-forEach-遍历数组" class="headerlink" title="Array.prototype.forEach 遍历数组"></a>Array.prototype.forEach 遍历数组</h3><p><code>forEach</code>方法接收一个函数为参数，函数接收三个参数（value,index,arr）,一般只用到前面两个参数，无返回值。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr = [3,2,1,4,5]</span><br><span class="line">var res = arr.forEach(function(value,index)&#123;</span><br><span class="line">  console.log(value,index);</span><br><span class="line">  return value*value;</span><br><span class="line">&#125;)</span><br><span class="line">//3 0</span><br><span class="line">//2 1</span><br><span class="line">//3 2</span><br><span class="line">//4 3</span><br><span class="line">//5 4</span><br><span class="line">console.log(res) //undefined</span><br></pre></td></tr></table></figure></p>
-<h3 id="Array-prototype-map-遍历数组，返回每次返回值所组成的数组"><a href="#Array-prototype-map-遍历数组，返回每次返回值所组成的数组" class="headerlink" title="Array.prototype.map 遍历数组，返回每次返回值所组成的数组"></a>Array.prototype.map 遍历数组，返回每次返回值所组成的数组</h3><p><code>map</code>方法与<code>forEach</code>方法基本一致，只是有一个返回值的差别。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr = [3,2,1,4,5]</span><br><span class="line">var res = arr.map(function(value,index)&#123;</span><br><span class="line">  console.log(value,index);</span><br><span class="line">  return value*value;</span><br><span class="line">&#125;)</span><br><span class="line">//3 0</span><br><span class="line">//2 1</span><br><span class="line">//3 2</span><br><span class="line">//4 3</span><br><span class="line">//5 4</span><br><span class="line">console.log(res) //[9, 4, 1, 16, 25]</span><br></pre></td></tr></table></figure></p>
-<h3 id="Array-prototype-filter-过滤器"><a href="#Array-prototype-filter-过滤器" class="headerlink" title="Array.prototype.filter 过滤器"></a>Array.prototype.filter 过滤器</h3><p><code>filter</code>方法用于过滤数据，接收一个函数参数，函数接收三个参数（value,index,array），若返回值为true，把value添加到返回数组中。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [3,2,1,4,5]</span><br><span class="line">var res = arr.filter(function(value)&#123;</span><br><span class="line">  return value%2===0;</span><br><span class="line">&#125;)</span><br><span class="line">console.log(res) //[2,4]</span><br></pre></td></tr></table></figure></p>
-<h3 id="Array-prototype-reduce-缩减，压缩"><a href="#Array-prototype-reduce-缩减，压缩" class="headerlink" title="Array.prototype.reduce 缩减，压缩"></a>Array.prototype.reduce 缩减，压缩</h3><p><code>reduce</code>方法对数组中的每个元素（从左到右）应用一个函数，将其减少为单个值。接收两个参数，第一个参数是函数，第二个是起始值（可省略）。函数可接受四个参数，一般情况下只用前面两个（累计值，当前值），若省略第二个参数，则函数累计值从下标0开始。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//reduce实现累加</span><br><span class="line">var arr = [3,2,1,4,5]</span><br><span class="line">var res = arr.reduce(function(a,b)&#123;</span><br><span class="line">  return a+b;</span><br><span class="line">&#125;，0)</span><br><span class="line">console.log(res) //15</span><br><span class="line">//求最大值</span><br><span class="line">var max = arr.reduce(function(a,b)&#123;</span><br><span class="line">  return a&gt;b?a:b;  </span><br><span class="line">&#125;)</span><br><span class="line">console.log(max) //5</span><br></pre></td></tr></table></figure></p>
-<h3 id="Array-prototype-join-连接数据，返回字符串"><a href="#Array-prototype-join-连接数据，返回字符串" class="headerlink" title="Array.prototype.join 连接数据，返回字符串"></a>Array.prototype.join 连接数据，返回字符串</h3><p><code>join</code>方法可以将数组转换成字符串，中间用给定的连接符，默认连接符是<code>,</code>。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [3,2,1,4,5]</span><br><span class="line">console.log(arr.join(&apos;-&apos;))	//3-2-1-4-5</span><br></pre></td></tr></table></figure></p>
-<h3 id="Array-prototype-slice-获取子数组"><a href="#Array-prototype-slice-获取子数组" class="headerlink" title="Array.prototype.slice 获取子数组"></a>Array.prototype.slice 获取子数组</h3><p><code>slice</code>方法接收两个参数(起始位置，结束位置的后一个位置)，默认从0开始。返回子数组。示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [3,2,1,4,5]</span><br><span class="line">var sub1 = arr.slice();  //[3,2,1,4,5]</span><br><span class="line">var sub2 = arr.slice(1,2); //[2]</span><br></pre></td></tr></table></figure></p>
-<h2 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h2><p>关于js中的伪数组，常见的有<code>NodeList</code>类型和<code>arguments</code>。所谓的伪数组就是可以通过<code>下标</code>取值和获取<code>length</code>的值，但是并不可以使用数组中的<code>api</code>，即原型链中没有<code>Array.prototype</code>。一般情况，为了使用数组的的<code>api</code>需要把伪数组转为数组，一般使用<code>slice</code>将伪数组转为数组。例如：<code>Array.prototype.slice.call(arguments)</code></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文简单介绍了数组的常见<code>api</code>,并没有很详细的列举所有的<code>api</code>。也当做学习笔记来使用，仅供学习与交流。转载请注明出处。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/19/js数组初探/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1638,33 +1503,20 @@
 
       
         
-          
-            <h2 id="js中的对象"><a href="#js中的对象" class="headerlink" title="js中的对象"></a>js中的对象</h2><p>提到原型不得不说一下js中的对象，任何对象都有它的<code>原型</code>。<br>原型中提供了对象的公用的方法，比如：<code>valueOf</code>/<code>toString</code></p>
+          <h2 id="js中的对象"><a href="#js中的对象" class="headerlink" title="js中的对象"></a>js中的对象</h2><p>提到原型不得不说一下js中的对象，任何对象都有它的<code>原型</code>。<br>原型中提供了对象的公用的方法，比如：<code>valueOf</code>/<code>toString</code></p>
 <ul>
 <li>我们定义一个对象 <code>var obj = {name: &#39;Mark&#39;,age: 22}</code></li>
 <li>我们调用<code>valueof obj.valueOf()</code>;</li>
 <li>返回 <code>{name:&quot;Mark&quot;,age:22}</code></li>
 </ul>
 <p>obj函数中并没有valueOf方法，而我们却可以用，那么可以这样认为，对象用一种特殊的方式，把obj与valueOf这个方法联系起来了<br><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1frcd2szutzj307902gt8m.jpg" alt></p>
-<p>&lt; !–more–&gt;</p>
-<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>其实任何一个函数都有一个隐藏的属性 <code>__proto__</code>，这个属性指向了包括该对象的公有属性的对象，而这个包含公有属性的对象，就是原型（<code>prototype</code>）。<br>这么一种无形的联系，就像是一条链子一样，也就是原型链。</p>
-<p>为什么<code>obj.valueOf</code>就可以调用原型的方法？</p>
-<ul>
-<li>执行<code>obj.valueOf()</code>等价于<code>obj.__proto__.valueOf.call(obj)</code>也等价于<code>Object.prototype.valueOf.call(obj)</code></li>
-<li>函数会接收<code>call</code>中的第一个参数，作为函数内部的<code>this</code>来执行</li>
-<li>返回对<code>obj</code>执行<code>valueOf</code>方法的结果</li>
-</ul>
-<p>构造函数一般都有自己的 <code>prototype</code> 这个属性里面存着该类型的公有属性，所有由构造函数生成的对象都可以使用共有属性里的方法<br>所有由构造函数生成的对象的<code>__proto__</code>都指向共有属性。</p>
-<p><img src="https://ws1.sinaimg.cn/large/005NgZr8gy1frcd1oc9p7j30n907rdgp.jpg" alt="Object的prototype"></p>
-<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>那么原型的作用到底是什么？<br>原型的主要作用就是配合构造函数，批量生成某一类对象<br>比如说，要生成一只猫的对象</p>
-<ul>
-<li>猫都会爬树</li>
-<li>猫都会捕猎</li>
-<li>猫都会叫</li>
-</ul>
-<p>那就可以这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function 猫(名字)&#123;</span><br><span class="line">	this.名字 = 名字</span><br><span class="line">&#125;</span><br><span class="line">猫.prototype = &#123;</span><br><span class="line">	爬树: function()&#123;&#125;,</span><br><span class="line">	捕猎: function()&#123;&#125;.</span><br><span class="line">	叫: function()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var 毛毛 = new 猫(&apos;毛毛&apos;);</span><br><span class="line">var 豆豆 = new 猫(&apos;豆豆&apos;);</span><br></pre></td></tr></table></figure></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/15/原型和原型链/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
